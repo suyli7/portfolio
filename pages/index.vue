@@ -6,7 +6,7 @@
       class="about__button"
       @click="setHidden(!hidden)"
     >
-      Hello hello ✨(ㆆ◡ㆆ)✌️
+      {{ hidden ? "Hello hello" : "Bye bye"}} ✨(ㆆ◡ㆆ)✌️
     </button>
     <prismic-rich-text
       v-if="aboutData.data.intro_primary"

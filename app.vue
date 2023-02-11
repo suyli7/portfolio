@@ -33,8 +33,8 @@ html {
   --link-background: #fffa74;
   --border-color: #ffffff;
   --button-color: #0d0e0f;
-  --cursor-pointer: url("@/cursor_pointer_36_dark.png"), pointer;
-  --cursor-default: url("@/cursor_default_36_dark.png"), default;
+  --cursor-pointer: url("@/assets/images/cursor_pointer_36_dark.png"), pointer;
+  --cursor-default: url("@/assets/images/cursor_default_36_dark.png"), default;
   background-color: var(--background-color);
 }
 body{

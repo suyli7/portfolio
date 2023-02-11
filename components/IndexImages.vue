@@ -3,12 +3,12 @@
 </script>
 <template>
   <div id="hero_img_b" :class="hidden ? 'hero-img' :'hero-img hero-img-show-b'">
-    <img src="/hero.png" id="hero_img_bLeft" />
-    <img src="/hero.png" id="hero_img_bRight" />
+    <img src="@/assets/images/hero.png" id="hero_img_bLeft" />
+    <img src="@/assets/images/hero.png" id="hero_img_bRight" />
   </div>
   <div id="hero_img_t" :class="hidden ? 'hero-img' :'hero-img hero-img-show-t'">
-    <img src="/hero.png" id="hero_img_tLeft" />
-    <img src="/hero.png" id="hero_img_tRight" />
+    <img src="@/assets/images/hero.png" id="hero_img_tLeft" />
+    <img src="@/assets/images/hero.png" id="hero_img_tRight" />
   </div>
 </template>
 <style lang="scss">
