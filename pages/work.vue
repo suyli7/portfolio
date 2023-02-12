@@ -5,7 +5,7 @@
     </HeaderText>
     <div class="work__container" v-if="workData">
       <Block
-        v-for="item in workData"
+        v-for="item in reorderedWorkData"
         v-bind:key="`work-${item.uid}`"
       >
         <prismic-image :field="item.data.cover" />
@@ -56,6 +56,16 @@
       -webkit-column-count: 3;
       column-count: 3;
       column-gap: $spacing-l;
+      @include smallScreen {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+      }
+      @include tablet {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+      }
       .block {
         display: inline-block;
         margin-bottom: $spacing-xl;
@@ -95,16 +105,13 @@
       orderings: {
         field: 'my.case_study.order'
       },
-    }),
-    {
-      transform: reorderForColLayout
-    }
+    })
   );
 
-  function reorderForColLayout(items) {
+  function reorderForColLayout(items, cols) {
     const result = [];
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < items.length; j+=3) {
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < items.length; j+=cols) {
         let item = items[j+i];
         if (item) {
           result.push(item);
@@ -113,4 +120,16 @@
     }
     return result;
   }
+
+  const reorderedWorkData = ref([]);
+
+  onMounted(() => {
+    if (window.innerWidth <= 768) {
+      reorderedWorkData.value = workData.value;
+    } else if (window.innerWidth <= 1023 ) {
+      reorderedWorkData.value = reorderForColLayout(workData.value, 2);
+    } else {
+      reorderedWorkData.value = reorderForColLayout(workData.value, 3);
+    }
+  })
 </script>

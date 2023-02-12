@@ -35,7 +35,7 @@
       display: grid;
       column-gap: $spacing-l;
       row-gap: $spacing-xl;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       .block {
         font-weight: $fw-m;
         > div:first-of-type {
