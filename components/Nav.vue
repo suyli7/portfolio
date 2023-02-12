@@ -5,7 +5,7 @@
     </div>
     <div>
       <NuxtLink to="/">About</NuxtLink>
-      <NuxtLink to="/misc">Misc.</NuxtLink>
+      <NuxtLink to="/work">Work</NuxtLink>
     </div>
   </nav>
 </template>
@@ -20,7 +20,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: $spacing-m $spacing-xl;
+    padding: $spacing-s $spacing-xxl;
     font-weight: $fw-m;
     font-size: $fs-s;
     background-color: rgba(var(--background-color), 0.8);
@@ -31,6 +31,13 @@
           margin-left: $spacing-m;
         }
       }
+    }
+    @include tablet {
+      padding: $spacing-m $spacing-xl;
+    }
+    @include mobile {
+      font-size: $fs-xs;
+      padding: $spacing-s $spacing-m;
     }
   }
 </style>

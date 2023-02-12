@@ -1,6 +1,7 @@
 <template>
     <Nav />
     <NuxtPage />
+    <Footer />
 </template>
 
 <script setup>
@@ -8,15 +9,17 @@
       title: "Su Li :: UX Engineer",
       url: "https://lisuying.com/",
       description: "Seattle-based engineer specializing in front end development and ux design with 5 years of experience of building and delivering interactive user experiences on web and mobile.",
-      preview: "https://lisuying.com/meta.jpg"
+      preview: "https://lisuying.com/preview.jpg"
   }
   useHead({
     title: siteMeta.title,
     meta: [
       { name: 'description', content: siteMeta.description },
+      { property: 'og:type', content: "website" },
       { property: 'og:title', content: siteMeta.title },
       { property: 'og:url', content: siteMeta.url },
-      { property: 'og:description', content: siteMeta.description}
+      { property: 'og:description', content: siteMeta.description},
+      { property: 'og:image', content: siteMeta.preview }
     ]
   });
 </script>
@@ -47,6 +50,9 @@ body{
   color: var(--text-color);
   *{
     cursor: var(--cursor-default);
+  }
+  @include mobile {
+    font-size: $fs-xxs;
   }
 }
 
@@ -86,7 +92,7 @@ p{
 }
 
 a, button {
-  cursor: var(--cursor-pointer)
+  cursor: var(--cursor-pointer);
 }
 
 button {
@@ -116,6 +122,15 @@ button {
   }
 }
 
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-top: $spacing-xxs;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -134,7 +149,7 @@ strong {
 
 .main {
   margin-top: $spacing-l;
-  padding: $spacing-xxl $spacing-xl;
+  padding: $spacing-xxl;
   min-height: 100vh;
   a {
     color: var(--text-color-dark);
@@ -146,9 +161,23 @@ strong {
       background-color: var(--link-background);
     }
   }
+  @include tablet {
+    padding: $spacing-xxl $spacing-xl;
+  }
+  @include mobile {
+    padding: $spacing-xl $spacing-m;
+  }
 }
 
 .section {
   margin-top: $spacing-xl;
+}
+.tag {
+  border: $border;
+  color: var(--text-color-strong);
+  display: inline-block;
+  padding: $spacing-xxs * 0.5 $spacing-xxs;
+  font-size: $fs-xxs;
+  margin: 0 $spacing-xs $spacing-xs 0;
 }
 </style>

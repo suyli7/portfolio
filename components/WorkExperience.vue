@@ -12,7 +12,11 @@
         <div class="expItem__org">{{exp.org}}</div>
         <div class="expItem__role">{{exp.role}}</div>
         <div class="expItem__keyTech">
-          <span v-for="t in exp.key_tech.split(', ')" :key="t.name" class="tag">
+          <span
+            v-for="t in exp.key_tech.split(', ')"
+            v-bind:key="t.name"
+            class="tag"
+            >
             {{t}}
           </span>
         </div>
@@ -25,10 +29,15 @@
   </div>
 </template>
 <style lang="scss">
-  .workExperience__container{
-    margin-top: $spacing-l;
-    display: grid;
-    row-gap: $spacing-l;
+  .workExperience {
+    &__container {
+      margin-top: $spacing-m;
+      display: grid;
+      row-gap: $spacing-xl;
+    }
+    @include tablet {
+      margin-top: $spacing-l;
+    }
   }
   .expItem {
     &__duration {
@@ -50,19 +59,14 @@
     }
     &__keyTech {
       margin: $spacing-xs 0;
-      .tag {
-        padding: $spacing-xxs;
-        font-size: $fs-xxs;
-        border: $border;
-        &:not(:first-of-type) {
-          margin-left: $spacing-xxs;
-        }
-      }
     }
     &__description {
       margin-top: $spacing-s;
       p {
         margin: 0;
+      }
+      @include mobile {
+        margin-top: $spacing-xxs;
       }
     }
   }
