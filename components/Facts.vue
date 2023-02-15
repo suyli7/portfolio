@@ -1,9 +1,8 @@
 <template>
   <div class="facts">
-    <prismic-rich-text
-      class="facts__intro"
-      :field="facts_intro"
-    />
+    <HeaderText size="med">
+      A little more about me
+    </HeaderText>
     <div
       v-if="facts"
       class="facts__container"
@@ -55,7 +54,7 @@
   }
 </style>
 <script setup>
-  const props = defineProps(['facts', 'facts_intro']);
+  const props = defineProps(['facts']);
   const emojiRE = /[\p{Emoji}\u200d]+/gu;
 
   function getText(text) {

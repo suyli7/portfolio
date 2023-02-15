@@ -1,9 +1,7 @@
 <template>
   <footer>
-    <div>
-      👩🏻‍💻 Built with Nuxt 3 * Prismic
-      &copy; {{ currentYear }} Su Li
-    </div>
+    <div>👩🏻‍💻 Built with Nuxt 3 + Prismic</div>
+    <div>&copy; {{ currentYear }} Su Li</div>
   </footer>
 </template>
 <style lang="scss">
@@ -17,10 +15,20 @@
     padding: $spacing-s $spacing-xxl;
     font-weight: $fw-m;
     font-size: $fs-xs;
+    color: var(--text-color-strong);
+    > div:first-of-type {
+      margin-right: $spacing-xs;
+    }
     @include tablet {
       padding: $spacing-s $spacing-xl;
     }
     @include mobile {
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      > div:first-of-type {
+        margin: 0;
+      }
       font-size: $fs-xs;
       padding: $spacing-s $spacing-m;
     }

@@ -14,6 +14,9 @@
       :field="aboutData.data.intro_primary"
     />
     <div class="section">
+      <Story 
+        :story="aboutData.data.intro_secondary"
+      />
       <div>
         <Links
           :connectIntro="aboutData.data.connect_header"
@@ -24,30 +27,31 @@
           :recentSkills="aboutData.data.recent_tech_skills"
         />
       </div>
-      <WorkExperience
-        :workExpData="aboutData.data.experience"
-      />
     </div>
+    <WorkExperience
+      :workExpData="aboutData.data.experience"
+    />
     <Facts
-      :facts_intro="aboutData.data.intro_secondary"
       :facts="aboutData.data.intro_facts"
     />
   </div>
 </template>
 <style lang="scss">
   .about__content {
+    width: 90%;
     margin-top: $spacing-s;
     p {
-      font-size: $fs-m;
+      font-size: $fs-l;
+      line-height: 2;
       @include tablet {
-        font-size: $fs-s;
+        font-size: $fs-m;
       }
     }
   }
   .section {
     margin-top: $spacing-xxl;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 2fr;
+    grid-template-columns: 1.5fr minmax(0, 1fr);
     column-gap: $spacing-xxl;
     @include tablet {
       grid-template-columns: 1fr;
@@ -65,4 +69,8 @@
   function setHidden(value) {
     hidden.value = value;
   }
+
+  onBeforeMount(() => {
+    document.documentElement.setAttribute("theme", "blue");
+  });
 </script>

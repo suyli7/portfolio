@@ -3,7 +3,12 @@
     <HeaderText>
       Featured work
     </HeaderText>
-    <div class="work__container" v-if="workData">
+    <div v-if="dataPending">
+      <HeaderText size="small">
+        Loading my work for you...
+      </HeaderText>
+    </div>
+    <div class="work__container" v-else>
       <Block
         v-for="item in reorderedWorkData"
         v-bind:key="`work-${item.uid}`"
@@ -13,18 +18,7 @@
           {{ item.data.name }}
         </HeaderText>
         {{ item.data.context }}
-        <div
-          class="tags__contanier"
-          v-if="item.data.tags"
-        >
-          <div
-            v-for="t in item.data.tags.split(',')"
-            v-bind:key="t.name"
-            class="tag"
-          >
-              {{t}}
-          </div>
-        </div>
+        <Tags :tags="item.data.tags.split(',')"/>
         <div class="actions__container">
           <nuxt-link
             v-if="item.data.is_case_study"
@@ -100,7 +94,7 @@
 <script setup>
   const { client } = usePrismic();
 
-  const { data: workData } = await useAsyncData('workData', () => 
+  const { data: workData, pending: dataPending } = await useAsyncData('workData', () => 
     client.getAllByType('case_study', {
       orderings: {
         field: 'my.case_study.order'
@@ -123,7 +117,9 @@
 
   const reorderedWorkData = ref([]);
 
-  onMounted(() => {
+  onBeforeMount(() => {
+    document.documentElement.setAttribute("theme", "blue");
+
     if (window.innerWidth <= 768) {
       reorderedWorkData.value = workData.value;
     } else if (window.innerWidth <= 1023 ) {

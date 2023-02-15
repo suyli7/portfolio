@@ -1,7 +1,7 @@
 <template>
   <div class="workExperience">
-    <HeaderText>
-      Experience
+    <HeaderText size="med">
+      Work experience
     </HeaderText>
     <div class="workExperience__container">
       <Block
@@ -11,15 +11,9 @@
         <div class="expItem__duration">{{exp.duration}}</div>
         <div class="expItem__org">{{exp.org}}</div>
         <div class="expItem__role">{{exp.role}}</div>
-        <div class="expItem__keyTech">
-          <span
-            v-for="t in exp.key_tech.split(', ')"
-            v-bind:key="t.name"
-            class="tag"
-            >
-            {{t}}
-          </span>
-        </div>
+        <Tags
+          :tags="exp.key_tech.split(',')"
+        />
         <prismic-rich-text
           class="expItem__description"
           :field="exp.description"
@@ -30,13 +24,19 @@
 </template>
 <style lang="scss">
   .workExperience {
+    margin-top: $spacing-xxl;
     &__container {
       margin-top: $spacing-m;
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $spacing-l;
       row-gap: $spacing-xl;
     }
     @include tablet {
       margin-top: $spacing-l;
+      &__container {
+        grid-template-columns: 1fr;
+      }
     }
   }
   .expItem {
@@ -56,9 +56,6 @@
     }
     &__role {
       font-size: $fs-s;
-    }
-    &__keyTech {
-      margin: $spacing-xs 0;
     }
     &__description {
       margin-top: $spacing-s;

@@ -1,6 +1,6 @@
 <template>
   <div class="links">
-    <HeaderText>
+    <HeaderText size="med">
       {{ connectIntro }}
     </HeaderText>
     <div class="links__container">
@@ -19,11 +19,12 @@
   .links {
     display: block;
     &__container {
+      margin-top: $spacing-m;
       display: flex;
       flex-direction: column;
       a {
-        margin-top: $spacing-m;
-        font-size: $fs-m;
+        margin-bottom: $spacing-s;
+        font-size: $fs-s;
         width: max-content;
       }
     }
