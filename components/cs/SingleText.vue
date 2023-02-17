@@ -1,8 +1,5 @@
 <style lang="scss" scoped>
   .cs__single-text{
-    div{
-      width: 80%;
-    }
     img{
       width: 100%;
       margin-top: $spacing-s;

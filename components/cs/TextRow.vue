@@ -1,7 +1,5 @@
 <style lang="scss" scoped>
   .cs__text-row{
-    width: 80%;
-    margin: auto;
     margin: $spacing-l 0;
     &-content{
       font-size: $fs-l;

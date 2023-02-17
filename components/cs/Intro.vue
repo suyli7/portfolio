@@ -70,7 +70,7 @@
       row-gap: $spacing-l;
       width: 100%;
       h1 {
-      font-size: $fs-xl;
+      font-size: $fs-l;
       }
       h2 {
         font-size: $fs-s;
