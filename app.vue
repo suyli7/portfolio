@@ -111,33 +111,6 @@ a, button {
   cursor: var(--cursor-pointer);
 }
 
-button {
-  background-color: var(--text-color-strong);
-  outline: none;
-  border: $border;
-  color: var(--text-color-button);
-  font-size: $fs-s;
-  padding: $spacing-xxs $spacing-xs;
-  position: relative;
-  &::after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-bottom: $border;
-    border-right: $border;
-    bottom: -5px;
-    right: -5px;
-    transition: all 0.16s;
-  }
-  &:hover {
-    &::after {
-      bottom: -8px;
-      right: -8px;
-    }
-  }
-}
-
 ul {
   padding: 0;
   list-style: none;
@@ -145,14 +118,6 @@ ul {
 
 li {
   margin-top: $spacing-xxs;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 a, strong, h1, h2, h3, h4, h5, h6 {
@@ -189,5 +154,35 @@ strong {
 
 .section {
   margin-top: $spacing-xl;
+}
+
+a.button,
+button {
+  text-decoration: none;
+  background-color: var(--text-color-strong);
+  outline: none;
+  border: $border;
+  color: var(--text-color-button);
+  font-size: $fs-s;
+  padding: $spacing-xxs $spacing-xs;
+  position: relative;
+  display: inline-block;
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom: $border;
+    border-right: $border;
+    bottom: -5px;
+    right: -5px;
+    transition: all 0.16s;
+  }
+  &:hover {
+    &::after {
+      bottom: -8px;
+      right: -8px;
+    }
+  }
 }
 </style>

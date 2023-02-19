@@ -20,25 +20,32 @@
     <div>
       <h1>{{ name }}</h1>
       <h2>{{ context }}</h2>
-      <button v-if="website.url">
+      <a
+        class="button"
+        v-if="website.url"
+        :href="website.url"
+        target="_blank"
+      >
         visit live site
-      </button>
+      </a>
     </div>
   </div>
 </template>
 <style lang="scss">
   .caseStudyIntro {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.25fr 1fr;
     column-gap: $spacing-xxl;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     max-width: 1400px;
     img {
       width: 100%;
     }
     h1 {
       font-size: $fs-xxl;
+      line-height: 1.2;
+      margin-bottom: $spacing-xxs;
     }
     h2 {
       font-size: $fs-m;
@@ -47,7 +54,7 @@
     strong, h2 {
       color: var(--text-color);
     }
-    button {
+    .button {
       margin-top: $spacing-s;
     }
     > div:last-of-type {
