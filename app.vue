@@ -93,9 +93,6 @@ body{
   -webkit-text-stroke-color: var(--link-background);
 }
 
-::-webkit-scrollbar{width:2px;height:2px;}
-::-webkit-scrollbar-button{width:2px;height:2px;}
-
 *,
 *::before,
 *::after {
