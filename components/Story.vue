@@ -5,7 +5,7 @@
     </HeaderText>
     <div class="story__content">
       <div>
-        <img src="@/assets/images/profile.png" alt="my profile picture" lazy/>
+        <prismic-image :field="profile" lazy/>
       </div>
       <prismic-rich-text
       class="story__text"
@@ -46,5 +46,5 @@
   }
 </style>
 <script setup>
-  const props = defineProps(['story'])
+  const props = defineProps(['story', 'profile'])
 </script>

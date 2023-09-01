@@ -16,6 +16,7 @@
     <div class="section">
       <Story 
         :story="aboutData.data.intro_secondary"
+        :profile="aboutData.data.profile_pic"
       />
       <div>
         <Links
