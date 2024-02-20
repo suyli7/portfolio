@@ -31,27 +31,34 @@ html {
   -webkit-font-smoothing: antialiased;
   background-color: var(--background-color);
 }
-html, html[theme="blue"]{
-  --background-color: #1123AF;
-  --text-color: #eceef8;
-  --text-color-strong: #ffffff;
-  --text-color-button: #0d0d0f;
-  --text-color-dark: #0d0d0f;
-  --text-color-link: #0d0d0f;
-  --text-color-link-active: #1123AF;
+html {
+  --primary-color: #0b1c9d;
   --link-background: #fffa74;
-  --border-color: #ffffff;
+  --dark:  #0e0e11;
+  --light: #eceef8;
+  --contrast-color-light: #ffffff;
+  --button-color: var(--primary-color);
+};
+html[theme="colored"]{
+  --background-color: var(--dark);
+  --text-color: var(--light);
+  --text-color-strong: var(--contrast-color-light);
+  --text-color-button: var(--contrast-color-light);
+  --text-color-dark: var(--dark);
+  --text-color-link: var(--dark);
+  --text-color-link-active: var(--primary-color);
+  --border-color: var(--primary-color);
   --cursor-pointer: url("@/assets/images/cursor_pointer_36_dark.png"), pointer;
   --cursor-default: url("@/assets/images/cursor_default_36_dark.png"), default;
 }
 html[theme="light"] {
-  --background-color: #ffffff;
-  --text-color: #0d0d0f;
-  --text-color-strong: #1123AF;
-  --text-color-button: #ffffff;
-  --text-color-dark: #1123AF;
-  --text-color-link: #ffffff;
-  --border-color: #1123AF;
+  --background-color: var(--contrast-color-light);
+  --text-color: var(--dark);
+  --text-color-strong: var(--primary-color);
+  --text-color-button: var(--contrast-color-light);
+  --text-color-dark: var(--primary-color);
+  --text-color-link: var(--contrast-color-light);
+  --border-color: var(--primary-color);
   --cursor-pointer: url("@/assets/images/cursor_pointer_36.png"), pointer;
   --cursor-default: url("@/assets/images/cursor_default_36.png"), default;
 }
@@ -131,8 +138,8 @@ strong {
   min-height: 100vh;
   a {
     transition: all 0.12s;
-    color: var(--text-color-link);
-    background-color: var(--text-color-strong);
+    color: var(--contrast-color-light);
+    background-color: var(--button-color);
     font-weight: $fw-b!important;
     padding: 0 $spacing-xxs * 0.5;
     text-decoration: underline;
@@ -156,7 +163,7 @@ strong {
 a.button,
 button {
   text-decoration: none;
-  background-color: var(--text-color-strong);
+  background-color: var(--button-color);
   outline: none;
   border: $border;
   color: var(--text-color-button);

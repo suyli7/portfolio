@@ -16,6 +16,7 @@
   }
   .tag {
     border: $border;
+    border-color: var(--text-color-strong);
     color: var(--text-color-strong);
     display: inline-block;
     padding: $spacing-xxs * 0.5 $spacing-xxs;

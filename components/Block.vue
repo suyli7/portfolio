@@ -5,6 +5,7 @@
 </template>
 <style lang="scss">
   .block {
+    background-color: var(--button-color);
     box-sizing: border-box;
     border: $border;
     position: relative;

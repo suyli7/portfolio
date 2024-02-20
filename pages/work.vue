@@ -118,7 +118,7 @@
   const reorderedWorkData = ref([]);
 
   onBeforeMount(() => {
-    document.documentElement.setAttribute("theme", "blue");
+    document.documentElement.setAttribute("theme", "colored");
 
     if (window.innerWidth <= 768) {
       reorderedWorkData.value = workData.value;

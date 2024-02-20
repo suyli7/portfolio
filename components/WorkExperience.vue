@@ -10,7 +10,6 @@
       >
         <div class="expItem__duration">{{exp.duration}}</div>
         <div class="expItem__org">{{exp.org}}</div>
-        <div class="expItem__role">{{exp.role}}</div>
         <Tags
           :tags="exp.key_tech.split(',')"
         />

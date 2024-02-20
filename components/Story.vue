@@ -19,8 +19,8 @@
     margin-bottom: $spacing-xs;
     img {
       max-width: 100%;
+      position: relative;
       border-radius: 50%;
-      border: $border;
     }
     &__content {
       margin-top: $spacing-m;
