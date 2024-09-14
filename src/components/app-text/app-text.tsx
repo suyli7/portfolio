@@ -20,7 +20,7 @@ const getClassname = (color: TextColorType, variant: TextVariantType, size: Text
 export class AppText {
   @Prop() variant?: TextVariantType = TextVariant.Body;
   @Prop() color?: TextColorType = TextColor.Sub;
-  @Prop() size?: TextSizeType = TextSize.Small;
+  @Prop() size?: TextSizeType = TextSize.XSmall;
 
   render() {
     return (

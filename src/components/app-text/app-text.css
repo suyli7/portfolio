@@ -4,6 +4,10 @@
     font-style: normal;
 }
 
+:host p {
+    margin: 0;
+}
+
 ::slotted(a) {
     text-decoration: underline;
     color: var(--color-green);
@@ -45,15 +49,27 @@
     color: var(--color-cyan);
 }
 
-:host(.app-text--small) {
+:host(.app-text--blue) {
+    color: var(--color-blue);
+}
+
+:host(.app-text--xxs) {
     font-size: 14px;
 }
 
-:host(.app-text--medium) {
-    font-size: 24px;
+:host(.app-text--xs) {
+    font-size: 16px;
 }
 
-:host(.app-text--large) {
+:host(.app-text--s) {
+    font-size: 20px;
+}
+
+:host(.app-text--m) {
+    font-size: 28px;
+}
+
+:host(.app-text--l) {
     font-size: 32px;
 }
 

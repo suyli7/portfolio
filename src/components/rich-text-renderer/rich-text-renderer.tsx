@@ -11,8 +11,9 @@ export class AppHome {
   @Prop() field: RichTextField = [];
 
   private injectStyles(html: string): string {
-    return html.replace(/<p>/g, '<p style="margin: var(--space-s);">');
+    return html.replace(/<p>/g, '<p style="margin: var(--space-s) 0;">');
   }
+
 
   render() {
     const styledHTML = this.injectStyles(asHTML(this.field));
