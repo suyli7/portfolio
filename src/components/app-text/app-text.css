@@ -4,11 +4,8 @@
     font-style: normal;
 }
 
-:host p {
-    margin: 0;
-}
-
 ::slotted(a) {
+    cursor: var(--cursor-pointer);
     text-decoration: underline;
     color: var(--color-green);
 }

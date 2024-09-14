@@ -1,28 +1,7 @@
 import { Component, State, h } from '@stencil/core';
-import type { RichTextField, ImageField } from '@prismicio/client';
 import { BorderColor, TextColor, TextSize, TextVariant } from '../../common/namespaces';
-import { getAboutData } from '../../common/prismic';
-
-interface AboutDataModel {
-  intro_primary: RichTextField;
-  intro_secondary: RichTextField;
-  intro_text: RichTextField;
-  profile_pic: ImageField;
-  connect_header: string;
-  experience: Array<{
-    org: string;
-    role: string;
-    duration: string;
-    description: RichTextField
-  }>;
-  links: Array<{
-    link_name: string;
-    link: string;
-  }>;
-  languages: string;
-  tools: string;
-  frameworks: string;
-}
+import { getAboutData, getWorkData } from '../../common/prismic';
+import type { AboutDataModel, CaseStudyDataModel } from '../../common/types';
 
 @Component({
   tag: 'app-home',
@@ -32,10 +11,14 @@ interface AboutDataModel {
 export class AppHome {
 
   @State() aboutData?: AboutDataModel = undefined;
+  @State() workData?: Array<CaseStudyDataModel> = [];
 
   async connectedCallback() {
     getAboutData((data: AboutDataModel) => {
       this.aboutData = data;
+    });
+    getWorkData((data: Array<CaseStudyDataModel>) => {
+      this.workData = data;
     });
   }
 
@@ -70,7 +53,7 @@ export class AppHome {
                     </div>
                     <img src={this.aboutData.profile_pic.url} alt={this.aboutData.profile_pic.alt} />
                     <div>
-                      bunch of random tags and stuff here
+                      Still working on this site! Come back to check the final form later ✨(ㆆ◡ㆆ)✌️
                     </div>
                   </div>
               </content-box>
@@ -128,15 +111,34 @@ export class AppHome {
                     }
                   </div>
               </content-box>
-              <content-box color={BorderColor.Cyan}>
-                  <app-text color={TextColor.Magenta} variant={TextVariant.Accent} size={TextSize.Small}>
-                    Just some random stuff
-                  </app-text>
-              </content-box>
             </div>
           </div>
         </div>
         <div class="home-content-right">
+          <app-text color={TextColor.Yellow} variant={TextVariant.Accent} size={TextSize.Medium}>
+            SOME STUFF I’VE WORKED ON
+            <div class="home-work-wrapper">
+              {
+                this.workData.map((w) => (
+                  <div class="home-work-item--wrapper">
+                    <content-box>
+                        <div class="home-work-item--content">
+                          <app-text color={TextColor.Cyan} variant={TextVariant.Accent} size={TextSize.Small}>
+                            {w.name}
+                          </app-text>
+                          <div class="home-work-item--image-wrapper">
+                            <img src={w.cover.url} alt={w.cover.alt} />
+                          </div>
+                        </div>
+                        <app-text color={TextColor.Magenta} variant={TextVariant.Accent} size={TextSize.XSmall}>
+                          {w.tags.split(",").map((t) => `#${t.replace(/ /g,"_")} `)}
+                        </app-text>
+                    </content-box>
+                  </div>
+                ))
+              }
+            </div>
+          </app-text>
         </div>
       </div>
     );

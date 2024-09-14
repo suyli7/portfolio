@@ -24,7 +24,8 @@
 }
 
 .content-box--default::after {
-  box-shadow: 0 0 12px 1px var(--color-default);
+  box-shadow: 0 0 12px 1px var(--color-border);
+  opacity: 0.2;
 }
 
 .content-box--red {
