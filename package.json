@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stencil App Starter",
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@prismicio/richtext": "^2.1.5",
+    "@stencil-community/router": "^1.0.2",
+    "@stencil/core": "4.21.0",
+    "@types/node": "^22.5.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@prismicio/client": "^7.8.1",
+    "dotenv": "^16.4.5"
+  }
+}

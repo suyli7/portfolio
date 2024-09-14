@@ -1,0 +1,59 @@
+:host(.app-text--accent) {
+    font-family: "VT323", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+::slotted(a) {
+    text-decoration: underline;
+    color: var(--color-green);
+}
+
+::slotted(a:visited) {
+    color: var(--color-green);
+}
+
+::slotted(a:hover) {
+    background-color: var(--color-blue);
+}
+
+:host(.app-text--sub) {
+    color: var(--color-text-sub);
+}
+
+:host(.app-text--main) {
+    color: var(--color-text-main);
+}
+
+:host(.app-text--red) {
+    color: var(--color-red);
+}
+
+:host(.app-text--green) {
+    color: var(--color-green);
+}
+
+:host(.app-text--yellow) {
+    color: var(--color-yellow);
+}
+
+:host(.app-text--magenta) {
+    color: var(--color-magenta);
+}
+
+:host(.app-text--cyan) {
+    color: var(--color-cyan);
+}
+
+:host(.app-text--small) {
+    font-size: 14px;
+}
+
+:host(.app-text--medium) {
+    font-size: 24px;
+}
+
+:host(.app-text--large) {
+    font-size: 32px;
+}
+
