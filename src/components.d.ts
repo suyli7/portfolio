@@ -12,10 +12,15 @@ export { RichTextField } from "@prismicio/client";
 export namespace Components {
     interface AppHome {
     }
+    interface AppHorizontalScroll {
+        "wrapperWidth"?: string;
+    }
     interface AppImage {
         "alt"?: string;
+        "height"?: number;
         "objectFit"?: 'cover' | 'contain';
         "src": string;
+        "width"?: number;
     }
     interface AppRoot {
     }
@@ -37,6 +42,12 @@ declare global {
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppHorizontalScrollElement extends Components.AppHorizontalScroll, HTMLStencilElement {
+    }
+    var HTMLAppHorizontalScrollElement: {
+        prototype: HTMLAppHorizontalScrollElement;
+        new (): HTMLAppHorizontalScrollElement;
     };
     interface HTMLAppImageElement extends Components.AppImage, HTMLStencilElement {
     }
@@ -70,6 +81,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
+        "app-horizontal-scroll": HTMLAppHorizontalScrollElement;
         "app-image": HTMLAppImageElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
@@ -80,10 +92,15 @@ declare global {
 declare namespace LocalJSX {
     interface AppHome {
     }
+    interface AppHorizontalScroll {
+        "wrapperWidth"?: string;
+    }
     interface AppImage {
         "alt"?: string;
+        "height"?: number;
         "objectFit"?: 'cover' | 'contain';
         "src"?: string;
+        "width"?: number;
     }
     interface AppRoot {
     }
@@ -100,6 +117,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
+        "app-horizontal-scroll": AppHorizontalScroll;
         "app-image": AppImage;
         "app-root": AppRoot;
         "app-text": AppText;
@@ -112,6 +130,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-horizontal-scroll": LocalJSX.AppHorizontalScroll & JSXBase.HTMLAttributes<HTMLAppHorizontalScrollElement>;
             "app-image": LocalJSX.AppImage & JSXBase.HTMLAttributes<HTMLAppImageElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;

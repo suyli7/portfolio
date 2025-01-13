@@ -12,10 +12,11 @@
 .content-box--title {
   width: fit-content;
   box-sizing: border-box;
-  padding: var(--space-s);
+  padding-block: var(--space-xs);
+  padding-inline: var(--space-s);
   position: absolute;
   top: calc(-1 * var(--space-m));
-  left: var(--space-s);
+  left: calc(var(--space-s) - 2px);
   background-color: var(--color-background);
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: var(--color-blue);

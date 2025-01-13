@@ -7,8 +7,7 @@
 
 :host(.app-text--accent) {
     text-shadow: 3px 3px 0px var(--color-green);
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: var(--color-black);
+    -webkit-text-stroke: 3px var(--color-black);
     paint-order: stroke fill;
 }
 

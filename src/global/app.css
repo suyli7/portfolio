@@ -25,11 +25,13 @@
   --space-xxs: 4px;
   --space-xs: 8px;
   --space-s: 12px;
-  --space-m: 24px;
+  --space-m: 20px;
   --space-l: 32px;
   --space-xl: 48px;
   --cursor-pointer: url("/assets/cursor_pointer.png"), pointer;
   --cursor-default: url("/assets/cursor_default.png"), default;
+  --scroll-text-from: 40%;
+  --scroll-text-to: -100%;
 }
 
 body {

@@ -1,0 +1,43 @@
+:host{
+  overflow: hidden;
+  background-color: rgba(255,255,255, 0.1);
+  width: 100%;
+}
+
+.app-horizontal-scroll--content{
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.app-horizontal-scroll--animate {
+  -moz-transform: translateX(var(--scroll-text-from));
+  -webkit-transform: translateX(var(--scroll-text-from));
+  transform: translateX(var(--scroll-text-from));
+  
+  -moz-animation: scroll-text-animation 10s linear infinite;
+  -webkit-animation: scroll-text-animation 10s linear infinite;
+  animation: scroll-text-animation 10s linear infinite;
+}
+
+@-moz-keyframes scroll-text-animation {
+  from { -moz-transform: translateX(var(--scroll-text-from)); }
+  to { -moz-transform: translateX(var(--scroll-text-to)); }
+}
+
+@-webkit-keyframes scroll-text-animation {
+  from { -webkit-transform: translateX(var(--scroll-text-from)); }
+  to { -webkit-transform: translateX(var(--scroll-text-to)); }
+}
+
+@keyframes scroll-text-animation {
+  from {
+    -moz-transform: translateX(var(--scroll-text-from));
+    -webkit-transform: translateX(var(--scroll-text-from));
+    transform: translateX(var(--scroll-text-from));
+  }
+  to {
+    -moz-transform: translateX(var(--scroll-text-to));
+    -webkit-transform: translateX(var(--scroll-text-to));
+    transform: translateX(var(--scroll-text-to));
+  }
+}
