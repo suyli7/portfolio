@@ -21,6 +21,7 @@ export enum TextColor {
 
 export enum TextVariant {
     Accent = 'accent',
+    Title = 'title',
     Body = 'body'
 }
 

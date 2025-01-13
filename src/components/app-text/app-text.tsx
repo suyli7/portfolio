@@ -26,10 +26,10 @@ export class AppText {
     return (
       <Host class={getClassname(this.color, this.variant, this.size)}>
         {
-          this.variant === TextVariant.Accent && <span><slot/></span>
+          (this.variant === TextVariant.Accent || this.variant === TextVariant.Title) && <span><slot/></span>
         }
         {
-          this.variant === TextVariant.Body && <p><slot/></p>
+          this.variant === TextVariant.Body && <slot/>
         }
       </Host>
     );

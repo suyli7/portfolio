@@ -5,12 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BorderColorType, TextColorType, TextSizeType, TextVariantType } from "./common/types";
+import { TextColorType, TextSizeType, TextVariantType } from "./common/types";
 import { RichTextField } from "@prismicio/client";
-export { BorderColorType, TextColorType, TextSizeType, TextVariantType } from "./common/types";
+export { TextColorType, TextSizeType, TextVariantType } from "./common/types";
 export { RichTextField } from "@prismicio/client";
 export namespace Components {
     interface AppHome {
+    }
+    interface AppImage {
+        "alt"?: string;
+        "objectFit"?: 'cover' | 'contain';
+        "src": string;
     }
     interface AppRoot {
     }
@@ -20,7 +25,7 @@ export namespace Components {
         "variant"?: TextVariantType;
     }
     interface ContentBox {
-        "color"?: BorderColorType;
+        "title"?: string;
     }
     interface RichTextRenderer {
         "field": RichTextField;
@@ -32,6 +37,12 @@ declare global {
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppImageElement extends Components.AppImage, HTMLStencilElement {
+    }
+    var HTMLAppImageElement: {
+        prototype: HTMLAppImageElement;
+        new (): HTMLAppImageElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -59,6 +70,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
+        "app-image": HTMLAppImageElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
         "content-box": HTMLContentBoxElement;
@@ -68,6 +80,11 @@ declare global {
 declare namespace LocalJSX {
     interface AppHome {
     }
+    interface AppImage {
+        "alt"?: string;
+        "objectFit"?: 'cover' | 'contain';
+        "src"?: string;
+    }
     interface AppRoot {
     }
     interface AppText {
@@ -76,13 +93,14 @@ declare namespace LocalJSX {
         "variant"?: TextVariantType;
     }
     interface ContentBox {
-        "color"?: BorderColorType;
+        "title"?: string;
     }
     interface RichTextRenderer {
         "field"?: RichTextField;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
+        "app-image": AppImage;
         "app-root": AppRoot;
         "app-text": AppText;
         "content-box": ContentBox;
@@ -94,6 +112,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-image": LocalJSX.AppImage & JSXBase.HTMLAttributes<HTMLAppImageElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;

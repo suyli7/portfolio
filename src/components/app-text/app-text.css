@@ -1,7 +1,15 @@
-:host(.app-text--accent) {
+:host(.app-text--accent),
+:host(.app-text--title) {
     font-family: "VT323", system-ui;
     font-weight: 400;
     font-style: normal;
+}
+
+:host(.app-text--accent) {
+    text-shadow: 3px 3px 0px var(--color-green);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--color-black);
+    paint-order: stroke fill;
 }
 
 ::slotted(a) {
@@ -16,6 +24,12 @@
 
 ::slotted(a:hover) {
     background-color: var(--color-blue);
+}
+
+:host(.app-text--body) {
+    display: inline-block;
+    margin: var(--space-xxs) 0;
+    line-height: 1.16;
 }
 
 :host(.app-text--sub) {
@@ -59,14 +73,13 @@
 }
 
 :host(.app-text--s) {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 :host(.app-text--m) {
-    font-size: 28px;
+    font-size: 20px;
 }
 
 :host(.app-text--l) {
     font-size: 32px;
 }
-

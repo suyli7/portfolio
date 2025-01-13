@@ -9,7 +9,8 @@ export const config: Config = {
   taskQueue: 'async',
   env: {
     PRISMIC_ENTRY_POINT: process.env.PRISMIC_ENTRY_POINT,
-    PRISMIC_ACCESS_TOKEN: process.env.PRISMIC_ACCESS_TOKEN
+    PRISMIC_ACCESS_TOKEN: process.env.PRISMIC_ACCESS_TOKEN,
+    MS_CHAR_NAME: process.env.MS_CHAR_NAME,
   },
   outputTargets: [
     {

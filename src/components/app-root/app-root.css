@@ -1,7 +1,6 @@
 main {
     width: 90%;
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 1440px;
+    margin: var(--space-xl) auto;
     display: block;
-    height: 100%;
 }
