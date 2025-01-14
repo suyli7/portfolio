@@ -23,12 +23,16 @@ export namespace Components {
         "src": string;
         "width"?: number;
     }
+    interface AppLayout {
+    }
     interface AppRoot {
     }
     interface AppText {
         "color"?: TextColorType;
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
+    }
+    interface CaseStudies {
     }
     interface ContentBox {
         "titleText"?: string;
@@ -58,6 +62,12 @@ declare global {
         prototype: HTMLAppImageElement;
         new (): HTMLAppImageElement;
     };
+    interface HTMLAppLayoutElement extends Components.AppLayout, HTMLStencilElement {
+    }
+    var HTMLAppLayoutElement: {
+        prototype: HTMLAppLayoutElement;
+        new (): HTMLAppLayoutElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -69,6 +79,12 @@ declare global {
     var HTMLAppTextElement: {
         prototype: HTMLAppTextElement;
         new (): HTMLAppTextElement;
+    };
+    interface HTMLCaseStudiesElement extends Components.CaseStudies, HTMLStencilElement {
+    }
+    var HTMLCaseStudiesElement: {
+        prototype: HTMLCaseStudiesElement;
+        new (): HTMLCaseStudiesElement;
     };
     interface HTMLContentBoxElement extends Components.ContentBox, HTMLStencilElement {
     }
@@ -92,8 +108,10 @@ declare global {
         "app-button": HTMLAppButtonElement;
         "app-home": HTMLAppHomeElement;
         "app-image": HTMLAppImageElement;
+        "app-layout": HTMLAppLayoutElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
+        "case-studies": HTMLCaseStudiesElement;
         "content-box": HTMLContentBoxElement;
         "ms-char-card": HTMLMsCharCardElement;
         "rich-text-renderer": HTMLRichTextRendererElement;
@@ -113,12 +131,16 @@ declare namespace LocalJSX {
         "src"?: string;
         "width"?: number;
     }
+    interface AppLayout {
+    }
     interface AppRoot {
     }
     interface AppText {
         "color"?: TextColorType;
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
+    }
+    interface CaseStudies {
     }
     interface ContentBox {
         "titleText"?: string;
@@ -132,8 +154,10 @@ declare namespace LocalJSX {
         "app-button": AppButton;
         "app-home": AppHome;
         "app-image": AppImage;
+        "app-layout": AppLayout;
         "app-root": AppRoot;
         "app-text": AppText;
+        "case-studies": CaseStudies;
         "content-box": ContentBox;
         "ms-char-card": MsCharCard;
         "rich-text-renderer": RichTextRenderer;
@@ -146,8 +170,10 @@ declare module "@stencil/core" {
             "app-button": LocalJSX.AppButton & JSXBase.HTMLAttributes<HTMLAppButtonElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-image": LocalJSX.AppImage & JSXBase.HTMLAttributes<HTMLAppImageElement>;
+            "app-layout": LocalJSX.AppLayout & JSXBase.HTMLAttributes<HTMLAppLayoutElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
+            "case-studies": LocalJSX.CaseStudies & JSXBase.HTMLAttributes<HTMLCaseStudiesElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;
             "ms-char-card": LocalJSX.MsCharCard & JSXBase.HTMLAttributes<HTMLMsCharCardElement>;
             "rich-text-renderer": LocalJSX.RichTextRenderer & JSXBase.HTMLAttributes<HTMLRichTextRendererElement>;

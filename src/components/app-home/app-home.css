@@ -1,6 +1,6 @@
 .home-wrapper {
   display: grid;
-  grid-template-columns: 1fr 3fr 1.25fr;
+  grid-template-columns: 3fr 1fr;
   column-gap: var(--space-l);
 }
 
@@ -29,9 +29,15 @@
   column-gap: var(--space-s);
 }
 
+.exp-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: var(--space-s);
+}
+
 .exp-items--wrapper,
 .song-data--right,
-.exp-item,
+.exp-item>div,
 .skill-items--wrapper,
 .skill-items--container,
 .game-data--wrapper,
@@ -91,5 +97,9 @@
   .home-wrapper>div:nth-of-type(2),
   .home-wrapper>div:nth-of-type(3) {
     margin-top: var(--space-m);
+  }
+
+  .exp-item {
+    grid-template-columns: 1fr;
   }
 }

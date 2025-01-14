@@ -12,9 +12,10 @@
   },
   "devDependencies": {
     "@prismicio/richtext": "^2.1.5",
-    "@stencil-community/router": "^1.0.2",
-    "@stencil/core": "4.21.0",
-    "@types/node": "^22.5.4"
+    "@stencil/core": "^4.22.2",
+    "@stencil/store": "^2.0.16",
+    "@types/node": "^22.5.4",
+    "stencil-router-v2": "^0.6.0"
   },
   "license": "MIT",
   "dependencies": {

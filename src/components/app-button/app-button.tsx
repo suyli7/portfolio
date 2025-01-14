@@ -5,7 +5,7 @@ import { Component, h, Prop } from '@stencil/core';
   styleUrl: 'app-button.css',
   shadow: true,
 })
-export class AppText {
+export class AppButton {
 
   @Prop() buttonStyle?: { [key: string]: any } = {}
 

@@ -12,7 +12,7 @@ import type { MsData } from '../../../common/api-data';
   styleUrl: 'ms-char-card.css',
   shadow: true,
 })
-export class AppText {
+export class MsCharCard {
   @State() msData?: MsData;
 
   async connectedCallback() {
@@ -40,8 +40,8 @@ export class AppText {
           Job&nbsp;&lt;<app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
             <app-image
               src={this.msData?.jobIcon}
-              width={20}
-              height={20}
+              width={16}
+              height={16}
               alt={`${this.msData?.jobName} job icon`}
               imgStyle={{ transform: "translateY(0.2rem)" }}
             />

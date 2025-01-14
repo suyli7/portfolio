@@ -4,7 +4,7 @@ import { Component, Prop, h } from '@stencil/core';
     tag: 'app-image',
     shadow: true,
 })
-export class AppText {
+export class AppImage {
     @Prop() src: string = '';
     @Prop() alt?: string = '';
     @Prop() objectFit?: 'cover' | 'contain' = 'cover';
