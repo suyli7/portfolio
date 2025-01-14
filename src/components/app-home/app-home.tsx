@@ -196,11 +196,11 @@ export class AppHome {
               ({this.lastPlayedSong?.time})
             </app-text>
           </content-box>
-          <content-box titleText="recent games played">
+          <content-box titleText="recently played on steam">
             <div class="game-data--wrapper">
               {
                 this.lastPlayedGames?.map((game) => (
-                  <div class="game-data--container">
+                  <a href={game.url} class="game-data--container" target="_blank">
                     <app-image src={game.imgUrl} alt={`${game.name} steam library image`} imgStyle={{ border: '1px solid var(--color-border)', maxWidth: 460 }} />
                     <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
                       {game.name}
@@ -208,7 +208,7 @@ export class AppHome {
                     <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
                       {game.playtimeTwoWeeks}&nbsp;(past two weeks)
                     </app-text>
-                  </div>
+                  </a>
                 ))
               }
             </div>

@@ -54,4 +54,5 @@ export interface LastPlayedGame {
   name: string;
   imgUrl: string;
   playtimeTwoWeeks: string;
+  url: string;
 }
