@@ -48,8 +48,11 @@ export class AppHome {
                         <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Medium}>
                           {exp.org}
                         </app-text>
-                        <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Medium}>
+                        <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
                           {exp.role}
+                        </app-text>
+                        <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                          <rich-text-renderer field={exp.description} />
                         </app-text>
                       </div>
                     </div>
