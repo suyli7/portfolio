@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { Router } from '../../';
-import { Route, match } from 'stencil-router-v2';
+import { Route } from 'stencil-router-v2';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { fetchApiData } from '../../common/api';
 import state from '../../store';
