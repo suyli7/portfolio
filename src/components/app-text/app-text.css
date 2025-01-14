@@ -27,7 +27,6 @@
 
 :host(.app-text--body) {
     display: inline-block;
-    margin: var(--space-xxs) 0;
     line-height: 1.16;
 }
 

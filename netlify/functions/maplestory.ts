@@ -17,14 +17,17 @@ exports.handler = async function () {
   const ms_res_data = await ms_res.json();
   const char_data = ms_res_data.ranks[0];
   const data: MsData = {
+    attributes: [
+      { name: 'World', value: 'Kronos' },
+      { name: 'Rank', value: char_data.rank },
+    ],
     charImg: char_data.characterImgURL,
+    level: char_data.level,
     jobIcon: `https://nxcache.nexon.net/maplestory/img/icons/2024/icon-job-${char_data.jobName.replace(/ /g, '_').toLowerCase()}.gif`,
     jobName: char_data.jobName,
-    level: char_data.level,
-    rank: char_data.rank,
   }
   return {
     statusCode: 200,
-    body: JSON.stringify(data)
+    body: JSON.stringify({ ...data, char_data })
   };
 }

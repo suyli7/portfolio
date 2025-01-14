@@ -6,21 +6,17 @@
   border-style: solid;
   border-color: var(--color-blue);
   display: inline-block;
-  padding: var(--space-m)
+  padding-inline: var(--space-m);
+  padding-bottom: var(--space-m);
 }
 
-.content-box--title {
-  width: fit-content;
-  box-sizing: border-box;
-  padding-block: var(--space-xs);
-  padding-inline: var(--space-s);
-  position: absolute;
-  top: calc(-1 * var(--space-m));
-  left: calc(var(--space-s) - 2px);
-  background-color: var(--color-background);
+.content-box legend {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: var(--color-blue);
   paint-order: stroke fill;
+  padding-inline: var(--space-s);
+  margin-left: calc(-1 * var(--space-s));
+  margin-bottom: var(--space-s);
 }
 
 .content-box img {

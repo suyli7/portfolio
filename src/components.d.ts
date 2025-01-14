@@ -10,14 +10,15 @@ import { RichTextField } from "@prismicio/client";
 export { TextColorType, TextSizeType, TextVariantType } from "./common/types";
 export { RichTextField } from "@prismicio/client";
 export namespace Components {
-    interface AppHome {
+    interface AppButton {
+        "buttonStyle"?: { [key: string]: any };
     }
-    interface AppHorizontalScroll {
-        "wrapperWidth"?: string;
+    interface AppHome {
     }
     interface AppImage {
         "alt"?: string;
         "height"?: number;
+        "imgStyle"?: { [key: string]: any };
         "objectFit"?: 'cover' | 'contain';
         "src": string;
         "width"?: number;
@@ -30,24 +31,26 @@ export namespace Components {
         "variant"?: TextVariantType;
     }
     interface ContentBox {
-        "title"?: string;
+        "titleText"?: string;
+    }
+    interface MsCharCard {
     }
     interface RichTextRenderer {
         "field": RichTextField;
     }
 }
 declare global {
+    interface HTMLAppButtonElement extends Components.AppButton, HTMLStencilElement {
+    }
+    var HTMLAppButtonElement: {
+        prototype: HTMLAppButtonElement;
+        new (): HTMLAppButtonElement;
+    };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppHorizontalScrollElement extends Components.AppHorizontalScroll, HTMLStencilElement {
-    }
-    var HTMLAppHorizontalScrollElement: {
-        prototype: HTMLAppHorizontalScrollElement;
-        new (): HTMLAppHorizontalScrollElement;
     };
     interface HTMLAppImageElement extends Components.AppImage, HTMLStencilElement {
     }
@@ -73,6 +76,12 @@ declare global {
         prototype: HTMLContentBoxElement;
         new (): HTMLContentBoxElement;
     };
+    interface HTMLMsCharCardElement extends Components.MsCharCard, HTMLStencilElement {
+    }
+    var HTMLMsCharCardElement: {
+        prototype: HTMLMsCharCardElement;
+        new (): HTMLMsCharCardElement;
+    };
     interface HTMLRichTextRendererElement extends Components.RichTextRenderer, HTMLStencilElement {
     }
     var HTMLRichTextRendererElement: {
@@ -80,24 +89,26 @@ declare global {
         new (): HTMLRichTextRendererElement;
     };
     interface HTMLElementTagNameMap {
+        "app-button": HTMLAppButtonElement;
         "app-home": HTMLAppHomeElement;
-        "app-horizontal-scroll": HTMLAppHorizontalScrollElement;
         "app-image": HTMLAppImageElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
         "content-box": HTMLContentBoxElement;
+        "ms-char-card": HTMLMsCharCardElement;
         "rich-text-renderer": HTMLRichTextRendererElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
+    interface AppButton {
+        "buttonStyle"?: { [key: string]: any };
     }
-    interface AppHorizontalScroll {
-        "wrapperWidth"?: string;
+    interface AppHome {
     }
     interface AppImage {
         "alt"?: string;
         "height"?: number;
+        "imgStyle"?: { [key: string]: any };
         "objectFit"?: 'cover' | 'contain';
         "src"?: string;
         "width"?: number;
@@ -110,18 +121,21 @@ declare namespace LocalJSX {
         "variant"?: TextVariantType;
     }
     interface ContentBox {
-        "title"?: string;
+        "titleText"?: string;
+    }
+    interface MsCharCard {
     }
     interface RichTextRenderer {
         "field"?: RichTextField;
     }
     interface IntrinsicElements {
+        "app-button": AppButton;
         "app-home": AppHome;
-        "app-horizontal-scroll": AppHorizontalScroll;
         "app-image": AppImage;
         "app-root": AppRoot;
         "app-text": AppText;
         "content-box": ContentBox;
+        "ms-char-card": MsCharCard;
         "rich-text-renderer": RichTextRenderer;
     }
 }
@@ -129,12 +143,13 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-button": LocalJSX.AppButton & JSXBase.HTMLAttributes<HTMLAppButtonElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-horizontal-scroll": LocalJSX.AppHorizontalScroll & JSXBase.HTMLAttributes<HTMLAppHorizontalScrollElement>;
             "app-image": LocalJSX.AppImage & JSXBase.HTMLAttributes<HTMLAppImageElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;
+            "ms-char-card": LocalJSX.MsCharCard & JSXBase.HTMLAttributes<HTMLMsCharCardElement>;
             "rich-text-renderer": LocalJSX.RichTextRenderer & JSXBase.HTMLAttributes<HTMLRichTextRendererElement>;
         }
     }

@@ -1,0 +1,23 @@
+.app-button {
+  cursor: var(--cursor-pointer);
+  background-color: var(--color-blue);
+  background-image: url("/assets/btn_pat.png");
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  color: var(--color-text-button);
+  outline: none;
+  padding-inline: var(--space-s);
+  padding-block: var(--space-xs);
+  box-sizing: border-box;
+  border-color: #9eaaf7 #2735a4 #2735a4 #9eaaf7;
+  border-width: 2px 4px 4px 2px;
+  border-style: outset;
+  transition: all 0.2s;
+  font-family: PixelOperator;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.app-button:hover {
+  background-color: rgb(50, 50, 244);
+}

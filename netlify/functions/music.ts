@@ -1,4 +1,5 @@
 import type { LastPlayedSong } from '../../common/api-data';
+import { getTimeBySeconds } from '../../common/get-time-by-seconds';
 
 const BASE_URL = "http://ws.audioscrobbler.com/2.0/";
 
@@ -12,24 +13,11 @@ const params = new URLSearchParams({
 
 const LAST_FM_API_URL = `${BASE_URL}?${params.toString()}`;
 
-const pluralize = (count: number, wordBase: string) => `${wordBase}${count > 1 ? 's' : ''}`;
-
 const getLastPlayedTimeText = (uts: number) => {
   const now = Math.floor(Date.now() / 1000);
   const diffInSeconds = now - uts;
 
-  if (diffInSeconds < 60) {
-      return `${diffInSeconds} seconds ago`;
-  } else if (diffInSeconds < 3600) {
-      const minutes = Math.floor(diffInSeconds / 60);
-      return `${minutes} ${pluralize(minutes, 'minute')} ago`;
-  } else if (diffInSeconds < 86400) {
-      const hours = Math.floor(diffInSeconds / 3600);
-      return `${hours} ${pluralize(hours, 'hour')} ago`;
-  } else {
-      const days = Math.floor(diffInSeconds / 86400);
-      return `${days} ${pluralize(days, 'day')} ago`;
-  }
+  return `${getTimeBySeconds(diffInSeconds)} ago`;
 }
 
 exports.handler = async function () {
@@ -40,7 +28,7 @@ exports.handler = async function () {
 
   const data: LastPlayedSong = {
     artist: song_data.artist['#text'],
-    imgUrl: song_data.image[1]['#text'],
+    imgUrl: song_data.image[2]['#text'],
     song: song_data.name,
     time: time_data ? getLastPlayedTimeText(time_data) : 'Playing now...',
     url: song_data.url

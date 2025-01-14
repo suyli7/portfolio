@@ -1,7 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { fetchApiData } from '../../common/api';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
-import type { AboutDataModel, CaseStudyDataModel, LastPlayedSong, MsData } from '../../../common/api-data';
+import type { AboutDataModel, CaseStudyDataModel, LastPlayedSong, LastPlayedGame } from '../../../common/api-data';
 
 const getTime = () => new Intl.DateTimeFormat('en-US', {
   year: "numeric",
@@ -17,20 +17,20 @@ const getTime = () => new Intl.DateTimeFormat('en-US', {
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
-  shadow: true,
 })
+// very inflated page because I need to overcome my laziness
 export class AppHome {
 
   @State() aboutData?: AboutDataModel = undefined;
   @State() workData?: Array<CaseStudyDataModel> = [];
   @State() time: string = getTime();
-  @State() msData?: MsData;
   @State() lastPlayedSong?: LastPlayedSong;
+  @State() lastPlayedGames?: Array<LastPlayedGame> = [];
 
   async setApiData() {
-    fetchApiData('maplestory', (data) => { this.msData = data });
     fetchApiData('prismic/about', (data) => { this.aboutData = data });
     fetchApiData('music', (data) => { this.lastPlayedSong = data });
+    fetchApiData('steam', (data) => { this.lastPlayedGames = data });
   }
 
   async connectedCallback() {
@@ -39,7 +39,7 @@ export class AppHome {
     setInterval(() => {
       const updatedTime = getTime();
       this.time = updatedTime;
-    }, 60000);
+    }, 30000);
   }
 
   render() {
@@ -53,12 +53,14 @@ export class AppHome {
 
     return (
       <div class="home-wrapper">
-        {/* left: essential info */}
         <div class="home-wrapper--section home-wrapper--section--left">
-          <content-box title="me.jpg">
+          <app-button onClick={() => alert('I\'m not done with coding this part yet xD')} buttonStyle={{ width: "100%" }}>
+            Su with no E ✨(ㆆ◡ㆆ)✌️
+          </app-button>
+          <content-box titleText="cotton candy bear and me">
             <app-image src={this.aboutData.profile_pic.url} alt={this.aboutData.profile_pic.alt} />
           </content-box>
-          <content-box title="footprints.txt">
+          <content-box titleText="links">
             <div class="home-links-wrapper">
               {
                 this.aboutData.links.map((l) => (
@@ -73,7 +75,7 @@ export class AppHome {
               }
             </div>
           </content-box>
-          <content-box title="site_info.txt">
+          <content-box titleText="site info">
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
               This site was built with Stencil.js
             </app-text>
@@ -82,9 +84,8 @@ export class AppHome {
             </app-text>
           </content-box>
         </div>
-        {/* main: details */}
         <div class="home-wrapper--section">
-          <content-box title="intro.txt">
+          <content-box titleText="intro">
             <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.Large}>
               <rich-text-renderer field={this.aboutData.intro_text} />
             </app-text>
@@ -92,66 +93,130 @@ export class AppHome {
               <rich-text-renderer class='intro-description' field={this.aboutData.intro_primary} />
             </app-text>
           </content-box>
+          <content-box titleText="work experience">
+            <div class="exp-items--wrapper">
+              {
+                this.aboutData.experience.map((exp) => (
+                  <div class="exp-item">
+                    <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Medium}>
+                      {exp.org}
+                    </app-text>
+                    <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Medium}>
+                      {exp.role}
+                    </app-text>
+                    <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                      ({exp.duration})
+                    </app-text>
+                  </div>
+                ))
+              }
+            </div>
+          </content-box>
+          <content-box titleText="some of my skills">
+            <div class="skill-items--wrapper">
+              <div class="skill-items--container">
+                <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                  web programming
+                </app-text>
+                {
+                  <div>
+                    {this.aboutData.languages.split(",").map((item) => (
+                      <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                        {item}
+                      </app-text>
+                    ))}
+                  </div>
+                }
+              </div>
+              <div class="skill-items--container">
+                <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                  frameworks &amp; libraries
+                </app-text>
+                {
+                  <div>
+                    {this.aboutData.frameworks.split(",").map((item) => (
+                      <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                        {item}
+                      </app-text>
+                    ))}
+                  </div>
+                }
+              </div>
+              <div class="skill-items--container">
+                <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                  tools
+                </app-text>
+                {
+                  <div>
+                    {this.aboutData.tools.split(",").map((item) => (
+                      <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                        {item}
+                      </app-text>
+                    ))}
+                  </div>
+                }
+              </div>
+            </div>
+          </content-box>
         </div>
-        {/* right: hobby/misc. */}
         <div class="home-wrapper--section">
-          <content-box title="annoucement.txt">
-            <app-text color={TextColor.Green} variant={TextVariant.Title} size={TextSize.Medium}>
-              This site is still under constructions. More detailed work info coming soon!
+          <content-box titleText="bulletin">
+            <app-text color={TextColor.Magenta} variant={TextVariant.Title} size={TextSize.Small}>
+              <rich-text-renderer field={this.aboutData.bulletin} />
             </app-text>
           </content-box>
-          <content-box title="my_timezone.exe">
+          <content-box titleText="my clock">
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
               {this.time}
             </app-text>
           </content-box>
-          <content-box title="last_played_song.exe">
-            <div class="song-data--wrapper">
+          <content-box titleText="last played song">
+            <a
+              href={this.lastPlayedSong?.url}
+              class="song-data--wrapper"
+              target='_blank'
+            >
               <div class="song-data--left">
-                <app-image width={60} height={60} src={this.lastPlayedSong?.imgUrl} alt={`${this.lastPlayedSong?.song} image`} />
+                <app-image
+                  src={this.lastPlayedSong?.imgUrl}
+                  alt={`${this.lastPlayedSong?.song} image`}
+                  imgStyle={{ border: '1px solid var(--color-border)' }}
+                />
               </div>
               <div class="song-data--right">
-                <app-horizontal-scroll>
-                  <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
-                    {this.lastPlayedSong?.song}
-                  </app-text>
-                </app-horizontal-scroll>
-                <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
+                <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                  {this.lastPlayedSong?.song}
+                </app-text>
+                <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XSmall}>
                   {this.lastPlayedSong?.artist}
                 </app-text>
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-                  ({this.lastPlayedSong?.time})
-                </app-text>
               </div>
+            </a>
+            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
+              ({this.lastPlayedSong?.time})
+            </app-text>
+          </content-box>
+          <content-box titleText="recent games played">
+            <div class="game-data--wrapper">
+              {
+                this.lastPlayedGames?.map((game) => (
+                  <div class="game-data--container">
+                    <app-image src={game.imgUrl} alt={`${game.name} steam library image`} imgStyle={{ border: '1px solid var(--color-border)', maxWidth: 460 }} />
+                    <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
+                      {game.name}
+                    </app-text>
+                    <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                      {game.playtimeTwoWeeks}&nbsp;(past two weeks)
+                    </app-text>
+                  </div>
+                ))
+              }
             </div>
           </content-box>
-          <content-box title="maplestory_main.exe">
-            <div class="ms-data--wrapper">
-              <div class="ms-data--left">
-                <app-image src={this.msData?.charImg} alt="maplestory character image" />
-              </div>
-              <div class="ms-data--right">
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
-                  <app-image src={this.msData?.jobIcon} width={20} height={20} alt={`${this.msData?.jobName} icon`} title={this.msData?.jobName} />
-                  &nbsp;in &lt;<app-text color={TextColor.Yellow} variant={TextVariant.Title} size={TextSize.Medium}>
-                    Kronos
-                  </app-text>&gt;
-                </app-text>
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
-                  Rank &lt;<app-text color={TextColor.Yellow} variant={TextVariant.Title} size={TextSize.Medium}>
-                    {this.msData?.rank}
-                  </app-text>&gt;
-                </app-text>
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
-                  Level &lt;<app-text color={TextColor.Yellow} variant={TextVariant.Title} size={TextSize.Medium}>
-                    {this.msData?.level}
-                  </app-text>&gt;
-                </app-text>
-              </div>
-            </div>
+          <content-box titleText="me on maplestory">
+            <ms-char-card />
           </content-box>
         </div>
-
       </div>
     )
   }

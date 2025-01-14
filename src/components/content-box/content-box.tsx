@@ -11,22 +11,22 @@ import {
   shadow: true,
 })
 export class ContentBox {
-  @Prop() title?: string = '';
+  @Prop() titleText?: string = '';
 
   render() {
     return (
-      <div class="content-box">
-        <div class="content-box--title">
-          {
-            this.title && (
-            <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Medium}>
-                {this.title}
-            </app-text>
-            )
-          }
-        </div>
+      <fieldset class="content-box">
+        {
+          this.titleText && (
+            <legend>
+              <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
+                {this.titleText}
+              </app-text>
+            </legend>
+          )
+        }
         <slot />
-      </div>
+      </fieldset>
     );
   }
 }

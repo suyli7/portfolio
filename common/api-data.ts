@@ -19,6 +19,7 @@ export interface AboutDataModel {
   languages: string;
   tools: string;
   frameworks: string;
+  bulletin: RichTextField;
 }
 
 export interface CaseStudyDataModel {
@@ -34,11 +35,11 @@ export interface CaseStudyDataModel {
 }
 
 export interface MsData {
+  attributes: Array<{ name: string, value: string }>;
   charImg: string;
+  level: string;
   jobIcon: string;
   jobName: string;
-  level: string;
-  rank: string;
 }
 
 export interface LastPlayedSong {
@@ -47,4 +48,10 @@ export interface LastPlayedSong {
   song: string;
   time: string;
   url: string;
+}
+
+export interface LastPlayedGame {
+  name: string;
+  imgUrl: string;
+  playtimeTwoWeeks: string;
 }

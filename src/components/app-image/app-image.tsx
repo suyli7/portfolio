@@ -1,4 +1,4 @@
-import { Host, Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'app-image',
@@ -10,20 +10,20 @@ export class AppText {
     @Prop() objectFit?: 'cover' | 'contain' = 'cover';
     @Prop() width?: number;
     @Prop() height?: number;
+    @Prop() imgStyle?: { [key: string]: any } = {}
 
     render() {
         return (
-            <Host>
-                <img
-                    src={this.src}
-                    alt={this.alt}
-                    style={{
-                        width: this.width ? `${this.width}px` : '100%',
-                        height: this.height ? `${this.height}px` : '100%',
-                        objectFit: this.objectFit
-                    }}
-                />
-            </Host>
+            <img
+                src={this.src}
+                alt={this.alt}
+                style={{
+                    width: this.width ? `${this.width}px` : '100%',
+                    height: this.height ? `${this.height}px` : '100%',
+                    objectFit: this.objectFit,
+                    ...this.imgStyle
+                }}
+            />
         );
     }
 }
