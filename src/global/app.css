@@ -10,6 +10,12 @@
   font-weight: 600;
 }
 
+@font-face {
+  font-family: 'VT323';
+  src: url("/assets/VT323.ttf");
+  font-weight: 400;
+}
+
 :root {
   --color-blue: #0A22ED;
   --color-green: #29F52E;
