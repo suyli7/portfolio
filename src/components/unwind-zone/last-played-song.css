@@ -1,0 +1,26 @@
+.song-data--wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: var(--space-s);
+  text-decoration: none;
+}
+
+.song-data--right {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-data--right {
+  row-gap: var(--space-xxs);
+}
+
+.song-data--left {
+  min-width: var(--thumbnail-size);
+  height: var(--thumbnail-size);
+  margin-bottom: var(--space-xxs);
+}
+
+.song-data--right {
+  flex-grow: 1;
+}

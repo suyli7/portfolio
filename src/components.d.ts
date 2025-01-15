@@ -28,6 +28,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface AppText {
+        "blockEl"?: boolean;
         "color"?: TextColorType;
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
@@ -35,12 +36,17 @@ export namespace Components {
     interface CaseStudies {
     }
     interface ContentBox {
+        "gutter"?: boolean;
         "titleText"?: string;
+    }
+    interface LastPlayedSong {
     }
     interface MsCharCard {
     }
     interface RichTextRenderer {
         "field": RichTextField;
+    }
+    interface UnwindZone {
     }
 }
 declare global {
@@ -92,6 +98,12 @@ declare global {
         prototype: HTMLContentBoxElement;
         new (): HTMLContentBoxElement;
     };
+    interface HTMLLastPlayedSongElement extends Components.LastPlayedSong, HTMLStencilElement {
+    }
+    var HTMLLastPlayedSongElement: {
+        prototype: HTMLLastPlayedSongElement;
+        new (): HTMLLastPlayedSongElement;
+    };
     interface HTMLMsCharCardElement extends Components.MsCharCard, HTMLStencilElement {
     }
     var HTMLMsCharCardElement: {
@@ -104,6 +116,12 @@ declare global {
         prototype: HTMLRichTextRendererElement;
         new (): HTMLRichTextRendererElement;
     };
+    interface HTMLUnwindZoneElement extends Components.UnwindZone, HTMLStencilElement {
+    }
+    var HTMLUnwindZoneElement: {
+        prototype: HTMLUnwindZoneElement;
+        new (): HTMLUnwindZoneElement;
+    };
     interface HTMLElementTagNameMap {
         "app-button": HTMLAppButtonElement;
         "app-home": HTMLAppHomeElement;
@@ -113,8 +131,10 @@ declare global {
         "app-text": HTMLAppTextElement;
         "case-studies": HTMLCaseStudiesElement;
         "content-box": HTMLContentBoxElement;
+        "last-played-song": HTMLLastPlayedSongElement;
         "ms-char-card": HTMLMsCharCardElement;
         "rich-text-renderer": HTMLRichTextRendererElement;
+        "unwind-zone": HTMLUnwindZoneElement;
     }
 }
 declare namespace LocalJSX {
@@ -136,6 +156,7 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface AppText {
+        "blockEl"?: boolean;
         "color"?: TextColorType;
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
@@ -143,12 +164,17 @@ declare namespace LocalJSX {
     interface CaseStudies {
     }
     interface ContentBox {
+        "gutter"?: boolean;
         "titleText"?: string;
+    }
+    interface LastPlayedSong {
     }
     interface MsCharCard {
     }
     interface RichTextRenderer {
         "field"?: RichTextField;
+    }
+    interface UnwindZone {
     }
     interface IntrinsicElements {
         "app-button": AppButton;
@@ -159,8 +185,10 @@ declare namespace LocalJSX {
         "app-text": AppText;
         "case-studies": CaseStudies;
         "content-box": ContentBox;
+        "last-played-song": LastPlayedSong;
         "ms-char-card": MsCharCard;
         "rich-text-renderer": RichTextRenderer;
+        "unwind-zone": UnwindZone;
     }
 }
 export { LocalJSX as JSX };
@@ -175,8 +203,10 @@ declare module "@stencil/core" {
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
             "case-studies": LocalJSX.CaseStudies & JSXBase.HTMLAttributes<HTMLCaseStudiesElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;
+            "last-played-song": LocalJSX.LastPlayedSong & JSXBase.HTMLAttributes<HTMLLastPlayedSongElement>;
             "ms-char-card": LocalJSX.MsCharCard & JSXBase.HTMLAttributes<HTMLMsCharCardElement>;
             "rich-text-renderer": LocalJSX.RichTextRenderer & JSXBase.HTMLAttributes<HTMLRichTextRendererElement>;
+            "unwind-zone": LocalJSX.UnwindZone & JSXBase.HTMLAttributes<HTMLUnwindZoneElement>;
         }
     }
 }

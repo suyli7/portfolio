@@ -1,11 +1,10 @@
-import { Host, Component, h, State } from '@stencil/core';
+import { Host, Component, h } from '@stencil/core';
 import {
   TextColor,
   TextSize,
   TextVariant
 } from '../../common/namespaces';
-import { fetchApiData } from '../../common/api';
-import type { MsData } from '../../../common/api-data';
+import state from '../../store';
 
 @Component({
   tag: 'ms-char-card',
@@ -13,12 +12,6 @@ import type { MsData } from '../../../common/api-data';
   shadow: true,
 })
 export class MsCharCard {
-  @State() msData?: MsData;
-
-  async connectedCallback() {
-    fetchApiData('maplestory', (data) => { this.msData = data });
-  }
-
   render() {
     return (
       <Host>
@@ -27,29 +20,27 @@ export class MsCharCard {
             SSS
           </app-text>
           <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
-            Level&nbsp;{this.msData?.level}
+            Level&nbsp;{state.msData?.level}
           </app-text>
         </div>
         <app-image
-          src={this.msData?.charImg}
+          src={state.msData?.charImg}
           width={100}
           height={100}
           alt="maplestory character image"
         />
-        <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-          Job&nbsp;&lt;<app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
-            <app-image
-              src={this.msData?.jobIcon}
-              width={16}
-              height={16}
-              alt={`${this.msData?.jobName} job icon`}
-              imgStyle={{ transform: "translateY(0.2rem)" }}
-            />
-            &nbsp;{this.msData?.jobName}
-          </app-text>&gt;
+        <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
+          <app-image
+            src={state.msData?.jobIcon}
+            width={16}
+            height={16}
+            alt={`${state.msData?.jobName} job icon`}
+            imgStyle={{ transform: "translateY(0.2rem)", 'margin-right': 'var(--space-xxs)' }}
+          />
+          {state.msData?.jobName}
         </app-text>
         {
-          this.msData?.attributes.map((item) => (
+          state.msData?.attributes.map((item) => (
             <div class="ms-data--attr">
               <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
                 {item.name}&nbsp;&lt;<app-text color={TextColor.Yellow} variant={TextVariant.Title} size={TextSize.XSmall}>

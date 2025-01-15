@@ -1,6 +1,6 @@
 main {
-  width: 90%;
-  max-width: 1440px;
+  width: 82.5%;
+  max-width: 1366px;
   margin: var(--space-xl) auto;
   display: block;
   box-sizing: border-box;

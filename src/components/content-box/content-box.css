@@ -24,3 +24,7 @@
   height: 100%;
   object-fit: cover;
 }
+
+.content-box--gutter {
+  margin-bottom: var(--space-m);
+}

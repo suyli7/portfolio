@@ -1,0 +1,47 @@
+.game-data--wrapper,
+.game-data--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-data--wrapper {
+  row-gap: var(--space-xs);
+}
+
+.game-data--container {
+  row-gap: var(--space-xxs);
+}
+
+.unwind-zone--wrapper {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: var(--space-m);
+  -moz-column-gap: var(--space-m);
+  column-gap: var(--space-m);
+  -moz-row-gap: var(--space-m);
+  -webkit-row-gap: var(--space-m);
+  row-gap: var(--space-m);
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  .unwind-zone--wrapper {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .unwind-zone--wrapper {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: var(--space-s);
+    -moz-column-gap: var(--space-s);
+    column-gap: var(--space-s);
+    -moz-row-gap: var(--space-s);
+    -webkit-row-gap: var(--space-s);
+    row-gap: var(--space-s);
+  }
+}

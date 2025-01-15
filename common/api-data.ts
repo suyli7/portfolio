@@ -4,7 +4,6 @@ export interface AboutDataModel {
   intro_primary: RichTextField;
   intro_secondary: RichTextField;
   intro_text: RichTextField;
-  profile_pic: ImageField;
   connect_header: string;
   experience: Array<{
     org: string;
@@ -20,6 +19,11 @@ export interface AboutDataModel {
   tools: string;
   frameworks: string;
   bulletin: RichTextField;
+}
+
+export interface PerosnalDataModel {
+  picture: ImageField,
+  description: RichTextField
 }
 
 export interface CaseStudyDataModel {

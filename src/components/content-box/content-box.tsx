@@ -12,10 +12,14 @@ import {
 })
 export class ContentBox {
   @Prop() titleText?: string = '';
+  @Prop() gutter?: boolean = false;
 
   render() {
     return (
-      <fieldset class="content-box">
+      <fieldset class={{
+        "content-box": true,
+        "content-box--gutter": this.gutter
+      }}>
         {
           this.titleText && (
             <legend>

@@ -10,7 +10,13 @@ import type {
   TextVariantType
 } from '../../common/types';
 
-const getClassname = (color: TextColorType, variant: TextVariantType, size: TextSizeType): string => `app-text--${color} app-text--${variant} app-text--${size}`;
+const getClassname = (
+  color: TextColorType,
+  variant: TextVariantType,
+  size: TextSizeType,
+  display: 'block' | 'inline'
+): string =>
+  `app-text--${color} app-text--${variant} app-text--${size} app-text--${display}`;
 
 @Component({
   tag: 'app-text',
@@ -21,15 +27,16 @@ export class AppText {
   @Prop() variant?: TextVariantType = TextVariant.Body;
   @Prop() color?: TextColorType = TextColor.Sub;
   @Prop() size?: TextSizeType = TextSize.XSmall;
+  @Prop() blockEl?: boolean = false;
 
   render() {
     return (
-      <Host class={getClassname(this.color, this.variant, this.size)}>
+      <Host class={getClassname(this.color, this.variant, this.size, this.blockEl ? 'block' : 'inline')}>
         {
-          (this.variant === TextVariant.Accent || this.variant === TextVariant.Title) && <span><slot/></span>
+          (this.variant === TextVariant.Accent || this.variant === TextVariant.Title) && <span><slot /></span>
         }
         {
-          this.variant === TextVariant.Body && <slot/>
+          this.variant === TextVariant.Body && <slot />
         }
       </Host>
     );

@@ -1,83 +1,91 @@
 :host(.app-text--accent),
 :host(.app-text--title) {
-    font-family: "VT323", system-ui;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "VT323", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 :host(.app-text--accent) {
-    text-shadow: 3px 3px 0px var(--color-green);
-    -webkit-text-stroke: 3px var(--color-black);
-    paint-order: stroke fill;
+  text-shadow: 3px 3px 0px var(--color-green);
+  -webkit-text-stroke: 3px var(--color-black);
+  paint-order: stroke fill;
+}
+
+:host(.app-text--block) {
+  display: block;
+}
+
+:host(.app-text--inline) {
+  display: inline;
 }
 
 ::slotted(a) {
-    cursor: var(--cursor-pointer);
-    text-decoration: underline;
-    color: var(--color-green);
+  cursor: var(--cursor-pointer);
+  text-decoration: underline;
+  color: var(--color-green);
 }
 
 ::slotted(a:visited) {
-    color: var(--color-green);
+  color: var(--color-green);
 }
 
 ::slotted(a:hover) {
-    background-color: var(--color-blue);
+  background-color: var(--color-blue);
 }
 
 :host(.app-text--body) {
-    display: inline-block;
-    line-height: 1.16;
+  display: inline-block;
+  line-height: 1.16;
 }
 
 :host(.app-text--sub) {
-    color: var(--color-text-sub);
+  color: var(--color-text-sub);
 }
 
 :host(.app-text--main) {
-    color: var(--color-text-main);
+  color: var(--color-text-main);
 }
 
 :host(.app-text--red) {
-    color: var(--color-red);
+  color: var(--color-red);
 }
 
 :host(.app-text--green) {
-    color: var(--color-green);
+  color: var(--color-green);
 }
 
 :host(.app-text--yellow) {
-    color: var(--color-yellow);
+  color: var(--color-yellow);
 }
 
 :host(.app-text--magenta) {
-    color: var(--color-magenta);
+  color: var(--color-magenta);
 }
 
 :host(.app-text--cyan) {
-    color: var(--color-cyan);
+  color: var(--color-cyan);
 }
 
 :host(.app-text--blue) {
-    color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 :host(.app-text--xxs) {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 :host(.app-text--xs) {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 :host(.app-text--s) {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 :host(.app-text--m) {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 :host(.app-text--l) {
-    font-size: 32px;
+  font-size: 32px;
 }

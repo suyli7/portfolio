@@ -14,6 +14,10 @@ export class AppRoot {
 
   async connectedCallback() {
     fetchApiData('prismic/about', (data) => { state.about = data });
+    fetchApiData('prismic/personal', (data) => { state.personal = data });
+    fetchApiData('maplestory', (data) => { state.msData = data });
+    fetchApiData('music', (data) => { state.lastPlayedSong = data });
+    fetchApiData('steam', (data) => { state.lastPlayedGames = data });
   }
 
   render() {
@@ -31,9 +35,12 @@ export class AppRoot {
           <Route path="/">
             <app-home />
           </Route>
-          <Route path="/case-study">
-            <case-studies />
+          <Route path="/unwind-zone">
+            <unwind-zone />
           </Route>
+          {/* <Route path="/case-study">
+            <case-studies />
+          </Route> */}
           {/* <Route
               path={match("/case-study/:id")}
               render={({ id }) => <app-case-study id={id} />}

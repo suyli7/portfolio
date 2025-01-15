@@ -1,46 +1,30 @@
 app-layout {
   display: grid;
-  grid-template-columns: 1fr 4.5fr;
+  grid-template-columns: 1fr 4fr;
   column-gap: var(--space-l);
+  padding: var(--space-l);
 }
 
 .app-layout--static-content,
 .app-layout--page-content {
-  padding-block: var(--space-l);
-}
-
-.app-layout--static-content {
-  position: sticky;
-  top: 0;
   display: flex;
   align-self: flex-start;
   flex-direction: column;
   row-gap: var(--space-m);
-  padding-left: var(--space-l);
-}
-
-.app-layout--page-content {
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-self: flex-start;
-  flex-direction: column;
-  row-gap: var(--space-m);
-  padding-right: var(--space-l);
 }
 
 @media only screen and (max-width: 700px) {
 
   .app-layout--static-content,
   .app-layout--page-content {
-    padding-block: var(--space-s);
+    padding-block: var(--space-m);
   }
 
   .app-layout--static-content {
-    padding-left: var(--space-s);
+    padding-left: var(--space-m);
   }
 
   .app-layout--page-content {
-    padding-right: var(--space-s);
+    padding-right: var(--space-m);
   }
 }
