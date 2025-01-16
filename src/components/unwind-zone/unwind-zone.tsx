@@ -29,7 +29,7 @@ export class UnwindZone {
           <content-box gutter titleText="me on maplestory">
             <ms-char-card />
           </content-box>
-          <content-box gutter titleText="recent games on steam">
+          <content-box gutter titleText="recently played">
             <div class="game-data--wrapper">
               {
                 state.lastPlayedGames?.map((game) => (

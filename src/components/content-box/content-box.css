@@ -17,6 +17,10 @@
   padding-inline: var(--space-s);
   margin-left: calc(-1 * var(--space-s));
   margin-bottom: var(--space-s);
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  column-gap: var(--space-xxs);
 }
 
 .content-box img {

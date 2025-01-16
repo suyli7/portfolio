@@ -23,6 +23,7 @@ export class ContentBox {
         {
           this.titleText && (
             <legend>
+              {/* <app-image src="/assets/icon_music_cd.png" width={20} height={20} alt="music cd icon" /> */}
               <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
                 {this.titleText}
               </app-text>
