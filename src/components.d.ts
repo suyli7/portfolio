@@ -12,6 +12,7 @@ export { RichTextField } from "@prismicio/client";
 export namespace Components {
     interface AppButton {
         "buttonStyle"?: { [key: string]: any };
+        "secondary"?: boolean;
     }
     interface AppHome {
     }
@@ -139,6 +140,7 @@ declare global {
 declare namespace LocalJSX {
     interface AppButton {
         "buttonStyle"?: { [key: string]: any };
+        "secondary"?: boolean;
     }
     interface AppHome {
     }

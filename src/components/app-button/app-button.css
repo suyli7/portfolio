@@ -19,10 +19,24 @@
 }
 
 .app-button:hover {
-  background-color: rgb(50, 50, 244);
+  background-color: #3232f4;
 }
 
 .app-button:active {
   border-style: inset;
   border-color: #2735a4 var(--color-blue) var(--color-blue) #2735a4;
+}
+
+.app-button--secondary {
+  background-color: #3f4143;
+  border-color: #6f6f6f;
+}
+
+.app-button--secondary:hover {
+  background-color: #646464;
+}
+
+.app-button--secondary:active {
+  border-style: inset;
+  border-color: #6f6f6f;
 }

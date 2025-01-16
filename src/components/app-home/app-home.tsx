@@ -1,7 +1,5 @@
 import { Component, State, h } from '@stencil/core';
-import { fetchApiData } from '../../common/api';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
-import type { LastPlayedSong, LastPlayedGame } from '../../../common/api-data';
 import state from '../../store';
 
 @Component({
@@ -11,16 +9,21 @@ import state from '../../store';
 // very inflated page because I need to overcome my laziness
 export class AppHome {
 
-  @State() lastPlayedSong?: LastPlayedSong;
-  @State() lastPlayedGames?: Array<LastPlayedGame> = [];
+  @State() showMoreInfo?: boolean = false;
+  moreInfoEl!: HTMLElement;
 
-  async setApiData() {
-    fetchApiData('music', (data) => { this.lastPlayedSong = data });
-    fetchApiData('steam', (data) => { this.lastPlayedGames = data });
-  }
-
-  async connectedCallback() {
-    this.setApiData();
+  private handleShowMoreOnClick = () => {
+    if (this.showMoreInfo) {
+      this.moreInfoEl.style.height = '0';
+      this.moreInfoEl.style.opacity = '0';
+      this.moreInfoEl.classList.remove('intro-secondary--expanded')
+    } else {
+      const fullHeight = this.moreInfoEl.scrollHeight;
+      this.moreInfoEl.style.height = `${fullHeight}px`;
+      this.moreInfoEl.style.opacity = '1';
+      this.moreInfoEl.classList.add('intro-secondary--expanded');
+    }
+    this.showMoreInfo = !this.showMoreInfo;
   }
 
   render() {
@@ -34,6 +37,19 @@ export class AppHome {
             <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Large}>
               <rich-text-renderer class='intro-description' field={state.about?.intro_primary} />
             </app-text>
+            <div
+              class="intro-secondary"
+              ref={(el) => (this.moreInfoEl = el as HTMLElement)}
+            >
+              <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
+                <rich-text-renderer class='intro-description' field={state.about?.intro_secondary} />
+              </app-text>
+            </div>
+            <app-button secondary onClick={this.handleShowMoreOnClick}>
+              {
+                this.showMoreInfo ? "Show less" : "What? You want to know more?"
+              }
+            </app-button>
           </content-box>
           <content-box titleText="work experience">
             <div class="exp-items--wrapper">

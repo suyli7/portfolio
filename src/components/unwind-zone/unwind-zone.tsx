@@ -21,7 +21,7 @@ export class UnwindZone {
           <content-box gutter titleText="last played song">
             <last-played-song />
           </content-box>
-          <content-box gutter titleText='more about me'>
+          <content-box gutter titleText='welcome note'>
             <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
               <rich-text-renderer field={state.personal?.description} />
             </app-text>
