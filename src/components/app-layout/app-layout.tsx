@@ -7,6 +7,11 @@ import {
 } from '../../common/namespaces';
 import state from '../../store';
 
+const NAV_CONFIG: Array<{ name: string; route: string; icon: string }> = [
+  { name: 'home', route: '/', icon: 'icon_computer' },
+  { name: 'unwind zone', route: '/unwind-zone', icon: 'icon_person' }
+]
+
 @Component({
   tag: 'app-layout',
   styleUrl: 'app-layout.css',
@@ -20,16 +25,18 @@ export class AppLayout {
             Su with no E<br /> ✨(ㆆ◡ㆆ)✌️
           </app-button>
           <content-box titleText="nav">
-            <app-text variant={TextVariant.Title} size={TextSize.Medium} blockEl>
-              <a {...href('/')}>
-                home
-              </a>
-            </app-text>
-            <app-text variant={TextVariant.Title} size={TextSize.Medium} blockEl>
-              <a {...href('/unwind-zone')}>
-                unwind zone
-              </a>
-            </app-text>
+            <div class="nav-items--wrapper">
+              {
+                NAV_CONFIG.map((item) => (
+                  <a {...href(item.route)} class="nav-items--item-container">
+                    <app-image width={40} height={40} src={`/assets/icons/${item.icon}.png`} />
+                    <app-text variant={TextVariant.Body} size={TextSize.XXSmall}>
+                      {item.name}
+                    </app-text>
+                  </a>
+                ))
+              }
+            </div>
           </content-box>
           <content-box titleText='bulletin'>
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
