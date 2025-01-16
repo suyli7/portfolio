@@ -24,7 +24,7 @@ export class LastPlayedSong {
             />
           </div>
           <div class="song-data--right">
-            <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.XSmall}>
+            <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
               {state.lastPlayedSong?.song}
             </app-text>
             <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XXSmall}>

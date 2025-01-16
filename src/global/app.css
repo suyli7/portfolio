@@ -36,8 +36,8 @@
   --space-m: 20px;
   --space-l: 32px;
   --space-xl: 48px;
-  --cursor-pointer: url("/assets/cursor_pointer.png"), pointer;
-  --cursor-default: url("/assets/cursor_default.png"), default;
+  --cursor-pointer: url("/assets/icons/cursor_pointer.png"), pointer;
+  --cursor-default: url("/assets/icons/cursor_default.png"), default;
   --scroll-text-from: 40%;
   --scroll-text-to: -100%;
   --thumbnail-size: 52px;

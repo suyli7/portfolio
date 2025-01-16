@@ -1,4 +1,4 @@
-import { Host, Component, Prop, h } from '@stencil/core';
+import { Host, Component, Prop, h, State } from '@stencil/core';
 
 @Component({
 	tag: 'app-image',
@@ -12,6 +12,13 @@ export class AppImage {
 	@Prop() height?: number;
 	@Prop() imgStyle?: { [key: string]: any } = {}
 
+	@State() loaded?: boolean = false;
+
+	private handleImageLoad = () => {
+		this.loaded = true;
+	};
+
+
 	render() {
 		return (
 			<Host
@@ -20,10 +27,18 @@ export class AppImage {
 					height: this.height ? `${this.height}px` : '100%',
 				}}
 			>
+				{!this.loaded && (
+					<img
+						class="app-image--placeholder"
+						src='/assets/icons/icon_loading.png'
+						alt="Loading placeholder"
+					/>
+				)}
 				<img
 					class="app-image"
 					src={this.src}
 					alt={this.alt}
+					onLoad={this.handleImageLoad}
 					style={this.imgStyle}
 				/>
 			</Host>
