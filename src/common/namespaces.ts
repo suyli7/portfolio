@@ -30,5 +30,7 @@ export enum TextSize {
     XSmall = 'xs',
     Small = 's',
     Medium = 'm',
-    Large = 'l'
+    Large = 'l',
+    XLarge = 'xl',
+    XXLarge = 'xxl'
 }

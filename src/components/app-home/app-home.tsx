@@ -28,10 +28,10 @@ export class AppHome {
       <app-layout>
         <div class="home-wrapper">
           <content-box titleText="intro">
-            <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.Large}>
+            <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.XLarge}>
               <rich-text-renderer field={state.about?.intro_text} />
             </app-text>
-            <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Medium}>
+            <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Large}>
               <rich-text-renderer class='intro-description' field={state.about?.intro_primary} />
             </app-text>
           </content-box>

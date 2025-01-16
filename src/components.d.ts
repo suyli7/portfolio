@@ -19,7 +19,6 @@ export namespace Components {
         "alt"?: string;
         "height"?: number;
         "imgStyle"?: { [key: string]: any };
-        "objectFit"?: 'cover' | 'contain';
         "src": string;
         "width"?: number;
     }
@@ -147,7 +146,6 @@ declare namespace LocalJSX {
         "alt"?: string;
         "height"?: number;
         "imgStyle"?: { [key: string]: any };
-        "objectFit"?: 'cover' | 'contain';
         "src"?: string;
         "width"?: number;
     }

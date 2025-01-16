@@ -12,7 +12,11 @@ export class UnwindZone {
       <app-layout>
         <div class="unwind-zone--wrapper">
           <content-box gutter titleText="me">
-            <app-image src={state.personal?.picture.url} alt={state.personal?.picture.alt} />
+            <app-image
+              src={state.personal?.picture.url}
+              alt={state.personal?.picture.alt}
+              imgStyle={{ 'max-width': '200px', 'max-height': '200px' }}
+            />
           </content-box>
           <content-box gutter titleText="last played song">
             <last-played-song />

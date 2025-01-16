@@ -29,16 +29,17 @@ export class MsCharCard {
           height={100}
           alt="maplestory character image"
         />
-        <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
+        <div class="ms-data--job">
           <app-image
             src={state.msData?.jobIcon}
             width={16}
             height={16}
             alt={`${state.msData?.jobName} job icon`}
-            imgStyle={{ transform: "translateY(0.2rem)", 'margin-right': 'var(--space-xxs)' }}
           />
-          {state.msData?.jobName}
-        </app-text>
+          <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
+            {state.msData?.jobName}
+          </app-text>
+        </div>
         {
           state.msData?.attributes.map((item) => (
             <div class="ms-data--attr">

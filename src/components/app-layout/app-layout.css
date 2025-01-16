@@ -13,15 +13,10 @@ app-layout {
   row-gap: var(--space-m);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
 
-  .app-layout--static-content,
-  .app-layout--page-content {
-    padding-block: var(--space-m);
-  }
-
-  .app-layout--static-content {
-    padding-left: var(--space-m);
+  app-layout {
+    grid-template-columns: 1fr;
   }
 
   .app-layout--page-content {

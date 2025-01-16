@@ -87,5 +87,13 @@
 }
 
 :host(.app-text--l) {
-  font-size: 32px;
+  font-size: 28px;
+}
+
+:host(.app-text--xl) {
+  font-size: 36px;
+}
+
+:host(.app-text--xxl) {
+  font-size: 48px;
 }
