@@ -10,7 +10,7 @@ import { state } from '../../store';
 const NAV_CONFIG: Array<{ name: string; route: string; icon: string }> = [
   { name: 'home', route: '/', icon: 'icon_computer' },
   { name: 'unwind zone', route: '/unwind-zone', icon: 'icon_person' }
-]
+];
 
 @Component({
   tag: 'app-layout',
@@ -44,15 +44,15 @@ export class AppLayout {
             </app-text>
           </content-box>
           <content-box titleText="links">
-            {
-              state.about?.links.map((l) => (
-                <app-text variant={TextVariant.Title} size={TextSize.Medium} blockEl>
+            <div class="link-items-wrapper">
+              {
+                state.about?.links.map((l) => (
                   <a href={l.link} target="_blank">
-                    {l.link_name}
+                    <app-image width={88} height={31} src={`/assets/badges/${l.link_name.toLowerCase()}.jpg`} />
                   </a>
-                </app-text>
-              ))
-            }
+                ))
+              }
+            </div>
           </content-box>
           <content-box titleText="site info">
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>

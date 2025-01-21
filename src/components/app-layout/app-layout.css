@@ -31,6 +31,25 @@ app-layout {
   color: var(--color-green);
 }
 
+.link-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-xxs);
+}
+
+.link-items-wrapper a {
+  width: 88px;
+  height: 31px;
+  transition: border 0.12s;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.link-items-wrapper a:hover {
+  border-color: var(--color-green);
+}
+
 @media only screen and (max-width: 720px) {
 
   app-layout {
