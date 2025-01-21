@@ -1,6 +1,6 @@
 import { Component, State, h } from '@stencil/core';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
-import state from '../../store';
+import { state } from '../../store';
 
 @Component({
   tag: 'app-home',
@@ -37,19 +37,19 @@ export class AppHome {
             <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Large}>
               <rich-text-renderer class='intro-description' field={state.about?.intro_primary} />
             </app-text>
-            <div
-              class="intro-secondary"
-              ref={(el) => (this.moreInfoEl = el as HTMLElement)}
-            >
-              <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
-                <rich-text-renderer class='intro-description' field={state.about?.intro_secondary} />
-              </app-text>
-            </div>
             <app-button secondary onClick={this.handleShowMoreOnClick}>
               {
                 this.showMoreInfo ? "Show less" : "What? You want to know more?"
               }
             </app-button>
+            <div
+              class="intro-secondary"
+              ref={(el) => (this.moreInfoEl = el as HTMLElement)}
+            >
+              <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
+                <rich-text-renderer field={state.about?.intro_secondary} />
+              </app-text>
+            </div>
           </content-box>
           <content-box titleText="work experience">
             <div class="exp-items--wrapper">

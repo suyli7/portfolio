@@ -60,3 +60,8 @@ export interface LastPlayedGame {
   playtimeTwoWeeks: string;
   url: string;
 }
+
+export interface AssetImg {
+  url: string;
+  description: string;
+}

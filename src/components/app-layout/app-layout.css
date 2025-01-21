@@ -27,7 +27,11 @@ app-layout {
   row-gap: var(--space-xxs);
 }
 
-@media only screen and (max-width: 600px) {
+.nav-items--item-container:hover app-text {
+  color: var(--color-green);
+}
+
+@media only screen and (max-width: 720px) {
 
   app-layout {
     grid-template-columns: 1fr;

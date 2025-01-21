@@ -8,8 +8,8 @@ import { Host, Component, Prop, h, State } from '@stencil/core';
 export class AppImage {
 	@Prop() src: string = '';
 	@Prop() alt?: string = '';
-	@Prop() width?: number;
-	@Prop() height?: number;
+	@Prop() width?: number | string;
+	@Prop() height?: number | string;
 	@Prop() imgStyle?: { [key: string]: any } = {}
 
 	@State() loaded?: boolean = false;
@@ -18,13 +18,25 @@ export class AppImage {
 		this.loaded = true;
 	};
 
+	private calcSize = (value?: number | string): string => {
+		if (!value) {
+			return '100%';
+		}
+
+		if (typeof value === 'number') {
+			return `${value}px`;
+		}
+
+		return value;
+	}
+
 
 	render() {
 		return (
 			<Host
 				style={{
-					width: this.width ? `${this.width}px` : '100%',
-					height: this.height ? `${this.height}px` : '100%',
+					width: this.calcSize(this.width),
+					height: this.calcSize(this.height),
 				}}
 			>
 				{!this.loaded && (

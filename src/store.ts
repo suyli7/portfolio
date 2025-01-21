@@ -5,7 +5,8 @@ import type {
   LastPlayedGame,
   LastPlayedSong,
   MsData,
-  PerosnalDataModel
+  PerosnalDataModel,
+  AssetImg
 } from '../common/api-data';
 
 interface AppState {
@@ -15,37 +16,27 @@ interface AppState {
   msData?: MsData;
   lastPlayedGames?: Array<LastPlayedGame>;
   lastPlayedSong?: LastPlayedSong;
-
+  favImgs?: Array<AssetImg>;
+  favImgIndex?: number;
 }
 
-const { state, onChange } = createStore<AppState>({
+const { state, set, onChange } = createStore<AppState>({
   about: null,
   caseStudies: [],
   personal: null,
+  msData: null,
+  lastPlayedGames: [],
+  lastPlayedSong: null,
+  favImgs: [],
+  favImgIndex: 0
 });
 
-onChange('about', value => {
-  state.about = value;
+onChange('favImgs', (data) => {
+  const randomIndex = Math.floor(Math.random() * data.length);
+  state.favImgIndex = randomIndex;
 });
 
-onChange('caseStudies', value => {
-  state.caseStudies = value;
-});
-
-onChange('msData', value => {
-  state.msData = value;
-});
-
-onChange('lastPlayedGames', value => {
-  state.lastPlayedGames = value;
-});
-
-onChange('lastPlayedSong', value => {
-  state.lastPlayedSong = value;
-});
-
-onChange('personal', value => {
-  state.personal = value;
-});
-
-export default state;
+export {
+  state,
+  set
+};

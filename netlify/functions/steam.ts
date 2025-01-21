@@ -15,15 +15,12 @@ exports.handler = async function () {
   const steam_res = await fetch(STEAM_API_URL);
   const steam_res_data = await steam_res.json();
 
-  const data: Array<LastPlayedGame> = steam_res_data.response.games.map(game => {
-    const gameData: LastPlayedGame = {
-      name: game.name,
-      imgUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`,
-      playtimeTwoWeeks: getTimeBySeconds(game.playtime_2weeks * 60),
-      url: `https://store.steampowered.com/app/${game.appid}`
-    };
-    return gameData;
-  });
+  const data = steam_res_data.response.games.map((game): LastPlayedGame => ({
+    name: game.name,
+    imgUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`,
+    playtimeTwoWeeks: getTimeBySeconds(game.playtime_2weeks * 60),
+    url: `https://store.steampowered.com/app/${game.appid}`
+  }));
 
   return {
     statusCode: 200,

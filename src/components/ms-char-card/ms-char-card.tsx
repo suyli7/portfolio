@@ -4,7 +4,7 @@ import {
   TextSize,
   TextVariant
 } from '../../common/namespaces';
-import state from '../../store';
+import { state } from '../../store';
 
 @Component({
   tag: 'ms-char-card',

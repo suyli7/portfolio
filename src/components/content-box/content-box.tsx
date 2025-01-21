@@ -13,6 +13,7 @@ import {
 export class ContentBox {
   @Prop() titleText?: string = '';
   @Prop() gutter?: boolean = false;
+  @Prop() helperText?: string = null;
 
   render() {
     return (
@@ -27,6 +28,13 @@ export class ContentBox {
               <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
                 {this.titleText}
               </app-text>
+              {
+                this.helperText && (
+                  <div class="content-box--tooltip" data-text={this.helperText}>
+                    <app-image src="/assets/icons/icon_question.png" width={12} height={12} alt={this.helperText} />
+                  </div>
+                )
+              }
             </legend>
           )
         }

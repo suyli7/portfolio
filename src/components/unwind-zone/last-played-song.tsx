@@ -1,6 +1,6 @@
 import { Component, h, Host } from '@stencil/core';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
-import state from '../../store';
+import { state } from '../../store';
 
 @Component({
   tag: 'last-played-song',

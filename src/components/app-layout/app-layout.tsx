@@ -5,7 +5,7 @@ import {
   TextSize,
   TextVariant
 } from '../../common/namespaces';
-import state from '../../store';
+import { state } from '../../store';
 
 const NAV_CONFIG: Array<{ name: string; route: string; icon: string }> = [
   { name: 'home', route: '/', icon: 'icon_computer' },

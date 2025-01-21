@@ -9,7 +9,11 @@ main {
   box-shadow: rgba(150, 150, 255, 0.1) 0px 4px 16px;
 }
 
-@media only screen and (max-width: 600px) {
+.loading-screen {
+  padding: var(--space-l);
+}
+
+@media only screen and (max-width: 720px) {
   main {
     margin: var(--space-m) auto;
   }

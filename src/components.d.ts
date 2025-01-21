@@ -18,10 +18,10 @@ export namespace Components {
     }
     interface AppImage {
         "alt"?: string;
-        "height"?: number;
+        "height"?: number | string;
         "imgStyle"?: { [key: string]: any };
         "src": string;
-        "width"?: number;
+        "width"?: number | string;
     }
     interface AppLayout {
     }
@@ -37,6 +37,7 @@ export namespace Components {
     }
     interface ContentBox {
         "gutter"?: boolean;
+        "helperText"?: string;
         "titleText"?: string;
     }
     interface LastPlayedSong {
@@ -146,10 +147,10 @@ declare namespace LocalJSX {
     }
     interface AppImage {
         "alt"?: string;
-        "height"?: number;
+        "height"?: number | string;
         "imgStyle"?: { [key: string]: any };
         "src"?: string;
-        "width"?: number;
+        "width"?: number | string;
     }
     interface AppLayout {
     }
@@ -165,6 +166,7 @@ declare namespace LocalJSX {
     }
     interface ContentBox {
         "gutter"?: boolean;
+        "helperText"?: string;
         "titleText"?: string;
     }
     interface LastPlayedSong {

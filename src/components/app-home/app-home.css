@@ -4,10 +4,6 @@
   row-gap: var(--space-l);
 }
 
-.intro-description p:nth-of-type(1) {
-  color: var(--color-cyan);
-}
-
 .intro-description strong:nth-of-type(1) {
   color: var(--color-yellow);
 }
@@ -57,7 +53,7 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
   .exp-item {
     grid-template-columns: 1fr;
   }

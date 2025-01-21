@@ -3,7 +3,7 @@ import { Router } from '../../';
 import { Route } from 'stencil-router-v2';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { fetchApiData } from '../../common/api';
-import state from '../../store';
+import { state, set } from '../../store';
 
 @Component({
   tag: 'app-root',
@@ -13,19 +13,24 @@ import state from '../../store';
 export class AppRoot {
 
   async connectedCallback() {
-    fetchApiData('prismic/about', (data) => { state.about = data });
-    fetchApiData('prismic/personal', (data) => { state.personal = data });
-    fetchApiData('maplestory', (data) => { state.msData = data });
-    fetchApiData('music', (data) => { state.lastPlayedSong = data });
-    fetchApiData('steam', (data) => { state.lastPlayedGames = data });
+    fetchApiData('prismic/about', (data) => { set('about', data) });
+    fetchApiData('prismic/personal', (data) => { set('personal', data) });
+    fetchApiData('prismic/favimgs', (data) => { set('favImgs', data) });
+    fetchApiData('maplestory', (data) => { set('msData', data) });
+    fetchApiData('music', (data) => { set('lastPlayedSong', data) });
+    fetchApiData('steam', (data) => { set('lastPlayedGames', data) });
   }
 
   render() {
-    if (!state.about) {
+    if (!state.about || !state.personal || !state.favImgs) {
       return (
-        <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.Large}>
-          Getting ready...
-        </app-text>
+        <main>
+          <div class="loading-screen">
+            <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.Large}>
+              Getting ready...
+            </app-text>
+          </div>
+        </main>
       )
     }
 
