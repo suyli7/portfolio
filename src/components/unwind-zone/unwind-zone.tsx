@@ -64,7 +64,7 @@ export class UnwindZone {
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recently played">
+      <content-box gutter titleText="recently played" helperText="past two weeks playtime data from steam">
         <div class="game-data--wrapper">
           {
             state.lastPlayedGames?.map((game) => (
@@ -74,7 +74,7 @@ export class UnwindZone {
                   {game.name}
                 </app-text>
                 <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                  {game.playtimeTwoWeeks}&nbsp;(past two weeks)
+                  {game.playtimeTwoWeeks}
                 </app-text>
               </a>
             ))

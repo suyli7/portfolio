@@ -18,7 +18,7 @@ exports.handler = async function () {
   const data = steam_res_data.response.games.map((game): LastPlayedGame => ({
     name: game.name,
     imgUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/header.jpg`,
-    playtimeTwoWeeks: getTimeBySeconds(game.playtime_2weeks * 60),
+    playtimeTwoWeeks: getTimeBySeconds(game.playtime_2weeks * 60, false),
     url: `https://store.steampowered.com/app/${game.appid}`
   }));
 
