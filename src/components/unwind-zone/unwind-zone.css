@@ -5,9 +5,12 @@
   flex-direction: column;
 }
 
-.game-data--wrapper,
 .random-image {
   row-gap: var(--space-xs);
+}
+
+.game-data--wrapper {
+  row-gap: var(--space-m);
 }
 
 .game-data--container {

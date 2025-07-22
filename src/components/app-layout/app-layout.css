@@ -54,9 +54,10 @@ app-layout {
 
   app-layout {
     grid-template-columns: 1fr;
+    padding: var(--space-m);
   }
 
   .app-layout--page-content {
-    padding-right: var(--space-m);
+    padding-top: var(--space-m);
   }
 }

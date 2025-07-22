@@ -1,5 +1,5 @@
 import type { LastPlayedSong } from '../../common/api-data';
-import { getTimeBySeconds } from '../../common/get-time-by-seconds';
+import { getTimeBySeconds } from '../../common/date-utils';
 
 const BASE_URL = "http://ws.audioscrobbler.com/2.0/";
 

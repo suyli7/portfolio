@@ -64,7 +64,7 @@ export class UnwindZone {
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recently played" helperText="past two weeks playtime data from steam">
+      <content-box gutter titleText="recent steam activity">
         <div class="game-data--wrapper">
           {
             state.lastPlayedGames?.map((game) => (
@@ -74,7 +74,10 @@ export class UnwindZone {
                   {game.name}
                 </app-text>
                 <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                  {game.playtimeTwoWeeks}
+                  {game.lastPlayed}
+                </app-text>
+                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                  {game.totalPlaytime}
                 </app-text>
               </a>
             ))
@@ -119,13 +122,12 @@ export class UnwindZone {
         boxRandomImage
       ];
       const colNum = this.colNum;
-      const itemsPerColumn = Math.ceil(components.length / colNum);
 
-      const columns = Array.from({ length: colNum }, (_, i) => {
-        const start = i * itemsPerColumn;
-        const end = start + itemsPerColumn;
-        return components.slice(start, end);
-      });
+      const columns = components.reduce((acc, component, index) => {
+        const columnIndex = index % colNum;
+        acc[columnIndex].push(component);
+        return acc;
+      }, Array.from({ length: colNum }, () => []));
 
       return (
         columns.map((column, columnIndex) => (

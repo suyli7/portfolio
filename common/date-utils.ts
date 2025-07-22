@@ -14,3 +14,10 @@ export const getTimeBySeconds = (seconds: number, enableDays = true) => {
     return `${days} ${pluralize(days, 'day')}`;
   }
 }
+
+export const getFormattedDate = (seconds: number) => {
+  const date = new Date(seconds * 1000);
+  const convertedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  return convertedDate;
+}

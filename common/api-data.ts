@@ -57,11 +57,19 @@ export interface LastPlayedSong {
 export interface LastPlayedGame {
   name: string;
   imgUrl: string;
-  playtimeTwoWeeks: string;
+  lastPlayed: string;
+  totalPlaytime: string;
   url: string;
 }
 
 export interface AssetImg {
   url: string;
   description: string;
+}
+
+export interface LastReadBook {
+  name: string;
+  author: string;
+  imgUrl: string;
+  bookUrl: string;
 }
