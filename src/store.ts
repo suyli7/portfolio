@@ -2,11 +2,12 @@ import { createStore } from "@stencil/store";
 import type {
   AboutDataModel,
   CaseStudyDataModel,
+  LastReadBook,
   LastPlayedGame,
   LastPlayedSong,
   MsData,
   PerosnalDataModel,
-  AssetImg
+  AssetImg,
 } from '../common/api-data';
 
 interface AppState {
@@ -14,6 +15,7 @@ interface AppState {
   caseStudies?: Array<CaseStudyDataModel>;
   personal?: PerosnalDataModel;
   msData?: MsData;
+  lastReadBook?: LastReadBook,
   lastPlayedGames?: Array<LastPlayedGame>;
   lastPlayedSong?: LastPlayedSong;
   favImgs?: Array<AssetImg>;
@@ -25,6 +27,7 @@ const { state, set, onChange } = createStore<AppState>({
   caseStudies: [],
   personal: null,
   msData: null,
+  lastReadBook: null,
   lastPlayedGames: [],
   lastPlayedSong: null,
   favImgs: [],

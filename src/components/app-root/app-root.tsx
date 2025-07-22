@@ -17,6 +17,7 @@ export class AppRoot {
     fetchApiData('prismic/personal', (data) => { set('personal', data) });
     fetchApiData('prismic/favimgs', (data) => { set('favImgs', data) });
     fetchApiData('maplestory', (data) => { set('msData', data) });
+    fetchApiData('books', (data) => { set('lastReadBook', data) });
     fetchApiData('music', (data) => { set('lastPlayedSong', data) });
     fetchApiData('steam', (data) => { set('lastPlayedGames', data) });
   }

@@ -57,6 +57,25 @@ export class UnwindZone {
       </content-box>
     );
 
+
+    const boxLastReadBook = (
+      state.lastReadBook ?
+        <content-box gutter titleText="last read book">
+          <div class="book-data--wrapper">
+            <a href={state.lastReadBook.bookUrl} target="_blank">
+              <app-image src={state.lastReadBook.imgUrl} alt={`${state.lastReadBook.name} book cover`} imgStyle={{ border: '1px solid var(--color-border)', maxWidth: 460 }} />
+            </a>
+            <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+              {state.lastReadBook.name}
+            </app-text>
+            <br />
+            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              {state.lastReadBook.author}
+            </app-text>
+          </div>
+        </content-box> : null
+    );
+
     const boxLastPlayedSong = (
       <content-box gutter titleText="last played song">
         <last-played-song />
@@ -112,22 +131,48 @@ export class UnwindZone {
       </content-box>
     );
 
-    const renderColumns = () => {
-      const components = [
-        boxMe,
-        boxNote,
-        boxLastPlayedSong,
-        boxLastPlayedGames,
-        boxMapleStory,
-        boxRandomImage
-      ];
-      const colNum = this.colNum;
+    const getOrderedComponents = () => {
+      switch (this.colNum) {
+        case 4:
+          return [
+            boxMe,
+            boxNote,
+            boxLastPlayedSong,
+            boxLastPlayedGames,
+            boxMapleStory,
+            boxRandomImage,
+            boxLastReadBook,
+          ];
+        case 3:
+        case 2:
+          return [
+            boxMe,
+            boxNote,
+            boxLastPlayedSong,
+            boxRandomImage,
+            boxLastReadBook,
+            boxLastPlayedGames,
+            boxMapleStory,
+          ];
+        default:
+          return [
+            boxMe,
+            boxNote,
+            boxLastReadBook,
+            boxLastPlayedSong,
+            boxLastPlayedGames,
+            boxMapleStory,
+            boxRandomImage
+          ];
+      }
+    }
 
-      const columns = components.reduce((acc, component, index) => {
-        const columnIndex = index % colNum;
+    const renderColumns = () => {
+      const columns = getOrderedComponents().reduce((acc, component, index) => {
+        const columnIndex = index % this.colNum;
         acc[columnIndex].push(component);
         return acc;
-      }, Array.from({ length: colNum }, () => []));
+      }, Array.from({ length: this.colNum }, () => []));
 
       return (
         columns.map((column, columnIndex) => (
