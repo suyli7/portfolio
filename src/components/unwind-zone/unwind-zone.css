@@ -1,5 +1,7 @@
-.game-data--wrapper,
+.book-data--container,
+.book-data--wrapper,
 .game-data--container,
+.game-data--wrapper,
 .random-image {
   display: flex;
   flex-direction: column;
@@ -9,12 +11,18 @@
   row-gap: var(--space-xs);
 }
 
+.book-data--wrapper,
 .game-data--wrapper {
   row-gap: var(--space-m);
 }
 
+.book-data--container,
 .game-data--container {
   row-gap: var(--space-xxs);
+}
+
+.book-data--container {
+  justify-content: center;
 }
 
 .unwind-zone--wrapper {

@@ -58,37 +58,39 @@ export class UnwindZone {
     );
 
 
-    const boxLastReadBook = (
-      state.lastReadBook ?
-        <content-box gutter titleText="last read book">
+    const boxBooks = (
+      state.books?.length ?
+        <content-box gutter titleText="bookshelf">
           <div class="book-data--wrapper">
-            <a href={state.lastReadBook.bookUrl} target="_blank">
-              <app-image src={state.lastReadBook.imgUrl} alt={`${state.lastReadBook.name} book cover`} imgStyle={{ border: '1px solid var(--color-border)', maxWidth: 460 }} />
-            </a>
-            <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
-              {state.lastReadBook.name}
-            </app-text>
-            <br />
-            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              {state.lastReadBook.author}
-            </app-text>
+            {
+              state.books.map((b) => (
+                <div class="book-data--container">
+                  <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
+                    {b.title}
+                  </app-text>
+                  <a href={b.book.bookUrl} target="_blank">
+                    <app-image src={b.book.imgUrl} alt={`${b.book.name} book cover`} imgStyle={{ 'object-fit': 'contain' }} />
+                  </a>
+                </div>
+              ))
+            }
           </div>
         </content-box> : null
     );
 
     const boxLastPlayedSong = (
-      <content-box gutter titleText="last played song">
+      <content-box gutter titleText="music player">
         <last-played-song />
       </content-box>
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recent steam activity">
+      <content-box gutter titleText="steam">
         <div class="game-data--wrapper">
           {
             state.lastPlayedGames?.map((game) => (
               <a href={game.url} class="game-data--container" target="_blank">
-                <app-image src={game.imgUrl} alt={`${game.name} steam library image`} imgStyle={{ border: '1px solid var(--color-border)', maxWidth: 460 }} />
+                <app-image src={game.imgUrl} alt={`${game.name} steam library image`} imgStyle={{ maxWidth: 460 }} />
                 <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
                   {game.name}
                 </app-text>
@@ -106,7 +108,7 @@ export class UnwindZone {
     );
 
     const boxMapleStory = (
-      <content-box gutter titleText="me on maplestory">
+      <content-box gutter titleText="maplestory">
         <ms-char-card />
       </content-box>
     );
@@ -118,7 +120,7 @@ export class UnwindZone {
         helperText="from the collection of my favorite images I found on the internet or something swiped from my life"
       >
         <div class="random-image">
-          <app-button secondary onClick={this.getRandomImg}>show me another</app-button>
+          {/* <app-button secondary onClick={this.getRandomImg}>show me another</app-button> */}
           <app-image
             src={randomImg?.url}
             alt={randomImg?.description}
@@ -131,48 +133,73 @@ export class UnwindZone {
       </content-box>
     );
 
-    const getOrderedComponents = () => {
-      switch (this.colNum) {
+    const getOrderedColumns = (colNum: number) => {
+      switch (colNum) {
         case 4:
           return [
-            boxMe,
-            boxNote,
-            boxLastPlayedSong,
-            boxLastPlayedGames,
-            boxMapleStory,
-            boxRandomImage,
-            boxLastReadBook,
+            [
+              boxMe,
+              boxMapleStory,
+              boxLastPlayedSong,
+            ],
+            [
+              boxNote,
+              boxRandomImage,
+            ],
+            [
+              boxBooks,
+            ],
+            [
+              boxLastPlayedGames,
+            ],
           ];
         case 3:
+          return [
+            [
+              boxMe,
+              boxMapleStory,
+              boxRandomImage,
+            ],
+            [
+              boxNote,
+              boxBooks,
+            ],
+            [
+              boxLastPlayedSong,
+              boxLastPlayedGames,
+            ],
+          ];
         case 2:
           return [
-            boxMe,
-            boxNote,
-            boxLastPlayedSong,
-            boxRandomImage,
-            boxLastReadBook,
-            boxLastPlayedGames,
-            boxMapleStory,
+            [
+              boxMe,
+              boxMapleStory,
+              boxBooks,
+            ],
+            [
+              boxNote,
+              boxLastPlayedSong,
+              boxLastPlayedGames,
+              boxRandomImage,
+            ],
           ];
         default:
           return [
-            boxMe,
-            boxNote,
-            boxLastReadBook,
-            boxLastPlayedSong,
-            boxLastPlayedGames,
-            boxMapleStory,
-            boxRandomImage
+            [
+              boxMe,
+              boxNote,
+              boxLastPlayedSong,
+              boxLastPlayedGames,
+              boxBooks,
+              boxMapleStory,
+              boxRandomImage
+            ]
           ];
       }
     }
 
     const renderColumns = () => {
-      const columns = getOrderedComponents().reduce((acc, component, index) => {
-        const columnIndex = index % this.colNum;
-        acc[columnIndex].push(component);
-        return acc;
-      }, Array.from({ length: this.colNum }, () => []));
+      const columns = getOrderedColumns(this.colNum);
 
       return (
         columns.map((column, columnIndex) => (

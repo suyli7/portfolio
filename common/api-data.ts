@@ -67,9 +67,16 @@ export interface AssetImg {
   description: string;
 }
 
-export interface LastReadBook {
+export interface Book {
   name: string;
   author: string;
   imgUrl: string;
   bookUrl: string;
 }
+
+export interface BookData {
+  title: string;
+  book: Book;
+}
+
+export type BookShelf = Array<BookData>
