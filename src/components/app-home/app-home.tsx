@@ -51,7 +51,7 @@ export class AppHome {
               </app-text>
             </div>
           </content-box>
-          <content-box titleText="work experience">
+          <content-box titleText="experience">
             <div class="exp-items--wrapper">
               {
                 state.about?.experience.map((exp) => (

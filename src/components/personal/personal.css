@@ -13,11 +13,11 @@
 
 .book-data--wrapper,
 .game-data--wrapper {
+  align-items: center;
   row-gap: var(--space-m);
 }
 
-.book-data--container,
-.game-data--container {
+.book-data--container {
   row-gap: var(--space-xxs);
 }
 
@@ -25,12 +25,12 @@
   justify-content: center;
 }
 
-.unwind-zone--wrapper {
+.personal--wrapper {
   display: flex;
   flex-direction: row;
   column-gap: var(--space-m);
 }
 
-.unwind-zone--column {
+.personal--column {
   flex: 1
 }

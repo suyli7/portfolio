@@ -14,7 +14,6 @@ const ASSETS_API_PARAMS = new URLSearchParams({
 });
 
 const ASSETS_API_URL = `${ASSETS_API_BASE_URL}?${ASSETS_API_PARAMS.toString()}`;
-console.log(ASSETS_API_URL);
 
 exports.handler = async function (event) {
   const path = event.path;

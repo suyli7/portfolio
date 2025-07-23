@@ -8,8 +8,8 @@ import {
 import { state } from '../../store';
 
 const NAV_CONFIG: Array<{ name: string; route: string; icon: string }> = [
-  { name: 'home', route: '/', icon: 'icon_computer' },
-  { name: 'unwind zone', route: '/unwind-zone', icon: 'icon_person' }
+  { name: 'Home', route: '/', icon: 'icon_computer' },
+  { name: 'MyBase', route: '/mybase', icon: 'icon_person' }
 ];
 
 @Component({

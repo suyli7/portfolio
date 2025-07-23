@@ -6,8 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TextColorType, TextSizeType, TextVariantType } from "./common/types";
+import { LastPlayedGame } from "../common/api-data";
 import { RichTextField } from "@prismicio/client";
 export { TextColorType, TextSizeType, TextVariantType } from "./common/types";
+export { LastPlayedGame } from "../common/api-data";
 export { RichTextField } from "@prismicio/client";
 export namespace Components {
     interface AppButton {
@@ -25,6 +27,8 @@ export namespace Components {
     }
     interface AppLayout {
     }
+    interface AppPersonal {
+    }
     interface AppRoot {
     }
     interface AppText {
@@ -40,14 +44,15 @@ export namespace Components {
         "helperText"?: string;
         "titleText"?: string;
     }
+    interface GameCard {
+        "game": LastPlayedGame;
+    }
     interface LastPlayedSong {
     }
     interface MsCharCard {
     }
     interface RichTextRenderer {
         "field": RichTextField;
-    }
-    interface UnwindZone {
     }
 }
 declare global {
@@ -75,6 +80,12 @@ declare global {
         prototype: HTMLAppLayoutElement;
         new (): HTMLAppLayoutElement;
     };
+    interface HTMLAppPersonalElement extends Components.AppPersonal, HTMLStencilElement {
+    }
+    var HTMLAppPersonalElement: {
+        prototype: HTMLAppPersonalElement;
+        new (): HTMLAppPersonalElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -99,6 +110,12 @@ declare global {
         prototype: HTMLContentBoxElement;
         new (): HTMLContentBoxElement;
     };
+    interface HTMLGameCardElement extends Components.GameCard, HTMLStencilElement {
+    }
+    var HTMLGameCardElement: {
+        prototype: HTMLGameCardElement;
+        new (): HTMLGameCardElement;
+    };
     interface HTMLLastPlayedSongElement extends Components.LastPlayedSong, HTMLStencilElement {
     }
     var HTMLLastPlayedSongElement: {
@@ -117,25 +134,20 @@ declare global {
         prototype: HTMLRichTextRendererElement;
         new (): HTMLRichTextRendererElement;
     };
-    interface HTMLUnwindZoneElement extends Components.UnwindZone, HTMLStencilElement {
-    }
-    var HTMLUnwindZoneElement: {
-        prototype: HTMLUnwindZoneElement;
-        new (): HTMLUnwindZoneElement;
-    };
     interface HTMLElementTagNameMap {
         "app-button": HTMLAppButtonElement;
         "app-home": HTMLAppHomeElement;
         "app-image": HTMLAppImageElement;
         "app-layout": HTMLAppLayoutElement;
+        "app-personal": HTMLAppPersonalElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
         "case-studies": HTMLCaseStudiesElement;
         "content-box": HTMLContentBoxElement;
+        "game-card": HTMLGameCardElement;
         "last-played-song": HTMLLastPlayedSongElement;
         "ms-char-card": HTMLMsCharCardElement;
         "rich-text-renderer": HTMLRichTextRendererElement;
-        "unwind-zone": HTMLUnwindZoneElement;
     }
 }
 declare namespace LocalJSX {
@@ -154,6 +166,8 @@ declare namespace LocalJSX {
     }
     interface AppLayout {
     }
+    interface AppPersonal {
+    }
     interface AppRoot {
     }
     interface AppText {
@@ -169,6 +183,9 @@ declare namespace LocalJSX {
         "helperText"?: string;
         "titleText"?: string;
     }
+    interface GameCard {
+        "game"?: LastPlayedGame;
+    }
     interface LastPlayedSong {
     }
     interface MsCharCard {
@@ -176,21 +193,20 @@ declare namespace LocalJSX {
     interface RichTextRenderer {
         "field"?: RichTextField;
     }
-    interface UnwindZone {
-    }
     interface IntrinsicElements {
         "app-button": AppButton;
         "app-home": AppHome;
         "app-image": AppImage;
         "app-layout": AppLayout;
+        "app-personal": AppPersonal;
         "app-root": AppRoot;
         "app-text": AppText;
         "case-studies": CaseStudies;
         "content-box": ContentBox;
+        "game-card": GameCard;
         "last-played-song": LastPlayedSong;
         "ms-char-card": MsCharCard;
         "rich-text-renderer": RichTextRenderer;
-        "unwind-zone": UnwindZone;
     }
 }
 export { LocalJSX as JSX };
@@ -201,14 +217,15 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-image": LocalJSX.AppImage & JSXBase.HTMLAttributes<HTMLAppImageElement>;
             "app-layout": LocalJSX.AppLayout & JSXBase.HTMLAttributes<HTMLAppLayoutElement>;
+            "app-personal": LocalJSX.AppPersonal & JSXBase.HTMLAttributes<HTMLAppPersonalElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
             "case-studies": LocalJSX.CaseStudies & JSXBase.HTMLAttributes<HTMLCaseStudiesElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;
+            "game-card": LocalJSX.GameCard & JSXBase.HTMLAttributes<HTMLGameCardElement>;
             "last-played-song": LocalJSX.LastPlayedSong & JSXBase.HTMLAttributes<HTMLLastPlayedSongElement>;
             "ms-char-card": LocalJSX.MsCharCard & JSXBase.HTMLAttributes<HTMLMsCharCardElement>;
             "rich-text-renderer": LocalJSX.RichTextRenderer & JSXBase.HTMLAttributes<HTMLRichTextRendererElement>;
-            "unwind-zone": LocalJSX.UnwindZone & JSXBase.HTMLAttributes<HTMLUnwindZoneElement>;
         }
     }
 }

@@ -45,7 +45,8 @@
 
 body {
   letter-spacing: 0.06rem;
-  background: var(--color-background);
+  background: var(--color-background-main);
+  background-blend-mode: overlay;
   background-image: url("/assets/bg_tile.jpg");
   background-repeat: repeat;
   background-size: 150px 150px;

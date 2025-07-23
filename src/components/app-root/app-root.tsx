@@ -19,7 +19,7 @@ export class AppRoot {
     fetchApiData('maplestory', (data) => { set('msData', data) });
     fetchApiData('books', (data) => { set('books', data) });
     fetchApiData('music', (data) => { set('lastPlayedSong', data) });
-    fetchApiData('steam', (data) => { set('lastPlayedGames', data) });
+    fetchApiData('games', (data) => { set('lastPlayedGames', data) });
   }
 
   render() {
@@ -41,8 +41,8 @@ export class AppRoot {
           <Route path="/">
             <app-home />
           </Route>
-          <Route path="/unwind-zone">
-            <unwind-zone />
+          <Route path="/mybase">
+            <app-personal />
           </Route>
           {/* <Route path="/case-study">
             <case-studies />

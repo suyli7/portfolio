@@ -21,7 +21,7 @@ export interface AboutDataModel {
   bulletin: RichTextField;
 }
 
-export interface PerosnalDataModel {
+export interface PersonalDataModel {
   picture: ImageField,
   description: RichTextField
 }
@@ -59,7 +59,7 @@ export interface LastPlayedGame {
   imgUrl: string;
   lastPlayed: string;
   totalPlaytime: string;
-  url: string;
+  env: string;
 }
 
 export interface AssetImg {

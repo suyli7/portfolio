@@ -6,7 +6,7 @@ import type {
   LastPlayedGame,
   LastPlayedSong,
   MsData,
-  PerosnalDataModel,
+  PersonalDataModel,
   AssetImg,
 } from '../common/api-data';
 
@@ -14,7 +14,7 @@ interface AppState {
   about?: AboutDataModel;
   books?: BookShelf;
   caseStudies?: Array<CaseStudyDataModel>;
-  personal?: PerosnalDataModel;
+  personal?: PersonalDataModel;
   msData?: MsData;
   lastPlayedGames?: Array<LastPlayedGame>;
   lastPlayedSong?: LastPlayedSong;

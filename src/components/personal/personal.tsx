@@ -4,10 +4,10 @@ import { AssetImg } from '../../../common/api-data';
 import { state, set } from '../../store';
 
 @Component({
-  tag: 'unwind-zone',
-  styleUrl: 'unwind-zone.css',
+  tag: 'app-personal',
+  styleUrl: 'personal.css',
 })
-export class UnwindZone {
+export class Personal {
 
   @State() colNum: number = 1;
 
@@ -85,22 +85,11 @@ export class UnwindZone {
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="steam">
+      <content-box gutter titleText="recent games">
         <div class="game-data--wrapper">
           {
             state.lastPlayedGames?.map((game) => (
-              <a href={game.url} class="game-data--container" target="_blank">
-                <app-image src={game.imgUrl} alt={`${game.name} steam library image`} imgStyle={{ maxWidth: 460 }} />
-                <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.XSmall}>
-                  {game.name}
-                </app-text>
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                  {game.lastPlayed}
-                </app-text>
-                <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                  {game.totalPlaytime}
-                </app-text>
-              </a>
+              <game-card game={game} />
             ))
           }
         </div>
@@ -203,7 +192,7 @@ export class UnwindZone {
 
       return (
         columns.map((column, columnIndex) => (
-          <div key={columnIndex} class="unwind-zone--column">
+          <div key={columnIndex} class="personal--column">
             {column.map((component) => component)}
           </div>
         ))
@@ -212,7 +201,7 @@ export class UnwindZone {
 
     return (
       <app-layout>
-        <div class="unwind-zone--wrapper">
+        <div class="personal--wrapper">
           {renderColumns()}
         </div>
       </app-layout>
