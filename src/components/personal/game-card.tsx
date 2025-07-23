@@ -30,7 +30,7 @@ export class GameCard {
                 <div class="game__image">
                     <app-image src={this.game.imgUrl} alt={`cover image for game: ${this.game.name}`} imgStyle={{
                         border: '1px solid #969696',
-                        borderStyle: 'groove'
+                        borderStyle: 'inset'
                     }} />
                 </div>
                 <div class="game__info">
