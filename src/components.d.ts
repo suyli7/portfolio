@@ -44,6 +44,7 @@ export namespace Components {
     }
     interface BookshelfSection {
         "books": Book[];
+        "halfSize": boolean;
         "sectionTitle": string;
     }
     interface CaseStudies {
@@ -213,6 +214,7 @@ declare namespace LocalJSX {
     }
     interface BookshelfSection {
         "books"?: Book[];
+        "halfSize"?: boolean;
         "sectionTitle"?: string;
     }
     interface CaseStudies {

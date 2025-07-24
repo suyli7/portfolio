@@ -10,6 +10,7 @@ import type { Book } from '../../../../common/api-data';
 export class BookshelfSection {
     @Prop() books: Book[] = [];
     @Prop() sectionTitle: string = '';
+    @Prop() halfSize: boolean = false;
 
 
     render() {
@@ -22,7 +23,10 @@ export class BookshelfSection {
                 <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
                     {this.sectionTitle}
                 </app-text>
-                <div class="bookshelf-section__list">
+                <div class={{
+                    "bookshelf-section__list": true,
+                    "half-size": this.halfSize
+                }}>
                     {
                         this.books.map((book) => (
                             <bookshelf-book book={book} />

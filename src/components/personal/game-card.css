@@ -27,6 +27,11 @@
     width: 85%;
     height: auto;
     padding-top: var(--space-m);
+    position: relative;
+}
+
+.game__image:hover .game__name {
+    opacity: 1;
 }
 
 .game__container,

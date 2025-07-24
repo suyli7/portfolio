@@ -13,3 +13,15 @@
     flex-direction: column;
     row-gap: var(--space-s);
 }
+
+.bookshelf__first-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-s);
+}
+
+@media only screen and (max-width: 1300px) {
+    .bookshelf__first-row {
+        grid-template-columns: 1fr;
+    }
+}

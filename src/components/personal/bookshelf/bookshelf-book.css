@@ -5,15 +5,36 @@
     text-decoration: none;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    border: 3px solid var(--color-border);
+    border: 2px solid var(--color-border);
     border-style: groove;
-    padding-right: var(--space-xs);
     height: 100%;
+    width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .bookshelf-book__info {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url("/assets/btn_pat.png");
+    background-blend-mode: overlay;
+    background-repeat: repeat;
     row-gap: var(--space-xxs);
+    transition: opacity 0.16s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: var(--space-xxs);
+    box-sizing: border-box;
+}
+
+.bookshelf-book:hover .bookshelf-book__info {
+    opacity: 1;
 }

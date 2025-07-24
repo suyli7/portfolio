@@ -11,8 +11,10 @@ export class BookShelf {
         return (
             <content-box gutter titleText="bookshelf">
                 <div class="bookshelf__content">
-                    <bookshelf-section sectionTitle="in progress" books={state.books?.current} />
-                    <bookshelf-section sectionTitle="recently read" books={state.books?.recent} />
+                    <div class="bookshelf__first-row">
+                        <bookshelf-section halfSize sectionTitle="in progress" books={state.books?.current} />
+                        <bookshelf-section halfSize sectionTitle="recently read" books={state.books?.recent} />
+                    </div>
                     <bookshelf-section sectionTitle="favorites" books={state.books?.favorites} />
                 </div>
             </content-box>
