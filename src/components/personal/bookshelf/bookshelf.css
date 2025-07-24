@@ -1,0 +1,15 @@
+.bookshelf__buttons,
+.bookshelf__content {
+    display: flex;
+}
+
+.bookshelf__buttons {
+    flex-direction: row;
+    column-gap: var(--space-xs);
+    margin-bottom: var(--space-s);
+}
+
+.bookshelf__content {
+    flex-direction: column;
+    row-gap: var(--space-s);
+}

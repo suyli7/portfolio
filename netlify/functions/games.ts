@@ -1,5 +1,5 @@
 import type { LastPlayedGame } from '../../common/api-data';
-import { getTimeBySeconds, getFormattedDate } from '../../common/date-utils';
+import { getFormattedDate } from '../../common/date-utils';
 
 const GAMES_BASE_URL = " https://api.exophase.com/public/player/";
 const PLAYER_ID = process.env.EXOPHASE_ID;
@@ -12,7 +12,7 @@ exports.handler = async function () {
 
     const lastPlayedGames = games_res_data.games
         .slice()
-        .slice(0, 5);
+        .slice(0, 6);
 
     const data: LastPlayedGame[] = lastPlayedGames.map((game) => ({
         name: game.meta.title,
@@ -21,8 +21,6 @@ exports.handler = async function () {
         totalPlaytime: `total playtime: ${game.playtime}`,
         env: game.meta.environment_slug
     }));
-
-    console.log(data)
 
     return {
         statusCode: 200,

@@ -74,9 +74,8 @@ export interface Book {
   bookUrl: string;
 }
 
-export interface BookData {
-  title: string;
-  book: Book;
+export type BookShelf = {
+  current: Book[];
+  recent: Book[];
+  favorites: Book[];
 }
-
-export type BookShelf = Array<BookData>

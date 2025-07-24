@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TextColorType, TextSizeType, TextVariantType } from "./common/types";
-import { LastPlayedGame } from "../common/api-data";
+import { Book, LastPlayedGame } from "../common/api-data";
 import { RichTextField } from "@prismicio/client";
 export { TextColorType, TextSizeType, TextVariantType } from "./common/types";
-export { LastPlayedGame } from "../common/api-data";
+export { Book, LastPlayedGame } from "../common/api-data";
 export { RichTextField } from "@prismicio/client";
 export namespace Components {
     interface AppButton {
@@ -36,6 +36,15 @@ export namespace Components {
         "color"?: TextColorType;
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
+    }
+    interface BookShelf {
+    }
+    interface BookshelfBook {
+        "book": Book;
+    }
+    interface BookshelfSection {
+        "books": Book[];
+        "sectionTitle": string;
     }
     interface CaseStudies {
     }
@@ -98,6 +107,24 @@ declare global {
         prototype: HTMLAppTextElement;
         new (): HTMLAppTextElement;
     };
+    interface HTMLBookShelfElement extends Components.BookShelf, HTMLStencilElement {
+    }
+    var HTMLBookShelfElement: {
+        prototype: HTMLBookShelfElement;
+        new (): HTMLBookShelfElement;
+    };
+    interface HTMLBookshelfBookElement extends Components.BookshelfBook, HTMLStencilElement {
+    }
+    var HTMLBookshelfBookElement: {
+        prototype: HTMLBookshelfBookElement;
+        new (): HTMLBookshelfBookElement;
+    };
+    interface HTMLBookshelfSectionElement extends Components.BookshelfSection, HTMLStencilElement {
+    }
+    var HTMLBookshelfSectionElement: {
+        prototype: HTMLBookshelfSectionElement;
+        new (): HTMLBookshelfSectionElement;
+    };
     interface HTMLCaseStudiesElement extends Components.CaseStudies, HTMLStencilElement {
     }
     var HTMLCaseStudiesElement: {
@@ -142,6 +169,9 @@ declare global {
         "app-personal": HTMLAppPersonalElement;
         "app-root": HTMLAppRootElement;
         "app-text": HTMLAppTextElement;
+        "book-shelf": HTMLBookShelfElement;
+        "bookshelf-book": HTMLBookshelfBookElement;
+        "bookshelf-section": HTMLBookshelfSectionElement;
         "case-studies": HTMLCaseStudiesElement;
         "content-box": HTMLContentBoxElement;
         "game-card": HTMLGameCardElement;
@@ -176,6 +206,15 @@ declare namespace LocalJSX {
         "size"?: TextSizeType;
         "variant"?: TextVariantType;
     }
+    interface BookShelf {
+    }
+    interface BookshelfBook {
+        "book"?: Book;
+    }
+    interface BookshelfSection {
+        "books"?: Book[];
+        "sectionTitle"?: string;
+    }
     interface CaseStudies {
     }
     interface ContentBox {
@@ -201,6 +240,9 @@ declare namespace LocalJSX {
         "app-personal": AppPersonal;
         "app-root": AppRoot;
         "app-text": AppText;
+        "book-shelf": BookShelf;
+        "bookshelf-book": BookshelfBook;
+        "bookshelf-section": BookshelfSection;
         "case-studies": CaseStudies;
         "content-box": ContentBox;
         "game-card": GameCard;
@@ -220,6 +262,9 @@ declare module "@stencil/core" {
             "app-personal": LocalJSX.AppPersonal & JSXBase.HTMLAttributes<HTMLAppPersonalElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-text": LocalJSX.AppText & JSXBase.HTMLAttributes<HTMLAppTextElement>;
+            "book-shelf": LocalJSX.BookShelf & JSXBase.HTMLAttributes<HTMLBookShelfElement>;
+            "bookshelf-book": LocalJSX.BookshelfBook & JSXBase.HTMLAttributes<HTMLBookshelfBookElement>;
+            "bookshelf-section": LocalJSX.BookshelfSection & JSXBase.HTMLAttributes<HTMLBookshelfSectionElement>;
             "case-studies": LocalJSX.CaseStudies & JSXBase.HTMLAttributes<HTMLCaseStudiesElement>;
             "content-box": LocalJSX.ContentBox & JSXBase.HTMLAttributes<HTMLContentBoxElement>;
             "game-card": LocalJSX.GameCard & JSXBase.HTMLAttributes<HTMLGameCardElement>;

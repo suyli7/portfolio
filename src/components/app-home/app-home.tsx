@@ -39,7 +39,7 @@ export class AppHome {
             </app-text>
             <app-button secondary onClick={this.handleShowMoreOnClick}>
               {
-                this.showMoreInfo ? "Show less" : "What? You want to know more?"
+                this.showMoreInfo ? "Okay I'm done reading" : "What? You want to know more?"
               }
             </app-button>
             <div

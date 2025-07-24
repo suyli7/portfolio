@@ -1,48 +1,61 @@
-const { parse } = require('node-html-parser');
 const axios = require('axios');
-import type { Book, BookData, BookShelf } from '../../common/api-data';
+const cheerio = require('cheerio');
+
+import type { Book, BookShelf } from '../../common/api-data';
 
 const STORYGRAPH_BASE_URL = 'https://app.thestorygraph.com';
-const LAST_READ_URL = `${STORYGRAPH_BASE_URL}/books-read/${process.env.STORYGRAPH_ID}`;
-const CURRENTLY_READING_URL = `${STORYGRAPH_BASE_URL}/currently-reading/${process.env.STORYGRAPH_ID}`;
+const STORYGRAPH_ID = process.env.STORYGRAPH_ID;
+const STORYGRAPH_TAG_FAV = process.env.STORYGRAPH_TAG_FAV;
 
-const parseScrapData = (res): Book | null => {
-    const parsed = parse(res.data);
-    const root = parsed.querySelector('.system');
+const RECENT_URL = `${STORYGRAPH_BASE_URL}/books-read/${STORYGRAPH_ID}`;
+const CURRENT_URL = `${STORYGRAPH_BASE_URL}/currently-reading/${STORYGRAPH_ID}`;
+const FAVORITES_URL = `${STORYGRAPH_BASE_URL}/tags/${STORYGRAPH_TAG_FAV}`;
 
-    if (!root) {
-        return null;
-    }
+const parseScrapData = (res: { data: string }, limit?: number): Book[] => {
+    const $ = cheerio.load(res.data);
+    const books: Book[] = [];
 
-    const linkEl = root.querySelector('.book-cover a');
-    const bookEl = root.querySelector('.book-title-author-and-series');
+    const bookPanes = $('.book-pane').slice(0, limit ?? $('.book-pane').length).toArray();
 
-    if (!linkEl || !bookEl) {
-        return null;
-    }
+    bookPanes.forEach((pane) => {
+        const el = $(pane);
 
-    const imgEl = linkEl.querySelector('img');
+        const name = el.find('.book-title-author-and-series a[href^="/books/"]').first().text().trim();
+        const author = el.find('.book-title-author-and-series a[href^="/authors/"]').first().text().trim();
+        const imgUrl = el.find('.book-cover img').attr('src');
+        const linkHref = el.find('.book-cover a').attr('href');
 
-    return {
-        name: bookEl.querySelector('a').textContent,
-        author: bookEl.querySelector('p a').textContent,
-        imgUrl: imgEl.attributes.src,
-        bookUrl: `${STORYGRAPH_BASE_URL}${linkEl.attributes.href}`
-    };
-}
+        books.push({
+            name,
+            author,
+            imgUrl,
+            bookUrl: `${STORYGRAPH_BASE_URL}${linkHref}`
+        });
+    });
+
+    return books;
+};
 
 exports.handler = async function () {
+    try {
+        const current = await axios.get(CURRENT_URL).then(res => parseScrapData(res));
+        const recent = await axios.get(RECENT_URL).then((data) => parseScrapData(data, 3));
+        const favorites = await axios.get(FAVORITES_URL).then(res => parseScrapData(res));
 
-    const currentBook = await axios.get(CURRENTLY_READING_URL).then(res => parseScrapData(res));
-    const lastRead = await axios.get(LAST_READ_URL).then(res => parseScrapData(res));
-
-    const data: BookShelf = [
-        ...(currentBook ? [{ title: 'currently reading', book: currentBook }] : []),
-        ...(lastRead ? [{ title: 'last finished', book: lastRead }] : []),
-    ];
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify(data)
-    };
+        const data: BookShelf = {
+            current,
+            recent,
+            favorites
+        }
+        return {
+            statusCode: 200,
+            body: JSON.stringify(data)
+        };
+    } catch (err) {
+        console.error('Failed to scrape:', err);
+        return {
+            statusCode: 200,
+            body: JSON.stringify([])
+        };
+    }
 }

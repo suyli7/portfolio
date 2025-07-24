@@ -1,7 +1,4 @@
-.book-data--container,
-.book-data--wrapper,
 .game-data--container,
-.game-data--wrapper,
 .random-image {
   display: flex;
   flex-direction: column;
@@ -11,18 +8,11 @@
   row-gap: var(--space-xs);
 }
 
-.book-data--wrapper,
 .game-data--wrapper {
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--space-m);
   row-gap: var(--space-m);
-}
-
-.book-data--container {
-  row-gap: var(--space-xxs);
-}
-
-.book-data--container {
-  justify-content: center;
 }
 
 .personal--wrapper {
@@ -33,4 +23,20 @@
 
 .personal--column {
   flex: 1
+}
+
+.personal--column:last-of-type {
+  flex: 2.5
+}
+
+@media only screen and (max-width: 1200px) {
+  .game-data--wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .game-data--wrapper {
+    grid-template-columns: 1fr;
+  }
 }

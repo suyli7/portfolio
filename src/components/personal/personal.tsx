@@ -13,10 +13,8 @@ export class Personal {
 
   private setColNum() {
     const viewportWidth = window.innerWidth;
-    const colNum = viewportWidth < 720 ? 1
-      : viewportWidth < 1150 ? 2
-        : viewportWidth < 1550 ? 3
-          : 4;
+    const colNum = viewportWidth < 1200 ? 1
+      : 2
     this.colNum = colNum;
   }
 
@@ -59,27 +57,11 @@ export class Personal {
 
 
     const boxBooks = (
-      state.books?.length ?
-        <content-box gutter titleText="bookshelf">
-          <div class="book-data--wrapper">
-            {
-              state.books.map((b) => (
-                <div class="book-data--container">
-                  <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
-                    {b.title}
-                  </app-text>
-                  <a href={b.book.bookUrl} target="_blank">
-                    <app-image src={b.book.imgUrl} alt={`${b.book.name} book cover`} imgStyle={{ 'object-fit': 'contain' }} />
-                  </a>
-                </div>
-              ))
-            }
-          </div>
-        </content-box> : null
+      <book-shelf />
     );
 
     const boxLastPlayedSong = (
-      <content-box gutter titleText="music player">
+      <content-box gutter titleText="last played">
         <last-played-song />
       </content-box>
     );
@@ -124,52 +106,18 @@ export class Personal {
 
     const getOrderedColumns = (colNum: number) => {
       switch (colNum) {
-        case 4:
-          return [
-            [
-              boxMe,
-              boxMapleStory,
-              boxLastPlayedSong,
-            ],
-            [
-              boxNote,
-              boxRandomImage,
-            ],
-            [
-              boxBooks,
-            ],
-            [
-              boxLastPlayedGames,
-            ],
-          ];
-        case 3:
-          return [
-            [
-              boxMe,
-              boxMapleStory,
-              boxRandomImage,
-            ],
-            [
-              boxNote,
-              boxBooks,
-            ],
-            [
-              boxLastPlayedSong,
-              boxLastPlayedGames,
-            ],
-          ];
         case 2:
           return [
             [
               boxMe,
-              boxMapleStory,
-              boxBooks,
-            ],
-            [
               boxNote,
               boxLastPlayedSong,
-              boxLastPlayedGames,
+              boxMapleStory,
               boxRandomImage,
+            ],
+            [
+              boxLastPlayedGames,
+              boxBooks,
             ],
           ];
         default:

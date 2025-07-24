@@ -1,0 +1,19 @@
+.bookshelf-book {
+    display: flex;
+    flex-direction: row;
+    column-gap: var(--space-xs);
+    text-decoration: none;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 3px solid var(--color-border);
+    border-style: groove;
+    padding-right: var(--space-xs);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.bookshelf-book__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-xxs);
+}

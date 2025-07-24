@@ -6,7 +6,6 @@
     border-color: #525355 #282929 #282929 #282929;
     position: relative;
     width: 100%;
-    max-width: 200px;
     padding-inline: var(--space-xs);
     box-sizing: border-box;
 }
@@ -25,7 +24,7 @@
 }
 
 .game__image {
-    width: 80%;
+    width: 85%;
     height: auto;
     padding-top: var(--space-m);
 }
