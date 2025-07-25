@@ -67,15 +67,17 @@ export class Personal {
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recent games">
-        <div class="game-data--wrapper">
-          {
-            state.lastPlayedGames?.map((game) => (
-              <game-card game={game} />
-            ))
-          }
-        </div>
-      </content-box>
+      state.lastPlayedGames?.length ? (
+        <content-box gutter titleText="recent games">
+          <div class="game-data--wrapper">
+            {
+              state.lastPlayedGames.map((game) => (
+                <game-card game={game} />
+              ))
+            }
+          </div>
+        </content-box>
+      ) : null
     );
 
     const boxMapleStory = (

@@ -52,9 +52,9 @@ exports.handler = async function () {
             body: JSON.stringify(data)
         };
     } catch (err) {
-        console.error('Failed to scrape:', err);
+        console.error('Error - Books request', err);
         return {
-            statusCode: 200,
+            statusCode: 500,
             body: JSON.stringify([])
         };
     }

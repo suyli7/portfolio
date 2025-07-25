@@ -2,7 +2,7 @@ import { createClient } from '@prismicio/client';
 import type { AssetImg } from '../../common/api-data';
 
 const client = createClient(process.env.PRISMIC_ENTRY_POINT || '', { accessToken: process.env.PRISMIC_ACCESS_TOKEN });
-const ASSETS_API_BASE_URL = 'https://asset-api.prismic.io/assets';
+const ASSETS_API_BASE_URL = "https://asset-api.prismic.io/assets";
 const ASSETS_API_HEADERS = {
   Authorization: `Bearer ${process.env.PRISMIC_ACCESS_TOKEN_ASSET}`,
   repository: process.env.PRISMIC_REPO_ID || '',

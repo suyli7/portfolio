@@ -14,13 +14,13 @@ import type {
 interface AppState {
   about?: AboutDataModel;
   books?: BookShelf;
-  caseStudies?: Array<CaseStudyDataModel>;
+  caseStudies?: CaseStudyDataModel[];
   personal?: PersonalDataModel;
   metadata: Metadata;
   msData?: MsData;
-  lastPlayedGames?: Array<LastPlayedGame>;
+  lastPlayedGames?: LastPlayedGame[];
   lastPlayedSong?: LastPlayedSong;
-  favImgs?: Array<AssetImg>;
+  favImgs?: AssetImg[];
   favImgIndex?: number;
 }
 

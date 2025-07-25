@@ -3,5 +3,5 @@ export const fetchApiData = async (endopint: string, cb?: (data: any) => void) =
     .then((res) => res.json())
     .then((data) => {
       cb?.(data);
-    });
+    })
 }

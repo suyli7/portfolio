@@ -21,21 +21,36 @@ const getLastPlayedTimeText = (uts: number) => {
 }
 
 exports.handler = async function () {
-  const last_fm_res = await fetch(LAST_FM_API_URL);
-  const last_fm_data = await last_fm_res.json();
-  const song_data = last_fm_data.recenttracks.track[0];
-  const time_data = song_data.date?.uts;
 
-  const data: LastPlayedSong = {
-    artist: song_data.artist['#text'],
-    imgUrl: song_data.image[2]['#text'],
-    song: song_data.name,
-    time: time_data ? getLastPlayedTimeText(time_data) : 'Playing now...',
-    url: song_data.url
-  };
+  try {
+    const last_fm_res = await fetch(LAST_FM_API_URL);
+    const last_fm_data = await last_fm_res.json();
+    const song_data = last_fm_data.recenttracks.track[0];
+    const time_data = song_data.date?.uts;
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(data)
-  };
+    const data: LastPlayedSong = {
+      artist: song_data.artist['#text'],
+      imgUrl: song_data.image[2]['#text'],
+      song: song_data.name,
+      time: time_data ? getLastPlayedTimeText(time_data) : 'Playing now...',
+      url: song_data.url
+    };
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data)
+    };
+  } catch (err) {
+    console.error('Error - Music request', err);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        artist: 'unknown',
+        imgUrl: null,
+        song: 'unknown',
+        time: 'unknown',
+        url: null
+      })
+    };
+  }
 }
