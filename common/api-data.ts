@@ -17,8 +17,10 @@ export interface AboutDataModel {
   }>;
   languages: string;
   tools: string;
+  ux: string;
   frameworks: string;
   bulletin: RichTextField;
+  site_info: RichTextField;
 }
 
 export interface PersonalDataModel {
@@ -74,8 +76,13 @@ export interface Book {
   bookUrl: string;
 }
 
-export type BookShelf = {
+export interface BookShelf {
   current: Book[];
   recent: Book[];
   favorites: Book[];
+}
+
+export interface Metadata {
+  lastUpdated: string;
+  latestMessage: string;
 }

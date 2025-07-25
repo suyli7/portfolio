@@ -14,13 +14,13 @@ exports.handler = async function () {
         .slice()
         .slice(0, 6);
 
-    const data: LastPlayedGame[] = lastPlayedGames.map((game) => ({
+    const data: LastPlayedGame[] = lastPlayedGames?.map((game) => ({
         name: game.meta.title,
         imgUrl: game.resource_standard,
         lastPlayed: `last played: ${getFormattedDate(game.lastplayed)}`,
         totalPlaytime: `total playtime: ${game.playtime}`,
         env: game.meta.environment_slug
-    }));
+    })) || [];
 
     return {
         statusCode: 200,

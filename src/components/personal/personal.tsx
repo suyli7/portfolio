@@ -38,7 +38,7 @@ export class Personal {
   render() {
     const randomImg: AssetImg = state.favImgs[state.favImgIndex];
     const boxMe = (
-      <content-box gutter titleText="me">
+      <content-box gutter titleText="me.jpg">
         <app-image
           src={state.personal?.picture.url}
           alt={state.personal?.picture.alt}
@@ -61,7 +61,7 @@ export class Personal {
     );
 
     const boxLastPlayedSong = (
-      <content-box gutter titleText="last played">
+      <content-box gutter titleText="listening to">
         <last-played-song />
       </content-box>
     );
@@ -91,7 +91,7 @@ export class Personal {
         helperText="from the collection of my favorite images I found on the internet or something swiped from my life"
       >
         <div class="random-image">
-          {/* <app-button secondary onClick={this.getRandomImg}>show me another</app-button> */}
+          <app-button secondary onClick={this.getRandomImg}>show me another</app-button>
           <app-image
             src={randomImg?.url}
             alt={randomImg?.description}
@@ -110,12 +110,12 @@ export class Personal {
           return [
             [
               boxMe,
-              boxNote,
               boxLastPlayedSong,
               boxMapleStory,
               boxRandomImage,
             ],
             [
+              boxNote,
               boxLastPlayedGames,
               boxBooks,
             ],

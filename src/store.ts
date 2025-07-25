@@ -5,6 +5,7 @@ import type {
   BookShelf,
   LastPlayedGame,
   LastPlayedSong,
+  Metadata,
   MsData,
   PersonalDataModel,
   AssetImg,
@@ -15,6 +16,7 @@ interface AppState {
   books?: BookShelf;
   caseStudies?: Array<CaseStudyDataModel>;
   personal?: PersonalDataModel;
+  metadata: Metadata;
   msData?: MsData;
   lastPlayedGames?: Array<LastPlayedGame>;
   lastPlayedSong?: LastPlayedSong;
@@ -27,6 +29,7 @@ const { state, set, onChange } = createStore<AppState>({
   books: null,
   caseStudies: [],
   personal: null,
+  metadata: null,
   msData: null,
   lastPlayedGames: [],
   lastPlayedSong: null,

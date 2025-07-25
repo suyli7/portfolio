@@ -16,6 +16,7 @@ export class AppRoot {
     fetchApiData('prismic/about', (data) => { set('about', data) });
     fetchApiData('prismic/personal', (data) => { set('personal', data) });
     fetchApiData('prismic/favimgs', (data) => { set('favImgs', data) });
+    fetchApiData('metadata', (data) => { set('metadata', data) });
     fetchApiData('maplestory', (data) => { set('msData', data) });
     fetchApiData('books', (data) => { set('books', data) });
     fetchApiData('music', (data) => { set('lastPlayedSong', data) });
@@ -43,6 +44,21 @@ export class AppRoot {
           </Route>
           <Route path="/mybase">
             <app-personal />
+          </Route>
+          <Route path={/.*/}>
+            <div class="loading-screen">
+              <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.XXLarge}>
+                ░▒▓█ 404: Light Not Found █▓▒░
+              </app-text>
+              <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Large}>
+                You’ve discovered a region of cyberspace with no webpage in sight. It might have drifted into a black hole, or never existed at all.
+              </app-text>
+              <a href="/">
+                <app-button>
+                  🛰️ Recalibrate to the Known Cosmos 🛰️
+                </app-button>
+              </a>
+            </div>
           </Route>
           {/* <Route path="/case-study">
             <case-studies />

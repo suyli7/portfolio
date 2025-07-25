@@ -21,8 +21,8 @@
   height: 25%;
   min-width: var(--thumbnail-size);
   min-height: var(--thumbnail-size);
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 80px;
+  max-height: 80px;
 }
 
 .song-data--right {

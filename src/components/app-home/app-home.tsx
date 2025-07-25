@@ -30,7 +30,7 @@ export class AppHome {
     return (
       <app-layout>
         <div class="home-wrapper">
-          <content-box titleText="intro">
+          <content-box titleText="about">
             <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.XLarge}>
               <rich-text-renderer field={state.about?.intro_text} />
             </app-text>
@@ -75,7 +75,7 @@ export class AppHome {
               }
             </div>
           </content-box>
-          <content-box titleText="some of my skills">
+          <content-box titleText="skills">
             <div class="skill-items--wrapper">
               <div class="skill-items--container">
                 <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
@@ -107,11 +107,25 @@ export class AppHome {
               </div>
               <div class="skill-items--container">
                 <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
-                  tools
+                  dev tools
                 </app-text>
                 {
                   <div>
                     {state.about?.tools.split(",").map((item) => (
+                      <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+                        {item}
+                      </app-text>
+                    ))}
+                  </div>
+                }
+              </div>
+              <div class="skill-items--container">
+                <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                  design tools
+                </app-text>
+                {
+                  <div>
+                    {state.about?.ux.split(",").map((item) => (
                       <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
                         {item}
                       </app-text>

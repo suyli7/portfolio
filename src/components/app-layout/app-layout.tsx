@@ -30,7 +30,7 @@ export class AppLayout {
                 NAV_CONFIG.map((item) => (
                   <a {...href(item.route)} class="nav-items--item-container">
                     <app-image width={40} height={40} src={`/assets/icons/${item.icon}.png`} />
-                    <app-text variant={TextVariant.Body} size={TextSize.XXSmall}>
+                    <app-text variant={TextVariant.Body} color={TextColor.Green} size={TextSize.XXSmall}>
                       {item.name}
                     </app-text>
                   </a>
@@ -56,7 +56,13 @@ export class AppLayout {
           </content-box>
           <content-box titleText="site info">
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              This site was built with Stencil.js, Netlify functions and Prismic.
+              <rich-text-renderer field={state.about?.site_info} />
+            </app-text>
+            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              &#128259;Last updated:<br />{state.metadata?.lastUpdated}
+            </app-text>
+            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              &#128221;Latest change:<br />{state.metadata?.latestMessage}
             </app-text>
             <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               Su Li &copy; 2025

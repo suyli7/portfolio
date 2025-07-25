@@ -11,6 +11,12 @@ main {
 
 .loading-screen {
   padding: var(--space-l);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--space-m);
+  text-align: center;
 }
 
 @media only screen and (max-width: 720px) {
