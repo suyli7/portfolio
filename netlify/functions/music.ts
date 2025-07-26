@@ -41,7 +41,7 @@ exports.handler = async function () {
       body: JSON.stringify(data)
     };
   } catch (err) {
-    console.error('Error - Music request', err);
+    console.log('Error - Music request', err);
     return {
       statusCode: 500,
       body: JSON.stringify({

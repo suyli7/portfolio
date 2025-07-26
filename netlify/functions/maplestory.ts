@@ -33,7 +33,7 @@ exports.handler = async function () {
             body: JSON.stringify({ ...data, char_data })
         };
     } catch (err) {
-        console.error('Error - Maplestory request', err);
+        console.log('Error - Maplestory request', err);
         return {
             statusCode: 500,
             body: JSON.stringify({})

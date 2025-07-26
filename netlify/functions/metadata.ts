@@ -17,7 +17,7 @@ exports.handler = async function () {
             body: JSON.stringify(data)
         };
     } catch (err) {
-        console.error('Error - Metadata request', err);
+        console.log('Error - Metadata request', err);
         return {
             statusCode: 500,
             body: JSON.stringify({

@@ -32,7 +32,7 @@ exports.handler = async function () {
             body: JSON.stringify(data)
         };
     } catch (err) {
-        console.error('Error - Games request', err);
+        console.log('Error - Games request', err);
         return {
             statusCode: 500,
             body: JSON.stringify([])

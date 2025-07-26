@@ -52,7 +52,7 @@ exports.handler = async function () {
             body: JSON.stringify(data)
         };
     } catch (err) {
-        console.error('Error - Books request', err);
+        console.log('Error - Books request', err);
         return {
             statusCode: 500,
             body: JSON.stringify([])
