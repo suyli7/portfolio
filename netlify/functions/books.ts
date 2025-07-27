@@ -5,11 +5,6 @@ import type { Book, BookShelf } from '../../common/api-data';
 
 const STORYGRAPH_BASE_URL = 'https://app.thestorygraph.com';
 const STORYGRAPH_ID = process.env.STORYGRAPH_ID;
-const STORYGRAPH_TAG_FAV = process.env.STORYGRAPH_TAG_FAV;
-
-const RECENT_URL = `${STORYGRAPH_BASE_URL}/books-read/${STORYGRAPH_ID}`;
-const CURRENT_URL = `${STORYGRAPH_BASE_URL}/currently-reading/${STORYGRAPH_ID}`;
-const FAVORITES_URL = `${STORYGRAPH_BASE_URL}/tags/${STORYGRAPH_TAG_FAV}`;
 
 const parseScrapData = (res: { data: string }, limit?: number): Book[] => {
     const $ = cheerio.load(res.data);
@@ -36,11 +31,13 @@ const parseScrapData = (res: { data: string }, limit?: number): Book[] => {
     return books;
 };
 
+const getBooksData = async (path: string, limit?: number) => axios.get(`${STORYGRAPH_BASE_URL}/${path}/${STORYGRAPH_ID}`).then(res => parseScrapData(res, limit));
+
 exports.handler = async function () {
     try {
-        const current = await axios.get(CURRENT_URL).then(res => parseScrapData(res));
-        const recent = await axios.get(RECENT_URL).then((data) => parseScrapData(data, 3));
-        const favorites = await axios.get(FAVORITES_URL).then(res => parseScrapData(res));
+        const current = await getBooksData('currently-reading');
+        const recent = await getBooksData('books-read', 3);
+        const favorites = await getBooksData('favorites');
 
         const data: BookShelf = {
             current,

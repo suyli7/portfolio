@@ -13,7 +13,7 @@ export class BookShelf {
                 <div class="bookshelf__content">
                     <div class="bookshelf__first-row">
                         <bookshelf-section halfSize sectionTitle="in progress" books={state.books?.current} />
-                        <bookshelf-section halfSize sectionTitle="recently read" books={state.books?.recent} />
+                        <bookshelf-section halfSize sectionTitle="recently finished" books={state.books?.recent} />
                     </div>
                     <bookshelf-section sectionTitle="favorites" books={state.books?.favorites} />
                 </div>
