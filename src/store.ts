@@ -11,7 +11,7 @@ import type {
   AssetImg,
 } from '../common/api-data';
 
-interface AppState {
+export interface AppState {
   about?: AboutDataModel;
   books?: BookShelf;
   caseStudies?: CaseStudyDataModel[];

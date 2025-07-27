@@ -3,7 +3,7 @@ import { Router } from '../../';
 import { Route } from 'stencil-router-v2';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { fetchApiData } from '../../common/api';
-import { state, set } from '../../store';
+import { state } from '../../store';
 
 @Component({
   tag: 'app-root',
@@ -13,14 +13,7 @@ import { state, set } from '../../store';
 export class AppRoot {
 
   async connectedCallback() {
-    fetchApiData('prismic/about', (data) => { set('about', data) });
-    fetchApiData('prismic/personal', (data) => { set('personal', data) });
-    fetchApiData('prismic/favimgs', (data) => { set('favImgs', data) });
-    fetchApiData('metadata', (data) => { set('metadata', data) });
-    fetchApiData('maplestory', (data) => { set('msData', data) });
-    fetchApiData('books', (data) => { set('books', data) });
-    fetchApiData('music', (data) => { set('lastPlayedSong', data) });
-    fetchApiData('games', (data) => { set('lastPlayedGames', data) });
+    await fetchApiData();
   }
 
   render() {

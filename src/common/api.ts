@@ -1,7 +1,49 @@
-export const fetchApiData = async (endopint: string, cb?: (data: any) => void) => {
-  fetch(`/api/${endopint}`)
-    .then((res) => res.json())
-    .then((data) => {
-      cb?.(data);
-    })
+import { set, type AppState } from '../store';
+
+const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
+  {
+    endpoint: 'prismic/about',
+    state: 'about'
+  },
+  {
+    endpoint: 'prismic/personal',
+    state: 'personal'
+  },
+  {
+    endpoint: 'prismic/favimgs',
+    state: 'favImgs'
+  },
+  {
+    endpoint: 'metadata',
+    state: 'metadata'
+  },
+  {
+    endpoint: 'maplestory',
+    state: 'msData'
+  },
+  {
+    endpoint: 'books',
+    state: 'books'
+  },
+  {
+    endpoint: 'music',
+    state: 'lastPlayedSong'
+  },
+  {
+    endpoint: 'games',
+    state: 'lastPlayedGames'
+  },
+];
+
+export const fetchApiData = async () => {
+  API_CONFIG.forEach((config) => {
+    fetch(`/api/${config.endpoint}`)
+      .then((res) => res.json())
+      .then((data) => {
+        set(config.state, data);
+      })
+      .catch((err) => {
+        console.log('fetchApiData Error: ', err);
+      })
+  });
 }

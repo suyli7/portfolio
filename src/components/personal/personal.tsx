@@ -67,17 +67,26 @@ export class Personal {
     );
 
     const boxLastPlayedGames = (
-      state.lastPlayedGames?.length ? (
-        <content-box gutter titleText="recent games">
-          <div class="game-data--wrapper">
-            {
-              state.lastPlayedGames.map((game) => (
-                <game-card game={game} />
-              ))
-            }
-          </div>
-        </content-box>
-      ) : null
+      <content-box gutter titleText="recent games">
+        {
+          state.lastPlayedGames?.length ? (
+            <div class="game-data--wrapper">
+              {
+                state.lastPlayedGames.map((game) => (
+                  <game-card game={game} />
+                ))
+              }
+            </div>
+          ) : (
+            <div>
+              <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                Something went wrong...
+              </app-text>
+              <app-button secondary onClick={() => window.location.reload()}>try again ?</app-button>
+            </div>
+          )
+        }
+      </content-box>
     );
 
     const boxMapleStory = (
@@ -118,8 +127,8 @@ export class Personal {
             ],
             [
               boxNote,
-              boxLastPlayedGames,
               boxBooks,
+              boxLastPlayedGames,
             ],
           ];
         default:
@@ -128,10 +137,10 @@ export class Personal {
               boxMe,
               boxNote,
               boxLastPlayedSong,
-              boxLastPlayedGames,
               boxBooks,
               boxMapleStory,
-              boxRandomImage
+              boxRandomImage,
+              boxLastPlayedGames,
             ]
           ];
       }
