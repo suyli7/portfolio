@@ -9,13 +9,6 @@ const GAMES_API_URL = `${GAMES_BASE_URL}${PLAYER_ID}/games?page=1`;
 exports.handler = async function () {
     try {
         const games_res = await fetch(GAMES_API_URL);
-        if (!games_res.ok) {
-            return {
-                statusCode: 500,
-                body: JSON.stringify([])
-            };
-        }
-
         const games_res_data = await games_res.json();
 
         const lastPlayedGames = games_res_data.games.slice(0, 6);
