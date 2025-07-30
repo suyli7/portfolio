@@ -1,6 +1,7 @@
 import { Component, h, State, Listen } from '@stencil/core';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { AssetImg } from '../../../common/api-data';
+import { fetchApiData } from '../../common/api';
 import { state, set } from '../../store';
 
 @Component({
@@ -33,6 +34,10 @@ export class Personal {
       this.getRandomImg();
     }
     set('favImgIndex', randomIndex)
+  }
+
+  private retryData = (path: string) => {
+    fetchApiData([path]);
   }
 
   render() {
@@ -82,7 +87,7 @@ export class Personal {
               <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
                 Something went wrong...
               </app-text>
-              <app-button secondary onClick={() => window.location.reload()}>try again ?</app-button>
+              <app-button secondary onClick={() => this.retryData('games')}>try again?</app-button>
             </div>
           )
         }
