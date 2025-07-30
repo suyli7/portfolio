@@ -17,7 +17,7 @@ export class AppRoot {
   }
 
   render() {
-    if (!state.about || !state.personal || !state.favImgs) {
+    if (!state.pageReady) {
       return (
         <main>
           <div class="loading-screen">

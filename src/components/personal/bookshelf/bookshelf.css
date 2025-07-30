@@ -23,5 +23,6 @@
 @media only screen and (max-width: 1300px) {
     .bookshelf__first-row {
         grid-template-columns: 1fr;
+        row-gap: var(--space-s);
     }
 }

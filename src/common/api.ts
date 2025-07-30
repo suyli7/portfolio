@@ -1,4 +1,4 @@
-import { set, type AppState } from '../store';
+import { set, setLoadState, type AppState } from '../store';
 
 const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
   {
@@ -40,9 +40,11 @@ export const fetchApiData = async () => {
     fetch(`/api/${config.endpoint}`)
       .then((res) => res.json())
       .then((data) => {
+        setLoadState(config.endpoint);
         set(config.state, data);
       })
       .catch((err) => {
+        setLoadState(config.endpoint);
         console.log('fetchApiData Error: ', err);
       })
   });

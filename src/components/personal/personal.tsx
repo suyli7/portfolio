@@ -82,7 +82,7 @@ export class Personal {
               <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
                 Something went wrong...
               </app-text>
-              <app-button secondary onClick={() => window.location.reload()}>try again ?</app-button>
+              <app-button secondary onClick={() => window.location.reload()}>try reload?</app-button>
             </div>
           )
         }
