@@ -36,10 +36,6 @@ export class Personal {
     set('favImgIndex', randomIndex)
   }
 
-  private retryData = (path: string) => {
-    fetchApiData([path]);
-  }
-
   render() {
     const randomImg: AssetImg = state.favImgs[state.favImgIndex];
     const boxMe = (
@@ -87,7 +83,7 @@ export class Personal {
               <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
                 Something went wrong...
               </app-text>
-              <app-button secondary onClick={() => this.retryData('games')}>try again?</app-button>
+              <app-button secondary onClick={() => window.location.reload()}>try reload?</app-button>
             </div>
           )
         }

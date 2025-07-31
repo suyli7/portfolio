@@ -35,8 +35,8 @@ const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
   },
 ];
 
-export const fetchApiData = async (endpoints?: string[]) => {
-  (endpoints || API_CONFIG).forEach((config) => {
+export const fetchApiData = async () => {
+  API_CONFIG.forEach((config) => {
     fetch(`/api/${config.endpoint}`)
       .then((res) => res.json())
       .then((data) => {
