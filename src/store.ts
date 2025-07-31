@@ -1,30 +1,6 @@
 import { createStore } from "@stencil/store";
-import type {
-  AboutDataModel,
-  CaseStudyDataModel,
-  BookShelf,
-  LastPlayedGame,
-  LastPlayedSong,
-  Metadata,
-  MsData,
-  PersonalDataModel,
-  AssetImg,
-} from '../common/api-data';
-
-export interface AppState {
-  loadState?: Record<string, boolean>;
-  pageReady?: boolean;
-  about?: AboutDataModel;
-  books?: BookShelf;
-  caseStudies?: CaseStudyDataModel[];
-  personal?: PersonalDataModel;
-  metadata: Metadata;
-  msData?: MsData;
-  lastPlayedGames?: LastPlayedGame[];
-  lastPlayedSong?: LastPlayedSong;
-  favImgs?: AssetImg[];
-  favImgIndex?: number;
-}
+import type { AppState } from './common/types';
+import { API_CONFIG } from './common/constants';
 
 const { state, set, onChange } = createStore<AppState>({
   loadState: {},
@@ -54,8 +30,7 @@ export const setLoadState = (key: string) => {
 }
 
 onChange('loadState', (loadState) => {
-  const values = Object.values(loadState);
-  state.pageReady = values.length > 0 && values.every(v => v === true);
+  state.pageReady = API_CONFIG.every((config) => loadState[config.endpoint] === true);
 });
 
 export {
