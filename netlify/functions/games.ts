@@ -11,7 +11,7 @@ exports.handler = async function () {
         const games_res = await fetch(GAMES_API_URL);
         const games_res_data = await games_res.json();
 
-        const lastPlayedGames = games_res_data.games.slice(0, 6);
+        const lastPlayedGames = games_res_data.games.slice(0, 4);
         const data = lastPlayedGames?.map((game): LastPlayedGame => ({
             name: game.meta.title,
             imgUrl: game.resource_standard,

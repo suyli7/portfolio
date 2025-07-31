@@ -2,7 +2,6 @@ app-layout {
   display: grid;
   grid-template-columns: 1fr 5fr;
   column-gap: var(--space-l);
-  padding: var(--space-l);
 }
 
 .app-layout--static-content,

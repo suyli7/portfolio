@@ -4,9 +4,6 @@ main {
   margin: var(--space-xl) auto;
   display: block;
   box-sizing: border-box;
-  background-color: var(--color-background-main);
-  border: 1px solid var(--color-border);
-  box-shadow: rgba(150, 150, 255, 0.1) 0px 4px 16px;
 }
 
 .loading-screen {

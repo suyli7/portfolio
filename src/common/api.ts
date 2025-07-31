@@ -17,10 +17,10 @@ const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
     endpoint: 'metadata',
     state: 'metadata'
   },
-  {
-    endpoint: 'maplestory',
-    state: 'msData'
-  },
+  // {
+  //   endpoint: 'maplestory',
+  //   state: 'msData'
+  // },
   {
     endpoint: 'books',
     state: 'books'
@@ -40,12 +40,12 @@ export const fetchApiData = async (endpoints?: string[]) => {
     fetch(`/api/${config.endpoint}`)
       .then((res) => res.json())
       .then((data) => {
-        setLoadState(config.endpoint);
         set(config.state, data);
+        setLoadState(config.endpoint);
       })
       .catch((err) => {
-        setLoadState(config.endpoint);
         console.log('fetchApiData Error: ', err);
+        setLoadState(config.endpoint);
       })
   });
 }

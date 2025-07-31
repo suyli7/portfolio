@@ -94,12 +94,6 @@ export class Personal {
       </content-box>
     );
 
-    const boxMapleStory = (
-      <content-box gutter titleText="maplestory">
-        <ms-char-card />
-      </content-box>
-    );
-
     const boxRandomImage = (
       <content-box
         gutter
@@ -127,13 +121,12 @@ export class Personal {
             [
               boxMe,
               boxLastPlayedSong,
-              boxMapleStory,
+              boxLastPlayedGames,
               boxRandomImage,
             ],
             [
               boxNote,
               boxBooks,
-              boxLastPlayedGames,
             ],
           ];
         default:
@@ -143,7 +136,6 @@ export class Personal {
               boxNote,
               boxLastPlayedSong,
               boxBooks,
-              boxMapleStory,
               boxRandomImage,
               boxLastPlayedGames,
             ]

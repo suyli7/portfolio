@@ -12,7 +12,7 @@ const params = new URLSearchParams({
 });
 
 const LAST_FM_API_URL = `${BASE_URL}?${params.toString()}`;
-
+console.log(LAST_FM_API_URL)
 const getLastPlayedTimeText = (uts: number) => {
   const now = Math.floor(Date.now() / 1000);
   const diffInSeconds = now - uts;

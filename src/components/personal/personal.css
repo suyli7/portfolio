@@ -10,7 +10,7 @@
 
 .game-data--wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: var(--space-m);
   row-gap: var(--space-m);
 }
@@ -30,12 +30,6 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .game-data--wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media only screen and (max-width: 520px) {
   .game-data--wrapper {
     grid-template-columns: 1fr;
   }

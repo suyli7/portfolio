@@ -4,10 +4,12 @@
   width: 100%;
   border-width: 1px;
   border-style: solid;
-  border-color: var(--color-blue);
+  border-color: var(--color-border);
   display: inline-block;
   padding-inline: var(--space-m);
   padding-bottom: var(--space-m);
+  box-shadow: rgba(150, 150, 255, 0.1) 0px 4px 16px;
+  background-color: var(--color-background-main);
 }
 
 .content-box legend {
