@@ -1,7 +1,6 @@
 import { Component, h, State, Listen } from '@stencil/core';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { AssetImg } from '../../../common/api-data';
-import { fetchApiData } from '../../common/api';
 import { state, set } from '../../store';
 
 @Component({
