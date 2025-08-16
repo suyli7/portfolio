@@ -1,28 +1,17 @@
 .bookshelf__buttons,
 .bookshelf__content {
-    display: flex;
-}
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-.bookshelf__buttons {
-    flex-direction: row;
-    column-gap: var(--space-xs);
-    margin-bottom: var(--space-s);
 }
 
 .bookshelf__content {
-    flex-direction: column;
-    row-gap: var(--space-s);
+  row-gap: var(--space-s);
+  column-gap: var(--space-xl);
 }
 
-.bookshelf__first-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: var(--space-s);
-}
-
-@media only screen and (max-width: 1300px) {
-    .bookshelf__first-row {
-        grid-template-columns: 1fr;
-        row-gap: var(--space-s);
-    }
+.bookshelf__buttons {
+  column-gap: var(--space-xs);
+  row-gap: var(--space-xs);
 }

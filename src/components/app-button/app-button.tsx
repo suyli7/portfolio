@@ -9,13 +9,15 @@ export class AppButton {
 
   @Prop() buttonStyle?: { [key: string]: any } = {}
   @Prop() secondary?: boolean = false;
+  @Prop() small?: boolean = false;
 
   render() {
     return (
       <button
         class={{
           "app-button": true,
-          "app-button--secondary": this.secondary
+          "app-button--secondary": this.secondary,
+          "app-button--small": this.small
         }}
         style={this.buttonStyle}>
         <slot />

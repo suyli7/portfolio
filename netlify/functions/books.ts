@@ -2,6 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 import type { Book, BookShelf } from '../../common/api-data';
+import { TAGS_LIST } from '../../common/book-tags';
 
 const STORYGRAPH_BASE_URL = 'https://app.thestorygraph.com';
 const STORYGRAPH_ID = process.env.STORYGRAPH_ID;
@@ -19,12 +20,21 @@ const parseScrapData = (res: { data: string }, limit?: number): Book[] => {
         const author = el.find('.book-title-author-and-series a[href^="/authors/"]').first().text().trim();
         const imgUrl = el.find('.book-cover img').attr('src');
         const linkHref = el.find('.book-cover a').attr('href');
+        const tagEls = el.find('.book-pane-tag-section').first().find('div').first().find('span.text-teal-700');
+        const tags = tagEls.toArray().reduce((acc, el) => {
+            const text = $(el).text().trim();
+            if (TAGS_LIST.has(text)) {
+                acc.push(text);
+            }
+            return acc;
+        }, []);
 
         books.push({
             name,
             author,
             imgUrl,
-            bookUrl: `${STORYGRAPH_BASE_URL}${linkHref}`
+            bookUrl: `${STORYGRAPH_BASE_URL}${linkHref}`,
+            tags
         });
     });
 

@@ -15,6 +15,7 @@ export namespace Components {
     interface AppButton {
         "buttonStyle"?: { [key: string]: any };
         "secondary"?: boolean;
+        "small"?: boolean;
     }
     interface AppHome {
     }
@@ -41,10 +42,11 @@ export namespace Components {
     }
     interface BookshelfBook {
         "book": Book;
+        "bookWidth": number;
     }
     interface BookshelfSection {
+        "bookWidth": number;
         "books": Book[];
-        "halfSize": boolean;
         "sectionTitle": string;
     }
     interface CaseStudies {
@@ -185,6 +187,7 @@ declare namespace LocalJSX {
     interface AppButton {
         "buttonStyle"?: { [key: string]: any };
         "secondary"?: boolean;
+        "small"?: boolean;
     }
     interface AppHome {
     }
@@ -211,10 +214,11 @@ declare namespace LocalJSX {
     }
     interface BookshelfBook {
         "book"?: Book;
+        "bookWidth"?: number;
     }
     interface BookshelfSection {
+        "bookWidth"?: number;
         "books"?: Book[];
-        "halfSize"?: boolean;
         "sectionTitle"?: string;
     }
     interface CaseStudies {

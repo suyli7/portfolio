@@ -13,7 +13,7 @@ export class Personal {
 
   private setColNum() {
     const viewportWidth = window.innerWidth;
-    const colNum = viewportWidth < 1200 ? 1
+    const colNum = viewportWidth < 980 ? 1
       : 2
     this.colNum = colNum;
   }

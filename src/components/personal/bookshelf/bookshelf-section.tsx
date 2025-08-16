@@ -9,9 +9,8 @@ import type { Book } from '../../../../common/api-data';
 })
 export class BookshelfSection {
     @Prop() books: Book[] = [];
+    @Prop() bookWidth: number;
     @Prop() sectionTitle: string = '';
-    @Prop() halfSize: boolean = false;
-
 
     render() {
         if (!this.books?.length) {
@@ -23,13 +22,11 @@ export class BookshelfSection {
                 <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
                     {this.sectionTitle}
                 </app-text>
-                <div class={{
-                    "bookshelf-section__list": true,
-                    "half-size": this.halfSize
-                }}>
+                <slot />
+                <div class="bookshelf-section__list">
                     {
                         this.books.map((book) => (
-                            <bookshelf-book book={book} />
+                            <bookshelf-book book={book} bookWidth={this.bookWidth} />
                         ))
                     }
                 </div>

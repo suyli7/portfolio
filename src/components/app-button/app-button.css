@@ -40,3 +40,9 @@
   border-style: inset;
   border-color: #6f6f6f;
 }
+
+.app-button--small {
+  padding: var(--space-xxs);
+  border-width: 2px;
+  font-size: 0.8rem;
+}

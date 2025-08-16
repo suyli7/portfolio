@@ -74,6 +74,7 @@ export interface Book {
   author: string;
   imgUrl: string;
   bookUrl: string;
+  tags?: string[];
 }
 
 export interface BookShelf {
