@@ -35,8 +35,14 @@ export class GameCard {
                     }} />
                 </div>
                 <div class="game__info">
+                    <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                        {this.game.name}
+                    </app-text>
+                    <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                        last played: {this.game.lastPlayed}
+                    </app-text>
                     <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                        {this.game.lastPlayed}
+                        total: {this.game.totalPlaytime}
                     </app-text>
                 </div>
             </div>

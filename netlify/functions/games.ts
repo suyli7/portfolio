@@ -11,12 +11,12 @@ exports.handler = async function () {
         const games_res = await fetch(GAMES_API_URL);
         const games_res_data = await games_res.json();
 
-        const lastPlayedGames = games_res_data.games.slice(0, 4);
+        const lastPlayedGames = games_res_data.games.slice(0, 3);
         const data = lastPlayedGames?.map((game): LastPlayedGame => ({
             name: game.meta.title,
             imgUrl: game.resource_standard,
-            lastPlayed: `last played: ${getFormattedDate(game.lastplayed)}`,
-            totalPlaytime: `total playtime: ${game.playtime}`,
+            lastPlayed: getFormattedDate(game.lastplayed),
+            totalPlaytime: game.playtime,
             env: game.meta.environment_slug
         })) || [];
 

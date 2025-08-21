@@ -1,5 +1,6 @@
 .game-data--container,
-.random-image {
+.random-image,
+.game-data--wrapper {
   display: flex;
   flex-direction: column;
 }
@@ -9,16 +10,13 @@
 }
 
 .game-data--wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: var(--space-m);
   row-gap: var(--space-m);
 }
 
 .personal--wrapper {
   display: flex;
   flex-direction: row;
-  column-gap: var(--space-m);
+  column-gap: var(--space-l)
 }
 
 .personal--column {
@@ -26,7 +24,7 @@
 }
 
 .personal--column:last-of-type {
-  flex: 2
+  flex: 2.75
 }
 
 @media only screen and (max-width: 1200px) {

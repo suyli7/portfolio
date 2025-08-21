@@ -32,7 +32,9 @@ app-layout {
 
 .link-items-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: var(--space-xxs);
   row-gap: var(--space-xxs);
 }
 

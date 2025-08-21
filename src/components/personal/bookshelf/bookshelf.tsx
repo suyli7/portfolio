@@ -15,6 +15,7 @@ const RANGES = {
     820: 8,
     980: 7,
     1060: 5,
+    1200: 6,
 };
 
 const getPerRowCount = (browserWidth: number) => {
@@ -23,7 +24,7 @@ const getPerRowCount = (browserWidth: number) => {
             return count;
         }
     }
-    return 6;
+    return 7;
 }
 
 @Component({

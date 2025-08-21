@@ -17,6 +17,8 @@ const NAV_CONFIG: Array<{ name: string; route: string; icon: string }> = [
   styleUrl: 'app-layout.css',
 })
 export class AppLayout {
+  private currentPath = window.location.pathname;
+
   render() {
     return (
       <Host>
@@ -30,7 +32,7 @@ export class AppLayout {
                 NAV_CONFIG.map((item) => (
                   <a {...href(item.route)} class="nav-items--item-container">
                     <app-image width={40} height={40} src={`/assets/icons/${item.icon}.png`} />
-                    <app-text variant={TextVariant.Body} color={TextColor.Green} size={TextSize.XXSmall}>
+                    <app-text variant={TextVariant.Body} color={item.route === this.currentPath ? TextColor.Green : TextColor.Main} size={TextSize.XXSmall}>
                       {item.name}
                     </app-text>
                   </a>
@@ -64,6 +66,7 @@ export class AppLayout {
             <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               &#128221;Latest change:<br />{state.metadata?.latestMessage}
             </app-text>
+            <br />
             <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               Su Li &copy; 2025
             </app-text>
