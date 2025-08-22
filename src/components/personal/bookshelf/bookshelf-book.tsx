@@ -19,7 +19,7 @@ export class BookshelfBook {
         return (
             <Host>
                 <a href={this.book.bookUrl} target="_blank" class="bookshelf-book" style={{ width: `${this.bookWidth}px` }}>
-                    <app-image width="auto" src={this.book.imgUrl} alt={`${this.book.name} book cover`} />
+                    <app-image src={this.book.imgUrl} alt={`${this.book.name} book cover`} />
                     <div class="bookshelf-book__info">
                         <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.XXSmall}>
                             {this.book.name}

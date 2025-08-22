@@ -78,9 +78,9 @@ export class BookShelf {
         return (
             <content-box gutter titleText="bookshelf">
                 <div class="bookshelf__content">
-                    <bookshelf-section sectionTitle="in progress" bookWidth={this.bookWidth} books={state.books?.current} />
-                    <bookshelf-section sectionTitle="last read" bookWidth={this.bookWidth} books={state.books?.recent} />
-                    <bookshelf-section sectionTitle="favorites" bookWidth={this.bookWidth} books={this.favBooks}>
+                    <bookshelf-section sectionTitle="Currently reading" bookWidth={this.bookWidth} books={state.books?.current} />
+                    <bookshelf-section sectionTitle="Read recently" bookWidth={this.bookWidth} books={state.books?.recent} />
+                    <bookshelf-section sectionTitle="Favorites" bookWidth={this.bookWidth} books={this.favBooks}>
                         <div class="bookshelf__buttons">
                             {
                                 Object.keys(SHELF_TAGS_MAP).map((tag) => (

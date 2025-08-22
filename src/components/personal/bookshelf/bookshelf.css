@@ -7,7 +7,7 @@
 }
 
 .bookshelf__content {
-  row-gap: var(--space-s);
+  row-gap: var(--space-m);
   column-gap: var(--space-xl);
 }
 

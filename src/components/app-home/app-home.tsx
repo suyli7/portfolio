@@ -66,9 +66,6 @@ export class AppHome {
                       <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
                         {exp.role}
                       </app-text>
-                      <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-                        <rich-text-renderer field={exp.description} />
-                      </app-text>
                     </div>
                   </div>
                 ))

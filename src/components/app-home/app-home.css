@@ -43,7 +43,7 @@
 }
 
 .exp-item {
-  row-gap: var(--space-xs);
+  row-gap: var(--space-s);
 }
 
 .intro-secondary {
