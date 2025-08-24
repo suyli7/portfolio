@@ -12,6 +12,10 @@
   color: var(--color-red);
 }
 
+.intro-secondary strong {
+  color: var(--color-text-main);
+}
+
 .exp-item {
   display: grid;
   grid-template-columns: 1fr 3fr;

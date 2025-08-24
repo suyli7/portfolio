@@ -59,5 +59,5 @@
     border-bottom-style: solid;
     border-left-style: solid;
     border-style: inset;
-    color: #acacac;
+    color: var(--color-text-main);
 }

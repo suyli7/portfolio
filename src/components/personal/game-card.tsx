@@ -35,7 +35,7 @@ export class GameCard {
                     }} />
                 </div>
                 <div class="game__info">
-                    <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XXSmall}>
+                    <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XSmall}>
                         {this.game.name}
                     </app-text>
                     <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XXSmall}>

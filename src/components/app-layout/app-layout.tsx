@@ -26,7 +26,7 @@ export class AppLayout {
           <app-button onClick={() => alert('I\'m not done with coding this part yet xD')} buttonStyle={{ width: "100%" }}>
             Su with no E<br /> ✨(ㆆ◡ㆆ)✌️
           </app-button>
-          <content-box titleText="nav">
+          <content-box titleText="site nav">
             <div class="nav-items--wrapper">
               {
                 NAV_CONFIG.map((item) => (
@@ -40,9 +40,23 @@ export class AppLayout {
               }
             </div>
           </content-box>
-          <content-box titleText='bulletin'>
+          <content-box titleText="site info">
+            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              Su Li &copy; 2025
+            </app-text>
+            <hr />
             <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               <rich-text-renderer field={state.about?.bulletin} />
+            </app-text>
+            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              <rich-text-renderer field={state.about?.site_info} />
+            </app-text>
+            <hr />
+            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              &#128259;Last updated:<br />{state.metadata?.lastUpdated}
+            </app-text>
+            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
+              &#128221;Latest change:<br />{state.metadata?.latestMessage}
             </app-text>
           </content-box>
           <content-box titleText="links">
@@ -55,21 +69,6 @@ export class AppLayout {
                 ))
               }
             </div>
-          </content-box>
-          <content-box titleText="site info">
-            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              <rich-text-renderer field={state.about?.site_info} />
-            </app-text>
-            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              &#128259;Last updated:<br />{state.metadata?.lastUpdated}
-            </app-text>
-            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              &#128221;Latest change:<br />{state.metadata?.latestMessage}
-            </app-text>
-            <br />
-            <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              Su Li &copy; 2025
-            </app-text>
           </content-box>
         </div>
         <div class="app-layout--page-content">
