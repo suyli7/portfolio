@@ -21,6 +21,7 @@ export namespace Components {
     }
     interface AppImage {
         "alt"?: string;
+        "bwMode"?: boolean;
         "height"?: number | string;
         "imgStyle"?: { [key: string]: any };
         "src": string;
@@ -193,6 +194,7 @@ declare namespace LocalJSX {
     }
     interface AppImage {
         "alt"?: string;
+        "bwMode"?: boolean;
         "height"?: number | string;
         "imgStyle"?: { [key: string]: any };
         "src"?: string;

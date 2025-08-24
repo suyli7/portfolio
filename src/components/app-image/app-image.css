@@ -17,3 +17,7 @@
 .app-image--placeholder {
   object-fit: scale-down;
 }
+
+.app-image-bw {
+  filter: grayscale(100%);
+}

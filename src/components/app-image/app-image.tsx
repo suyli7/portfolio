@@ -11,6 +11,7 @@ export class AppImage {
 	@Prop() width?: number | string;
 	@Prop() height?: number | string;
 	@Prop() imgStyle?: { [key: string]: any } = {}
+	@Prop() bwMode?: boolean = false;
 
 	@State() loaded?: boolean = false;
 
@@ -47,7 +48,10 @@ export class AppImage {
 					/>
 				)}
 				<img
-					class="app-image"
+					class={{
+						"app-image": true,
+						"app-image-bw": this.bwMode
+					}}
 					src={this.src}
 					alt={this.alt}
 					onLoad={this.handleImageLoad}

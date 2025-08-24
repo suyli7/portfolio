@@ -14,7 +14,8 @@ const { state, set, onChange } = createStore<AppState>({
   lastPlayedGames: [],
   lastPlayedSong: null,
   favImgs: [],
-  favImgIndex: 0
+  favImgIndex: 0,
+  apod: null
 });
 
 onChange('favImgs', (data) => {
