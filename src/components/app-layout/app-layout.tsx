@@ -55,6 +55,7 @@ export class AppLayout {
             <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               &#128259;Last updated:<br />{state.metadata?.lastUpdated}
             </app-text>
+            <br />
             <app-text style={{ 'margin-top': 'var(--space-xs)' }} color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
               &#128221;Latest change:<br />{state.metadata?.latestMessage}
             </app-text>

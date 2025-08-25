@@ -50,7 +50,7 @@ export class AppImage {
 				<img
 					class={{
 						"app-image": true,
-						"app-image-bw": this.bwMode
+						// "app-image-bw": this.bwMode
 					}}
 					src={this.src}
 					alt={this.alt}
