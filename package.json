@@ -15,6 +15,7 @@
     "@stencil/core": "^4.22.2",
     "@stencil/store": "^2.0.16",
     "@types/node": "^22.5.4",
+    "netlify-plugin-chromium": "^1.1.4",
     "stencil-router-v2": "^0.6.0",
     "typescript": "^5.9.3"
   },
