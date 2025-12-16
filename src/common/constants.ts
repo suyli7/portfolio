@@ -25,18 +25,18 @@ export const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
         endpoint: 'nasa',
         state: 'apod'
     },
-    {
-        endpoint: 'books',
-        state: 'books'
-    },
+    // {
+    //     endpoint: 'books',
+    //     state: 'books'
+    // },
     {
         endpoint: 'music',
         state: 'lastPlayedSong'
     },
-    {
-        endpoint: 'games',
-        state: 'lastPlayedGames'
-    },
+    // {
+    //     endpoint: 'games',
+    //     state: 'lastPlayedGames'
+    // },
 ];
 
 export const TOTAL_TASKS_COUNT = API_CONFIG.length;

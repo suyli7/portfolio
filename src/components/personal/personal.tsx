@@ -78,12 +78,9 @@ export class Personal {
               }
             </div>
           ) : (
-            <div>
               <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                Something went wrong...
+                No data under this section...yet.
               </app-text>
-              <app-button secondary onClick={() => window.location.reload()}>try reload?</app-button>
-            </div>
           )
         }
       </content-box>
