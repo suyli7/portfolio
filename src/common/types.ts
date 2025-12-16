@@ -13,7 +13,11 @@ import type {
 } from '../../common/api-data';
 
 export interface AppState {
-    loadState?: Record<string, boolean>;
+    loadState?: {
+        states: Record<string, boolean>;
+        progress: number;
+        pageReady?: boolean;
+    };
     pageReady?: boolean;
     about?: AboutDataModel;
     books?: BookShelf;

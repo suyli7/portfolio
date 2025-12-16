@@ -38,3 +38,5 @@ export const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
         state: 'lastPlayedGames'
     },
 ];
+
+export const TOTAL_TASKS_COUNT = API_CONFIG.length;

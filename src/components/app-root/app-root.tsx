@@ -2,6 +2,7 @@ import { Component, h } from '@stencil/core';
 import { Router } from '../../';
 import { Route } from 'stencil-router-v2';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
+import { TOTAL_TASKS_COUNT } from '../../common/constants';
 import { fetchApiData } from '../../common/api';
 import { state } from '../../store';
 
@@ -17,13 +18,16 @@ export class AppRoot {
   }
 
   render() {
-    if (!state.pageReady) {
+    if (!state.loadState?.pageReady) {
       return (
         <main>
           <div class="loading-screen">
             <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.Large}>
               Getting ready...
             </app-text>
+            <div class="loading-progress">
+              <div style={{ width: `${state.loadState?.progress / TOTAL_TASKS_COUNT * 100}%` }} />
+            </div>
           </div>
         </main>
       )

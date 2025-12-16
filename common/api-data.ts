@@ -57,11 +57,12 @@ export interface LastPlayedSong {
 }
 
 export interface LastPlayedGame {
-  name: string;
+  title: string;
   imgUrl: string;
   lastPlayed: string;
   totalPlaytime: string;
-  env: string;
+  platform: string;
+  url: string
 }
 
 export interface AssetImg {
@@ -70,7 +71,7 @@ export interface AssetImg {
 }
 
 export interface Book {
-  name: string;
+  title: string;
   author: string;
   imgUrl: string;
   bookUrl: string;
@@ -81,6 +82,8 @@ export interface BookShelf {
   current: Book[];
   recent: Book[];
   favorites: Book[];
+  toRead: Book[];
+  about: string;
 }
 
 export interface Metadata {

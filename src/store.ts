@@ -3,8 +3,11 @@ import type { AppState } from './common/types';
 import { API_CONFIG } from './common/constants';
 
 const { state, set, onChange } = createStore<AppState>({
-  loadState: {},
-  pageReady: false,
+  loadState: {
+    progress: 0,
+    pageReady: false,
+    states: {}
+  },
   about: null,
   books: null,
   caseStudies: [],
@@ -14,8 +17,7 @@ const { state, set, onChange } = createStore<AppState>({
   lastPlayedGames: [],
   lastPlayedSong: null,
   favImgs: [],
-  favImgIndex: 0,
-  apod: null
+  favImgIndex: 0
 });
 
 onChange('favImgs', (data) => {
@@ -24,14 +26,19 @@ onChange('favImgs', (data) => {
 });
 
 export const setLoadState = (key: string) => {
+  const updatedProgress = state.loadState.progress + 1;
   set('loadState', {
     ...state.loadState,
-    [key]: true
+    progress: updatedProgress,
+    states: {
+      ...state.loadState.states,
+      [key]: true
+    }
   });
 }
 
 onChange('loadState', (loadState) => {
-  state.pageReady = API_CONFIG.every((config) => loadState[config.endpoint] === true);
+  state.loadState.pageReady = API_CONFIG.every((config) => loadState.states[config.endpoint] === true);
 });
 
 export {

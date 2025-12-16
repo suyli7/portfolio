@@ -1,4 +1,5 @@
 import { Component, h, State, Element } from '@stencil/core';
+import { TextColor, TextSize, TextVariant } from '../../../common/namespaces';
 import { SHELF_TAGS_MAP, TAG_ALL } from '../../../../common/book-tags';
 import type { Book } from '../../../../common/api-data';
 import { state } from '../../../store';
@@ -78,9 +79,18 @@ export class BookShelf {
         return (
             <content-box gutter titleText="bookshelf">
                 <div class="bookshelf__content">
-                    <bookshelf-section sectionTitle="Currently reading" bookWidth={this.bookWidth} books={state.books?.current} />
-                    <bookshelf-section sectionTitle="Read recently" bookWidth={this.bookWidth} books={state.books?.recent} />
-                    <bookshelf-section sectionTitle="Favorites" bookWidth={this.bookWidth} books={this.favBooks}>
+                    <div class="bookshelf_about">
+                        <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
+                            &#129299; Reading style summary
+                        </app-text>
+                        <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.Small}>
+                            {state.books?.about}
+                        </app-text>
+                    </div>
+                    <bookshelf-section sectionTitle="&#128214; Currently reading" bookWidth={this.bookWidth} books={state.books?.current} />
+                    <bookshelf-section sectionTitle="&#128218; Recently read" bookWidth={this.bookWidth} books={state.books?.recent} />
+                    <bookshelf-section sectionTitle="&#8987; Next 5 in TBR" bookWidth={this.bookWidth} books={state.books?.toRead} />
+                    <bookshelf-section sectionTitle="&#127775; Favorites" bookWidth={this.bookWidth} books={this.favBooks}>
                         <div class="bookshelf__buttons">
                             {
                                 Object.keys(SHELF_TAGS_MAP).map((tag) => (

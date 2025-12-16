@@ -13,10 +13,6 @@ export class BookshelfSection {
     @Prop() sectionTitle: string = '';
 
     render() {
-        if (!this.books?.length) {
-            return null;
-        }
-
         return (
             <Host>
                 <app-text color={TextColor.Main} variant={TextVariant.Title} size={TextSize.Small}>
@@ -24,6 +20,14 @@ export class BookshelfSection {
                 </app-text>
                 <slot />
                 <div class="bookshelf-section__list">
+                    {
+                        !this.books?.length && (
+                            <app-text color={TextColor.Sub} variant={TextVariant.Title} size={TextSize.XSmall}>
+                                Nothing under this category...yet.
+                            </app-text>
+
+                        )
+                    }
                     {
                         this.books.map((book) => (
                             <bookshelf-book book={book} bookWidth={this.bookWidth} />

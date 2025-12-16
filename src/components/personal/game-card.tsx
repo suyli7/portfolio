@@ -13,11 +13,12 @@ import type { LastPlayedGame } from '../../../common/api-data';
 })
 export class GameCard {
     @Prop() game: LastPlayedGame = {
-        name: '',
+        title: '',
         totalPlaytime: '',
         lastPlayed: '',
         imgUrl: '',
-        env: ''
+        url: '',
+        platform: ''
     };
 
     render() {
@@ -25,21 +26,21 @@ export class GameCard {
             // <Host>
             <div class="game__container">
                 <div class="game__tag">
-                    {this.game.env}
+                    {this.game.platform}
                 </div>
-                <div class="game__image">
-                    <app-image src={this.game.imgUrl} alt={`cover image for game: ${this.game.name}`} imgStyle={{
+                <a href={this.game.url} target="_blank" class="game__image">
+                    <app-image src={this.game.imgUrl} alt={`cover image for game: ${this.game.title}`} imgStyle={{
                         border: '1px solid #969696',
                         borderStyle: 'inset',
                         maxWidth: '140px'
                     }} />
-                </div>
+                </a>
                 <div class="game__info">
                     <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XSmall}>
-                        {this.game.name}
+                        {this.game.title}
                     </app-text>
                     <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                        last played: {this.game.lastPlayed}
+                        {this.game.lastPlayed}
                     </app-text>
                     <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
                         total: {this.game.totalPlaytime}

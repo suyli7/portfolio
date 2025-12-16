@@ -67,7 +67,7 @@ export class Personal {
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recent games">
+      <content-box gutter titleText="recently played">
         {
           state.lastPlayedGames?.length ? (
             <div class="game-data--wrapper">

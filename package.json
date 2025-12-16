@@ -15,12 +15,12 @@
     "@stencil/core": "^4.22.2",
     "@stencil/store": "^2.0.16",
     "@types/node": "^22.5.4",
-    "stencil-router-v2": "^0.6.0"
+    "stencil-router-v2": "^0.6.0",
+    "typescript": "^5.9.3"
   },
   "license": "MIT",
   "dependencies": {
     "@prismicio/client": "^7.8.1",
-    "axios": "^1.10.0",
-    "cheerio": "^1.1.0"
+    "puppeteer": "^24.33.0"
   }
 }
