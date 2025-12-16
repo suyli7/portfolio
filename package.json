@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "Stencil App Starter",
   "scripts": {
+    "prebuild": "npx puppeteer browsers install chrome",
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
@@ -15,13 +16,13 @@
     "@stencil/core": "^4.22.2",
     "@stencil/store": "^2.0.16",
     "@types/node": "^22.5.4",
-    "netlify-plugin-chromium": "^1.1.4",
     "stencil-router-v2": "^0.6.0",
     "typescript": "^5.9.3"
   },
   "license": "MIT",
   "dependencies": {
     "@prismicio/client": "^7.8.1",
-    "puppeteer": "^24.33.0"
+    "@sparticuz/chromium": "113.0.1",
+    "puppeteer-core": "20.1.1"
   }
 }
