@@ -17,26 +17,22 @@ export const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
         endpoint: 'metadata',
         state: 'metadata'
     },
-    // {
-    //   endpoint: 'maplestory',
-    //   state: 'msData'
-    // },
     {
         endpoint: 'nasa',
         state: 'apod'
     },
-    // {
-    //     endpoint: 'books',
-    //     state: 'books'
-    // },
     {
         endpoint: 'music',
         state: 'lastPlayedSong'
     },
-    // {
-    //     endpoint: 'games',
-    //     state: 'lastPlayedGames'
-    // },
+    {
+        endpoint: 'hobbies/books',
+        state: 'books'
+    },
+    {
+        endpoint: 'hobbies/lastPlayedGames',
+        state: 'lastPlayedGames'
+    },
 ];
 
 export const TOTAL_TASKS_COUNT = API_CONFIG.length;

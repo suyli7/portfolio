@@ -8,6 +8,7 @@
   position: relative;
   aspect-ratio: 1 / 1.5;
   height: 100%;
+  width: 82px;
 }
 
 .bookshelf-book__info {
@@ -34,4 +35,10 @@
 
 .bookshelf-book:hover .bookshelf-book__info {
   opacity: 1;
+}
+
+@media only screen and (max-width: 520px) {
+  .bookshelf-book {
+    width: 64px;
+  }
 }

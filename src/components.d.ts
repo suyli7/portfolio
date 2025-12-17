@@ -43,11 +43,10 @@ export namespace Components {
     }
     interface BookshelfBook {
         "book": Book;
-        "bookWidth": number;
     }
     interface BookshelfSection {
-        "bookWidth": number;
         "books": Book[];
+        "hideTitle"?: boolean;
         "sectionTitle": string;
     }
     interface CaseStudies {
@@ -216,11 +215,10 @@ declare namespace LocalJSX {
     }
     interface BookshelfBook {
         "book"?: Book;
-        "bookWidth"?: number;
     }
     interface BookshelfSection {
-        "bookWidth"?: number;
         "books"?: Book[];
+        "hideTitle"?: boolean;
         "sectionTitle"?: string;
     }
     interface CaseStudies {

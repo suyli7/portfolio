@@ -9,8 +9,8 @@ import type { Book } from '../../../../common/api-data';
 })
 export class BookshelfSection {
     @Prop() books: Book[] = [];
-    @Prop() bookWidth: number;
     @Prop() sectionTitle: string = '';
+    @Prop() hideTitle?: boolean = false;
 
     render() {
         return (
@@ -30,7 +30,7 @@ export class BookshelfSection {
                     }
                     {
                         this.books.map((book) => (
-                            <bookshelf-book book={book} bookWidth={this.bookWidth} />
+                            <bookshelf-book book={book} />
                         ))
                     }
                 </div>
