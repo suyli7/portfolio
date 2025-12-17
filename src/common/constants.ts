@@ -26,11 +26,11 @@ export const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
         state: 'lastPlayedSong'
     },
     {
-        endpoint: 'hobbies/books',
+        endpoint: 's3/books',
         state: 'books'
     },
     {
-        endpoint: 'hobbies/lastPlayedGames',
+        endpoint: 's3/lastPlayedGames',
         state: 'lastPlayedGames'
     },
 ];

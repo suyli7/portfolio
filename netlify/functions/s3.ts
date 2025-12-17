@@ -1,18 +1,18 @@
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 
-const AWS_REGION = process.env.AWS_REGION || '';
-const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY || '';
-const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || '';
+const AWS_S3_REGION = process.env.AWS_S3_REGION || '';
+const AWS_S3_ACCESS_KEY = process.env.AWS_S3_ACCESS_KEY || '';
+const AWS_S3_SECRET_ACCESS_KEY = process.env.AWS_S3_SECRET_ACCESS_KEY || '';
 const AWS_S3_BUCKET_NAME = process.env.AWS_S3_BUCKET_NAME || '';
 const AWS_S3_BUCKET_DIR = process.env.AWS_S3_BUCKET_DIR || '';
 
 const BUCKET_FILE_KEY = `${AWS_S3_BUCKET_DIR}/data.json`;
 
 const s3 = new S3Client({
-    region: AWS_REGION,
+    region: AWS_S3_REGION,
     credentials: {
-        accessKeyId: AWS_ACCESS_KEY,
-        secretAccessKey: AWS_SECRET_ACCESS_KEY,
+        accessKeyId: AWS_S3_ACCESS_KEY,
+        secretAccessKey: AWS_S3_SECRET_ACCESS_KEY,
     },
 });
 
