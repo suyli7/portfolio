@@ -34,11 +34,13 @@ export class GameCard {
                         borderStyle: 'inset',
                         maxWidth: '140px'
                     }} />
+                    <div class="game__title">
+                        <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XSmall}>
+                            {this.game.title}
+                        </app-text>
+                    </div>
                 </a>
                 <div class="game__info">
-                    <app-text color={TextColor.Cyan} variant={TextVariant.Body} size={TextSize.XSmall}>
-                        {this.game.title}
-                    </app-text>
                     <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.XXSmall}>
                         {this.game.lastPlayed}
                     </app-text>
