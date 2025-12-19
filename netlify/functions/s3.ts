@@ -53,14 +53,21 @@ exports.handler = async function (event: any) {
         const parsedData = await loadDataOnce();
         const route = event.path.split("/").pop();
         if (route === "books") {
+            const {
+                main: { currentlyReading: current, recentlyRead: recent, readStyleSummary: about, toReadCount },
+                toRead,
+                favorites
+            } = parsedData;
+
             return {
                 statusCode: 200,
                 body: JSON.stringify({
-                    current: parsedData.main.currentlyReading,
-                    recent: parsedData.main.recentlyRead,
-                    about: parsedData.main.readStyleSummary,
-                    toRead: parsedData.toRead,
-                    favorites: parsedData.favorites
+                    current,
+                    recent,
+                    about,
+                    toRead,
+                    toReadCount,
+                    favorites
                 })
             }
         } else if (route === "lastPlayedGames") {

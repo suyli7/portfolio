@@ -84,6 +84,7 @@ export interface BookShelf {
   favorites: Book[];
   toRead: Book[];
   about: string;
+  toReadCount: number;
 }
 
 export interface Metadata {
