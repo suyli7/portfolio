@@ -61,12 +61,13 @@
 .game__title {
     position: absolute;
     top: var(--space-m);
-    left: var(--space-xs);
+    left: calc((100% - 140px) / 2 - 1px);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    height: 80%;
+    width: calc(100% + 2px);
+    max-width: 142px;
+    height: calc(100% - var(--space-m) - 2px);
     background-color: rgba(0, 0, 0, 0.8);
     background-image: url(/assets/btn_pat.png);
     background-blend-mode: overlay;
