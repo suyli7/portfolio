@@ -26,7 +26,7 @@ export class BookShelf {
     render() {
         console.log(this.favBooks);
         return (
-            <content-box gutter titleText="my books stats">
+            <content-box gutter titleText="reading_tracker.exe">
                 <div class="bookshelf__content">
                     <div class="bookshelf_about">
                         <app-text color={TextColor.Cyan} variant={TextVariant.Title} size={TextSize.Small}>
@@ -39,7 +39,7 @@ export class BookShelf {
                     <bookshelf-section sectionTitle="📖 currently reading" books={state.books?.current} />
                     <bookshelf-section sectionTitle="📚 recently read" books={state.books?.recent} />
                     <bookshelf-section sectionTitle={`⌛ to-read queue (top ${state.books?.toRead.length} of ${state.books?.toReadCount || 'unknown'})`} books={state.books?.toRead} />
-                    <bookshelf-section sectionTitle="🌟 favorites" books={this.favBooks}>
+                    <bookshelf-section sectionTitle="🌟 books I liked (sorted by publish year)" books={this.favBooks}>
                         <div class="bookshelf__buttons">
                             {
                                 Object.keys(SHELF_TAGS_MAP).map((tag) => (

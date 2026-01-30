@@ -48,7 +48,7 @@ export class Personal {
     );
 
     const boxNote = (
-      <content-box gutter titleText='note'>
+      <content-box gutter titleText='welcome_note.txt'>
         <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
           <rich-text-renderer field={state.personal?.description} />
         </app-text>
@@ -61,13 +61,13 @@ export class Personal {
     );
 
     const boxLastPlayedSong = (
-      <content-box gutter titleText="listening to">
+      <content-box gutter titleText="music_player.exe">
         <last-played-song />
       </content-box>
     );
 
     const boxLastPlayedGames = (
-      <content-box gutter titleText="recently played">
+      <content-box gutter titleText="last_played_games.log">
         {
           state.lastPlayedGames?.length ? (
             <div class="game-data--wrapper">
@@ -78,9 +78,9 @@ export class Personal {
               }
             </div>
           ) : (
-              <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
-                No data under this section...yet.
-              </app-text>
+            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XXSmall}>
+              No data under this section...yet.
+            </app-text>
           )
         }
       </content-box>
@@ -89,7 +89,7 @@ export class Personal {
     const boxRandomImage = (
       <content-box
         gutter
-        titleText="random image"
+        titleText="random_image.jpg"
         helperText="from the collection of my favorite images I found on the internet or something swiped from my life"
       >
         <div class="random-image">
