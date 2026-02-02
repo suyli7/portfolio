@@ -9,7 +9,6 @@ import type {
     MsData,
     PersonalDataModel,
     AssetImg,
-    NasaApod
 } from '../../common/api-data';
 
 export interface AppState {
@@ -29,7 +28,6 @@ export interface AppState {
     lastPlayedSong?: LastPlayedSong;
     favImgs?: AssetImg[];
     favImgIndex?: number;
-    apod?: NasaApod
 }
 
 

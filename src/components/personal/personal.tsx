@@ -49,6 +49,9 @@ export class Personal {
 
     const boxNote = (
       <content-box gutter titleText='welcome_note.txt'>
+        <app-text color={TextColor.Main} variant={TextVariant.Accent} size={TextSize.XLarge}>
+          Welcome to MyBase (wordplay intended 😎)
+        </app-text>
         <app-text color={TextColor.Main} variant={TextVariant.Body} size={TextSize.Small}>
           <rich-text-renderer field={state.personal?.description} />
         </app-text>

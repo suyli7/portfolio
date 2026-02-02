@@ -18,10 +18,6 @@ export const API_CONFIG: Array<{ endpoint: string; state: keyof AppState }> = [
         state: 'metadata'
     },
     {
-        endpoint: 'nasa',
-        state: 'apod'
-    },
-    {
         endpoint: 'music',
         state: 'lastPlayedSong'
     },

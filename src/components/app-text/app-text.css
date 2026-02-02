@@ -6,9 +6,17 @@
 }
 
 :host(.app-text--accent) {
-  text-shadow: 3px 3px 0px var(--color-green);
-  -webkit-text-stroke: 3px var(--color-black);
-  paint-order: stroke fill;
+  color: white;
+  text-shadow:
+    2px 0 0 black,
+    -2px 0 0 black,
+    0 2px 0 black,
+    0 -2px 0 black,
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    4px 4px 0 var(--color-green)
 }
 
 :host(.app-text--block) {

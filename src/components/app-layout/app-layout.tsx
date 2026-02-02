@@ -60,16 +60,6 @@ export class AppLayout {
               &#128221;Latest change:<br />{state.metadata?.latestMessage}
             </app-text>
           </content-box>
-          <content-box titleText="APOD" helperText="Astronomy Picture of the Day, provided by NASA">
-            <app-image
-              bwMode
-              src={state.apod?.url}
-              alt={state.apod?.copyright}
-            />
-            <app-text color={TextColor.Sub} variant={TextVariant.Body} size={TextSize.XSmall}>
-              {state.apod?.title}
-            </app-text>
-          </content-box>
           <content-box titleText="links">
             <div class="link-items-wrapper">
               {

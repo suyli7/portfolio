@@ -91,13 +91,3 @@ export interface Metadata {
   lastUpdated: string;
   latestMessage: string;
 }
-
-export interface NasaApod {
-  copyright: string
-  data: string;
-  explanation: string;
-  media_type: string;
-  service_version: string;
-  title: string;
-  url: string;
-}

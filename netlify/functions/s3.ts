@@ -54,9 +54,14 @@ exports.handler = async function (event: any) {
         const route = event.path.split("/").pop();
         if (route === "books") {
             const {
-                main: { currentlyReading: current, recentlyRead: recent, readStyleSummary: about, toReadCount },
-                toRead,
-                favorites
+                main: {
+                    currentlyReading: current = [],
+                    recentlyRead: recent = [],
+                    readStyleSummary: about = 'The summary failed to load.',
+                    toReadCount = 0
+                } = {},
+                toRead = [],
+                favorites = []
             } = parsedData;
 
             return {
