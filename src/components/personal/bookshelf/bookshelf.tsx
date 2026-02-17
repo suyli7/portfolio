@@ -24,7 +24,6 @@ export class BookShelf {
     };
 
     render() {
-        console.log(this.favBooks);
         return (
             <content-box gutter titleText="reading_tracker.exe">
                 <div class="bookshelf__content">

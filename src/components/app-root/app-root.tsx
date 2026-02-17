@@ -3,7 +3,6 @@ import { Router } from '../../';
 import { Route } from 'stencil-router-v2';
 import { TextColor, TextSize, TextVariant } from '../../common/namespaces';
 import { TOTAL_TASKS_COUNT } from '../../common/constants';
-import { fetchApiData } from '../../common/api';
 import { state } from '../../store';
 
 @Component({
@@ -12,10 +11,6 @@ import { state } from '../../store';
   shadow: false,
 })
 export class AppRoot {
-
-  async connectedCallback() {
-    await fetchApiData();
-  }
 
   render() {
     if (!state.loadState?.pageReady) {
